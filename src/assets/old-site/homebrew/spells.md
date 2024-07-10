@@ -1,6 +1,6 @@
 [Torna a indice](/homebrew/index)
 
-<script src="/assets/js/homebrew.js"></script>
+<script src="/assets/old-site/assets/js/homebrew.js"></script>
 <link rel="stylesheet" href="{{ '/assets/css/homebrew.css' | relative_url }}">
 
 ## Incantesimi homebrew
