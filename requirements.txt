@@ -1,8 +1,0 @@
-numpy
-argparse
-matplotlib
-python-frontmatter
-openai
-bs4
-markdown
-ijson
