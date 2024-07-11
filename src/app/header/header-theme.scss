@@ -1,0 +1,6 @@
+@mixin header-theme($theme) {
+    mat-toolbar.header {
+        color: mat.get-theme-color($theme, secondary);
+        background: mat.get-theme-color($theme, secondary-container);
+    }
+  }

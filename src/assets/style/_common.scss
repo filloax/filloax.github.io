@@ -1,0 +1,18 @@
+body {
+    background-color: darken($background-color, 5%);
+}
+
+.wrapper {
+    height: 100%;
+    max-width: 1200px;
+    margin: auto;
+}
+
+.container {
+    padding: 0 20px 10px 20px;
+}
+
+.spacer {
+    flex: 1 1 auto;
+}
+  

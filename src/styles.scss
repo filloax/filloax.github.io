@@ -1,1 +1,16 @@
-/* You can add global styles to this file, and also import other style files */
+@use '@angular/material' as mat;
+
+@include mat.core();
+
+body { 
+    margin: 0; padding: 0; 
+    height: 100vh;
+
+    font-family: Roboto, "Helvetica Neue", sans-serif;
+}
+
+@import 'assets/style/_theme.scss';
+@import 'assets/style/_variables.scss';
+@import 'assets/style/_common.scss';
+
+

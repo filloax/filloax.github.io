@@ -1,0 +1,19 @@
+@import '../../app/header/header-theme.scss';
+
+$theme: mat.define-theme((
+  color: (
+    theme-type: dark,
+    primary: mat.$violet-palette,
+    tertiary: mat.$blue-palette,
+  )
+));
+
+$background-color: mat.get-theme-color($theme, 'neutral', 10);
+
+html {
+    @include mat.core-theme($theme);
+    @include mat.toolbar-theme($theme);
+    @include mat.button-theme($theme);
+    @include header-theme($theme);
+    // @include mat.all-component-themes($theme);
+}
