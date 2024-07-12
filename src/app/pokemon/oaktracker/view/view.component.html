@@ -16,14 +16,14 @@
         (click)="location.expanded = !location.expanded"
         *ngIf="isFirst"
       >
-        {{ location.name }}
+        <div class="sticky"><h2>{{ location.name }}</h2></div>
       </td>
       <td
         class="area"
         *ngIf="entry.newArea"
         [attr.rowspan]="entry.area.getHeight()"
       >
-        {{ entry.area.name }}
+        <div class="sticky"><h3>{{ entry.area.name }}</h3></div>
       </td>
       <td
         class="subarea"
@@ -45,7 +45,7 @@
         colspan="4"
         (click)="location.expanded = !location.expanded"
       >
-        {{ location.name }}
+        <div><h2>{{ location.name }}</h2></div>
       </td>
     </tr>
   </ng-template>
@@ -54,11 +54,14 @@
 <ng-template #pokemonCell let-pokemon="pokemon">
   <td class="pokemon">
     {{ pokemon.name }}
-    <ng-template [ngIf]="pokemon.tracked" [ngIfElse]="untrackedPokemon">
-      <input type="checkbox" [(ngModel)]="pokemon.tracked.caught" />
+    <ng-template [ngIf]="caught[pokemon.name]" [ngIfElse]="untrackedPokemon">
+      <mat-checkbox 
+        (change)="setCaught(pokemon.name, $event.checked)"
+        [checked]="caught[pokemon.name].caught"
+      />
     </ng-template>
     <ng-template #untrackedPokemon>
-      <input type="checkbox" disabled="true" />
+        <mat-checkbox disabled="true"></mat-checkbox>
     </ng-template>
   </td>
 </ng-template>
