@@ -1,0 +1,64 @@
+<table class="oaktracker">
+  <ng-container *ngFor="let le of locationEntries">
+    <ng-container
+      [ngTemplateOutlet]="locationGroup"
+      [ngTemplateOutletContext]="{ location: le.location, rows: le.rows }"
+    ></ng-container>
+  </ng-container>
+</table>
+
+<ng-template #locationGroup let-location="location" let-rows="rows">
+  <ng-template [ngIf]="location.expanded" [ngIfElse]="locationNonExpanded">
+    <tr *ngFor="let entry of rows; first as isFirst">
+      <td
+        class="location expanded clickable"
+        [attr.rowspan]="location.getHeight()"
+        (click)="location.expanded = !location.expanded"
+        *ngIf="isFirst"
+      >
+        {{ location.name }}
+      </td>
+      <td
+        class="area"
+        *ngIf="entry.newArea"
+        [attr.rowspan]="entry.area.getHeight()"
+      >
+        {{ entry.area.name }}
+      </td>
+      <td
+        class="subarea"
+        *ngIf="entry.newSubarea"
+        [attr.rowspan]="entry.subarea.encounters.length"
+      >
+        {{ entry.subarea.name }}
+      </td>
+      <ng-container
+        [ngTemplateOutlet]="pokemonCell"
+        [ngTemplateOutletContext]="{ pokemon: entry.encounter }"
+      ></ng-container>
+    </tr>
+  </ng-template>
+  <ng-template #locationNonExpanded>
+    <tr>
+      <td
+        class="location clickable"
+        colspan="4"
+        (click)="location.expanded = !location.expanded"
+      >
+        {{ location.name }}
+      </td>
+    </tr>
+  </ng-template>
+</ng-template>
+
+<ng-template #pokemonCell let-pokemon="pokemon">
+  <td class="pokemon">
+    {{ pokemon.name }}
+    <ng-template [ngIf]="pokemon.tracked" [ngIfElse]="untrackedPokemon">
+      <input type="checkbox" [(ngModel)]="pokemon.tracked.caught" />
+    </ng-template>
+    <ng-template #untrackedPokemon>
+      <input type="checkbox" disabled="true" />
+    </ng-template>
+  </td>
+</ng-template>
