@@ -12,24 +12,50 @@ table.oaktracker {
     top: 0;
   }
 
+  $border-color: var(--color-surface-container-highest);
+
+  tr {
+    background-color: var(--color-surface-container);
+    &:nth-child(2n+1) {
+      background-color: var(--color-surface-container-high);
+    }
+
+    &:not(:first-child) {
+      .location.expanded,.area,.subarea,.subareaFirst {
+        border-top: 1px solid $border-color;
+      }
+    }
+  }
+
   th,
   td {
-    border: 1px solid #ffffff;
+    // border: 1px solid #ffffff;
     padding: 8px;
     text-align: center;
   }
 
+  .location {
+    background-color: var(--color-surface-container-low);
+  }
   .expanded {
     &.location {
       color: var(--color-primary);
     }
     &.area {
+      border-left: 1px solid $border-color;
       color: var(--color-tertiary);
     }
     
     background-color: var(--color-surface-container-lowest);
+    border-right: 1px solid $border-color;
   }
-  .subarea,.pokemon {
+  .subarea {
     background-color: var(--color-surface-container-lowest);
+    border-left: 1px solid $border-color;
+    border-right: 1px solid $border-color;
+  }
+  .pokemon {
+    background-color: var(--color-surface-container-lowest);
+    border-left: 1px solid $border-color;
   }
 }

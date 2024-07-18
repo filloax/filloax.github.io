@@ -37,7 +37,7 @@
           </td>
           <ng-container
             [ngTemplateOutlet]="pokemonCell"
-            [ngTemplateOutletContext]="{ pokemon: entry.encounter }"
+            [ngTemplateOutletContext]="{ pokemon: entry.encounter, subareaFirst: entry.newSubarea || entry.newArea }"
           ></ng-container>
         </ng-template>
       </tr>
@@ -67,8 +67,10 @@
 </td>
 </ng-template>
 
-<ng-template #pokemonCell let-pokemon="pokemon">
-  <td class="pokemon">
+<ng-template #pokemonCell let-pokemon="pokemon" let-subareaFirst="subareaFirst">
+  <td class="pokemon"
+    [ngClass]="{'subareaFirst': subareaFirst}"
+  >
     {{ pokemon.name }}
     <ng-template [ngIf]="caught[pokemon.name]" [ngIfElse]="untrackedPokemon">
       <mat-checkbox
