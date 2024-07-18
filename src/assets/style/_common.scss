@@ -10,9 +10,17 @@ body {
 
 .container {
     padding: 0 20px 10px 20px;
+    &.fullwidth {
+        padding: 0;
+    }
 }
 
 .spacer {
     flex: 1 1 auto;
+}
+  
+.vspacer {
+    height: 1em;
+    width: 100%;
 }
   

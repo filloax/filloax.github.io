@@ -16,6 +16,7 @@ html {
     @include mat.button-theme($theme);
     @include mat.table-theme($theme);
     @include mat.checkbox-theme($theme);
+    @include mat.tabs-theme($theme);
     @include header-theme($theme);
     // @include mat.all-component-themes($theme);
 }

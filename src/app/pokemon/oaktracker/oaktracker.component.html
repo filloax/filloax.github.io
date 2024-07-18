@@ -1,5 +1,22 @@
-<app-oakview
-    [locations]="locationsMain"
-    [caught]="caught"
-    (saveCaught)="saveCaught($event)"
-></app-oakview>
+<mat-tab-group>
+  <mat-tab label="Main game">
+    <!-- <ng-template matTabContent> -->
+    <div class="vspacer"></div>
+    <app-oakview
+      [locations]="locationsMain"
+      [caught]="caught"
+      (saveCaught)="saveCaught($event)"
+    ></app-oakview>
+    <!-- </ng-template> -->
+  </mat-tab>
+  <mat-tab label="Postgame">
+    <!-- <ng-template matTabContent> -->
+    <div class="vspacer"></div>
+    <app-oakview
+      [locations]="locationsPostgame"
+      [caught]="caught"
+      (saveCaught)="saveCaught($event)"
+    ></app-oakview>
+    <!-- </ng-template> -->
+  </mat-tab>
+</mat-tab-group>

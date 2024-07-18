@@ -4,13 +4,17 @@ import { HttpClient } from '@angular/common/http';
 import { ViewComponent } from "./view/view.component";
 import { StorageService } from '../../services/storage.service';
 import { map, merge, Observable, tap, zip } from 'rxjs';
+import { MatTab, MatTabGroup } from '@angular/material/tabs';
 
 const CAUGHT_KEY = "oakTrackerCaught"
 
 @Component({
   selector: 'app-oaktracker',
   standalone: true,
-  imports: [ViewComponent],
+  imports: [
+    ViewComponent,
+    MatTab, MatTabGroup,
+  ],
   templateUrl: './oaktracker.component.html',
   styleUrl: './oaktracker.component.scss'
 })
@@ -32,6 +36,12 @@ export class OaktrackerComponent {
       this.retrieveLocations("main", x => this.locationsMain = x),
       this.retrieveLocations("postgame", x => this.locationsPostgame = x),
     ]).subscribe(_ => this.initCaught());
+    
+    document.querySelectorAll('.container').forEach(e => e.classList.add('fullwidth'));
+  }
+
+  ngOnDestroy() {
+    document.querySelectorAll('.container').forEach(e => e.classList.remove('fullwidth'));
   }
 
   saveCaught(caught: Record<string, boolean>) {
