@@ -1,0 +1,1 @@
+{"version":3,"sourceRoot":"","sources":["pokemon-tracker.scss"],"names":[],"mappings":"AAAA,YACI","sourcesContent":["h1,h2,h3,h4 {\n    font-family: 'bwfont' !important;\n}"],"file":"pokemon-tracker.css"}

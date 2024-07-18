@@ -1,0 +1,1 @@
+import{Cb as a,ga as n,jb as o}from"./chunk-6EVHOZZK.js";var s=(()=>{class e{ngOnInit(){window.location.href="/assets/old-site/index.html"}static \u0275fac=function(t){return new(t||e)};static \u0275cmp=n({type:e,selectors:[["app-legacy"]],standalone:!0,features:[a],decls:1,vars:0,template:function(t,c){t&1&&o(0,"div")},encapsulation:2})}return e})();export{s as LegacyComponent};
