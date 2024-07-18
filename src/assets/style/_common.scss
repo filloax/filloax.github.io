@@ -1,5 +1,6 @@
 body {
-    background-color: darken($background-color, 5%);
+    // background-color: var(--background-color);
+    background-color: hsl(from var(--background-color) h s calc(l - 4));
 }
 
 .wrapper {

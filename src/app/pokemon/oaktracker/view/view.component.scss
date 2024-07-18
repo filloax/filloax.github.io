@@ -18,4 +18,18 @@ table.oaktracker {
     padding: 8px;
     text-align: center;
   }
+
+  .expanded {
+    &.location {
+      color: var(--color-primary);
+    }
+    &.area {
+      color: var(--color-tertiary);
+    }
+    
+    background-color: var(--color-surface-container-lowest);
+  }
+  .subarea,.pokemon {
+    background-color: var(--color-surface-container-lowest);
+  }
 }

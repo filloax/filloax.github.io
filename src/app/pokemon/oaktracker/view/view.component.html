@@ -9,59 +9,75 @@
 
 <ng-template #locationGroup let-location="location" let-rows="rows">
   <ng-template [ngIf]="location.expanded" [ngIfElse]="locationNonExpanded">
-    <tr *ngFor="let entry of rows; first as isFirst">
-      <td
-        class="location expanded clickable"
-        [attr.rowspan]="location.getHeight()"
-        (click)="location.expanded = !location.expanded"
-        *ngIf="isFirst"
-      >
-        <div class="sticky"><h2>{{ location.name }}</h2></div>
-      </td>
-      <td
-        class="area"
-        *ngIf="entry.newArea"
-        [attr.rowspan]="entry.area.getHeight()"
-      >
-        <div class="sticky"><h3>{{ entry.area.name }}</h3></div>
-      </td>
-      <td
-        class="subarea"
-        *ngIf="entry.newSubarea"
-        [attr.rowspan]="entry.subarea.encounters.length"
-      >
-        {{ entry.subarea.name }}
-      </td>
-      <ng-container
-        [ngTemplateOutlet]="pokemonCell"
-        [ngTemplateOutletContext]="{ pokemon: entry.encounter }"
-      ></ng-container>
-    </tr>
+    <ng-template ngFor let-entry [ngForOf]="rows" let-isFirst="first">
+      <tr *ngIf="entry.area.expanded || entry.newArea">
+        <ng-template *ngIf="isFirst"
+          [ngTemplateOutlet]="locationCell"
+          [ngTemplateOutletContext]="{ location: location }"
+        ></ng-template>
+        <td
+          class="area clickable"
+          [ngClass]="{'expanded': entry.area.expanded}"
+          *ngIf="entry.newArea"
+          (click)="entry.area.expanded = !entry.area.expanded"
+          [attr.rowspan]="entry.area.getHeight()"
+          [attr.colspan]="entry.area.expanded ? 1 : 3"
+        >
+          <div class="sticky">
+            <h3>{{ entry.area.name }}</h3>
+          </div>
+        </td>
+        <ng-template [ngIf]="entry.area.expanded">
+          <td
+            class="subarea"
+            *ngIf="entry.newSubarea"
+            [attr.rowspan]="entry.subarea.encounters.length"
+          >
+            {{ entry.subarea.name }}
+          </td>
+          <ng-container
+            [ngTemplateOutlet]="pokemonCell"
+            [ngTemplateOutletContext]="{ pokemon: entry.encounter }"
+          ></ng-container>
+        </ng-template>
+      </tr>
+    </ng-template>
   </ng-template>
   <ng-template #locationNonExpanded>
     <tr>
-      <td
-        class="location clickable"
-        colspan="4"
-        (click)="location.expanded = !location.expanded"
-      >
-        <div><h2>{{ location.name }}</h2></div>
-      </td>
-    </tr>
+      <ng-template
+        [ngTemplateOutlet]="locationCell"
+        [ngTemplateOutletContext]="{ location: location }"
+      ></ng-template>
+  </tr>
   </ng-template>
+</ng-template>
+
+<ng-template #locationCell let-location="location">
+  <td
+  class="location clickable"
+  [ngClass]="{'expanded': location.expanded}"
+  [attr.colspan]="location.expanded ? 1 : 4"
+  [attr.rowspan]="location.getHeight()"
+  (click)="location.expanded = !location.expanded"
+>
+  <div class="sticky">
+    <h2>{{ location.name }}</h2>
+  </div>
+</td>
 </ng-template>
 
 <ng-template #pokemonCell let-pokemon="pokemon">
   <td class="pokemon">
     {{ pokemon.name }}
     <ng-template [ngIf]="caught[pokemon.name]" [ngIfElse]="untrackedPokemon">
-      <mat-checkbox 
+      <mat-checkbox
         (change)="setCaught(pokemon.name, $event.checked)"
         [checked]="caught[pokemon.name].caught"
       />
     </ng-template>
     <ng-template #untrackedPokemon>
-        <mat-checkbox disabled="true"></mat-checkbox>
+      <mat-checkbox disabled="true"></mat-checkbox>
     </ng-template>
   </td>
 </ng-template>

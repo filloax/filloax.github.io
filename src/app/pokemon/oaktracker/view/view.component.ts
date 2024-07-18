@@ -58,4 +58,26 @@ export class ViewComponent {
 
     this.saveCaught.emit({name: value})
   }
+
+  caughtPct(where: TrackerLocation | LocationArea) {
+    const total = (where instanceof TrackerLocation)
+      ? (where.areas.reduce((a, b) => {
+        return a + (b.encounters ? b.encounters.length : b.subareas.map(x => x.encounters.length).reduce((x, y) => x + y, 0));
+      }, 0))
+      : (where.encounters ? where.encounters.length : where.subareas.map(x => x.encounters.length).reduce((x, y) => x + y, 0));
+    return this.caughtNum(where) / total;
+  }
+
+  caughtNum(where: TrackerLocation | LocationArea): number {
+    if (where instanceof TrackerLocation) {
+      return where.areas.map(this.caughtNum).reduce((x, y) => x + y, 0);
+    } else {
+      return where.encounters 
+        ? (where.encounters.filter(e => this.caught[e.name]?.caught).length)
+        : (
+          where.subareas.map(s => s.encounters.filter(e => this.caught[e.name]?.caught).length)
+            .reduce((a, b) => a + b, 0)
+        );
+    }
+  }
 }
