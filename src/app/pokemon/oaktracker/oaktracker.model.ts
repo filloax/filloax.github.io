@@ -1,5 +1,7 @@
 // Normal encounters
 
+import { Utils } from "../../shared/utils";
+
 export class TrackerLocation {
   name: string;
   areas: LocationArea[];
@@ -80,6 +82,14 @@ export class LocationArea {
     return this.expanded ? this.numEncounters : 1;
   }
 
+  get label() {
+    return Utils.orElse(Object.values(AreaLabel)
+        .filter(x => x[1].includes(this.name.trim().toLowerCase().replace(/[^\sa-z]/g, '')))
+        .map(x => x[0])[0],
+        AreaLabel.unknown,
+      )
+  }
+
   static parse(key: string, item: any): LocationArea {
     if (Array.isArray(item)) {
       return new LocationArea(key, null, item.map(EncounterInfo.parse));
@@ -128,6 +138,34 @@ export class EncounterInfo {
 export interface TrackedPokemon {
   name: string;
   caught: boolean;
+}
+
+// Labels
+
+/*
+  From parsing JSONs:
+    "Surf"
+    "Fish"
+    "Grass"
+    "Sewer"
+    "Cave"
+    "Sand"
+    "Special Event"
+    "Bridge"
+    "Special Gifts:"
+    "Floor"
+    "Rooms"
+    "Special Event:"
+  */
+
+export const AreaLabel = {
+  grass: ["grass", ["grass"]],
+  fish: ["fish", ["fish"]],
+  cave: ["cave", ["cave", "sewer", "floor"]],
+  surf: ["surf", ["surf"]],
+  outsideSpecial: ["outsideSpecial", ["bridge"]],
+  misc: ["misc", ["special gifts", "rooms", "special event"]],
+  unknown: ["unknown", []],
 }
 
 // Hidden grotto

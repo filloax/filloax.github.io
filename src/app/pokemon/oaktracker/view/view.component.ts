@@ -78,4 +78,14 @@ export class ViewComponent {
       return where.encounters.filter(e => this.caught[e.name]?.caught).length;
     }
   }
+
+  locationLabelsComplete(location: TrackerLocation) {
+    return location.areas.filter(x => this.caughtNum(x) >= x.numEncounters)
+      .map(x => x.label);
+  }
+
+  locationLabelsIncomplete(location: TrackerLocation) {
+    return location.areas.filter(x => this.caughtNum(x) < x.numEncounters)
+      .map(x => x.label);
+  }
 }

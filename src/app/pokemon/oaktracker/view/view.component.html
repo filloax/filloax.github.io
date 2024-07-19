@@ -73,7 +73,15 @@
   >
   <div class="sticky loclabel">
     <h2>{{ location.name }}</h2>
-    <span>{{ caughtPct(location) | percent }}</span>
+    <div class="progress">
+      <span>{{ caughtPct(location) | percent }}</span>
+      <ng-template ngFor let-label [ngForOf]="locationLabelsComplete(location)">
+        <span class="area-icon" [ngClass]="'icon-area-' + label"></span>
+      </ng-template>
+      <ng-template ngFor let-label [ngForOf]="locationLabelsIncomplete(location)">
+        <span class="area-icon off" [ngClass]="'icon-area-' + label"></span>
+      </ng-template>
+    </div>
   </div>
 </td>
 </ng-template>
