@@ -9,6 +9,7 @@ import {
 import {
   CommonModule,
   KeyValuePipe,
+  PercentPipe,
 } from '@angular/common';
 import { FormsModule } from '@angular/forms';
 import { MatCheckbox } from '@angular/material/checkbox';
@@ -18,6 +19,7 @@ import { MatCheckbox } from '@angular/material/checkbox';
   standalone: true,
   imports: [
     CommonModule, KeyValuePipe, FormsModule,
+    PercentPipe,
     MatCheckbox
   ],
   templateUrl: './view.component.html',
@@ -61,25 +63,19 @@ export class ViewComponent {
     this.saveCaught.emit({name: value})
   }
 
-  caughtPct(where: TrackerLocation | LocationArea) {
-    const total = (where instanceof TrackerLocation)
-      ? (where.areas.reduce((a, b) => {
-        return a + (b.encounters ? b.encounters.length : b.subareas.map(x => x.encounters.length).reduce((x, y) => x + y, 0));
-      }, 0))
-      : (where.encounters ? where.encounters.length : where.subareas.map(x => x.encounters.length).reduce((x, y) => x + y, 0));
-    return this.caughtNum(where) / total;
+  caughtPct(where: TrackerLocation | LocationArea | LocationSubarea) {
+    return this.caughtNum(where) / where.numEncounters;
   }
 
-  caughtNum(where: TrackerLocation | LocationArea): number {
+  caughtNum(where: TrackerLocation | LocationArea | LocationSubarea): number {
     if (where instanceof TrackerLocation) {
-      return where.areas.map(this.caughtNum).reduce((x, y) => x + y, 0);
-    } else {
+      return where.areas.map(x => this.caughtNum(x)).reduce((x, y) => x + y, 0);
+    } else if (where instanceof LocationArea) {
       return where.encounters
         ? (where.encounters.filter(e => this.caught[e.name]?.caught).length)
-        : (
-          where.subareas.map(s => s.encounters.filter(e => this.caught[e.name]?.caught).length)
-            .reduce((a, b) => a + b, 0)
-        );
+        : (where.subareas.map(x => this.caughtNum(x)).reduce((x, y) => x + y, 0));
+    } else {
+      return where.encounters.filter(e => this.caught[e.name]?.caught).length;
     }
   }
 }

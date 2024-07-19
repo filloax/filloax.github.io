@@ -10,17 +10,22 @@
 <ng-template #locationGroup let-location="location" let-rows="rows">
   <ng-template [ngIf]="location.expanded" [ngIfElse]="locationNonExpanded">
     <ng-template ngFor let-entry [ngForOf]="rows" let-isFirst="first">
-      <tr *ngIf="entry.area.expanded || entry.newArea">
+      <tr *ngIf="entry.area.expanded || entry.newArea"
+        [ngClass]="{'completed': caughtPct(location) >= 1}"
+      >
         <ng-template *ngIf="isFirst"
           [ngTemplateOutlet]="locationCell"
           [ngTemplateOutletContext]="{ location: location }"
         ></ng-template>
         <td
           class="area clickable"
-          [ngClass]="{'expanded': entry.area.expanded}"
+          [ngClass]="{
+            'expanded': entry.area.expanded,
+            'completed': caughtPct(entry.area) >= 1,
+          }"
           *ngIf="entry.newArea"
           (click)="entry.area.expanded = !entry.area.expanded"
-          [attr.rowspan]="entry.area.getHeight()"
+          [attr.rowspan]="entry.area.height"
           [attr.colspan]="entry.area.expanded ? 1 : 3"
         >
           <div class="sticky">
@@ -32,6 +37,9 @@
             class="subarea"
             *ngIf="entry.newSubarea"
             [attr.rowspan]="entry.subarea.encounters.length"
+            [ngClass]="{
+              'completed': caughtPct(entry.subarea) >= 1,
+            }"
           >
             {{ entry.subarea.name }}
           </td>
@@ -44,7 +52,9 @@
     </ng-template>
   </ng-template>
   <ng-template #locationNonExpanded>
-    <tr>
+    <tr
+      [ngClass]="{'completed': caughtPct(location) >= 1}"
+    >
       <ng-template
         [ngTemplateOutlet]="locationCell"
         [ngTemplateOutletContext]="{ location: location }"
@@ -55,14 +65,15 @@
 
 <ng-template #locationCell let-location="location">
   <td
-  class="location clickable"
-  [ngClass]="{'expanded': location.expanded}"
-  [attr.colspan]="location.expanded ? 1 : 4"
-  [attr.rowspan]="location.getHeight()"
-  (click)="location.expanded = !location.expanded"
->
-  <div class="sticky">
+    class="location clickable"
+    [ngClass]="{'expanded': location.expanded}"
+    [attr.colspan]="location.expanded ? 1 : 4"
+    [attr.rowspan]="location.height"
+    (click)="location.expanded = !location.expanded"
+  >
+  <div class="sticky loclabel">
     <h2>{{ location.name }}</h2>
+    <span>{{ caughtPct(location) | percent }}</span>
   </div>
 </td>
 </ng-template>

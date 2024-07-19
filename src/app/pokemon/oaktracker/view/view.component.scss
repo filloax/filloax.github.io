@@ -14,29 +14,19 @@ table.oaktracker {
 
   $border-color: var(--color-surface-container-highest);
 
-  tr {
-    background-color: var(--color-surface-container);
-    &:nth-child(2n+1) {
-      background-color: var(--color-surface-container-high);
-    }
-
-    &:not(:first-child) {
-      .location.expanded,.area,.subarea,.subareaFirst {
-        border-top: 1px solid $border-color;
-      }
-    }
-  }
-
   th,
   td {
     // border: 1px solid #ffffff;
     padding: 8px;
     text-align: center;
+    transition: background-color 1s;
   }
 
-  .location {
-    background-color: var(--color-surface-container-low);
-  }
+  $color-completed-1: #013220;
+  $color-completed-2: #044d32;
+  $color-completed-expanded: #012c14;
+
+
   .expanded {
     &.location {
       color: var(--color-primary);
@@ -45,17 +35,50 @@ table.oaktracker {
       border-left: 1px solid $border-color;
       color: var(--color-tertiary);
     }
-    
+
     background-color: var(--color-surface-container-lowest);
     border-right: 1px solid $border-color;
+    &.completed {
+      background-color: $color-completed-expanded;
+    }
   }
   .subarea {
     background-color: var(--color-surface-container-lowest);
     border-left: 1px solid $border-color;
     border-right: 1px solid $border-color;
+
+    &.completed {
+      background-color: $color-completed-expanded;
+      .pokemon {
+        background-color: $color-completed-expanded;
+      }
+    }
   }
   .pokemon {
     background-color: var(--color-surface-container-lowest);
     border-left: 1px solid $border-color;
+  }
+
+  tr {
+    background-color: var(--color-surface-container);
+    &.completed {
+      background-color: $color-completed-1;
+      .location.expanded {
+        background-color: $color-completed-expanded;
+      }
+    }
+    &:nth-child(2n+1) {
+      background-color: var(--color-surface-container-high);
+      &.completed {
+        background-color: $color-completed-2;
+      }
+    }
+
+
+    &:not(:first-child) {
+      .location.expanded,.area,.subarea,.subareaFirst {
+        border-top: 1px solid $border-color;
+      }
+    }
   }
 }

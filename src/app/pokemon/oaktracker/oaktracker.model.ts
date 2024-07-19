@@ -10,20 +10,13 @@ export class TrackerLocation {
     this.areas = areas;
   }
 
-  getHeight(): number {
+  get numEncounters() { return this.areas.map(x => x.numEncounters).reduce((x, y) => x + y, 0) }
+
+  get height(): number {
     if (!this.expanded) return 1;
 
     return this.areas
-      .map((area) =>
-        area.expanded
-          ? area.encounters
-            ? area.encounters.length
-            : Object.values(area.subareas).reduce(
-                (x, y) => x + y.encounters.length,
-                0
-              )
-          : 1
-      )
+      .map((area) => area.height)
       .reduce((x, y) => x + y, 0);
   }
 
@@ -78,15 +71,13 @@ export class LocationArea {
     this.encounters = encounters;
   }
 
-  getHeight(): number {
-    if (!this.expanded) return 1;
+  get numEncounters() { return this.encounters
+    ? this.encounters.length
+    : this.subareas.map(x => x.numEncounters).reduce((x, y) => x + y, 0)
+  }
 
-    if (this.subareas)
-      return this.subareas.reduce((x, y) => x + y.encounters.length, 0);
-
-    if (this.encounters) return this.encounters.length;
-
-    return 1;
+  get height() {
+    return this.expanded ? this.numEncounters : 1;
   }
 
   static parse(key: string, item: any): LocationArea {
@@ -108,11 +99,13 @@ export class LocationSubarea {
   name: string;
   encounters: EncounterInfo[];
 
+  get numEncounters() { return this.encounters.length; }
+
   static parse(key: string, items: any): LocationSubarea {
-    return {
+    return Object.assign(new LocationSubarea(), {
       name: key,
       encounters: items.map(EncounterInfo.parse),
-    };
+    });
   }
 }
 
