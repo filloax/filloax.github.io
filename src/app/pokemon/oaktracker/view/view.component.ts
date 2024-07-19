@@ -16,7 +16,10 @@ import { MatCheckbox } from '@angular/material/checkbox';
 @Component({
   selector: 'app-oakview',
   standalone: true,
-  imports: [CommonModule, KeyValuePipe, FormsModule, MatCheckbox],
+  imports: [
+    CommonModule, KeyValuePipe, FormsModule,
+    MatCheckbox
+  ],
   templateUrl: './view.component.html',
   styleUrl: './view.component.scss',
 })
@@ -48,7 +51,6 @@ export class ViewComponent {
         rows: [...x.iteratePokemon()],
       };
     });
-    console.log("BUILT", this.locationEntries);
   }
 
   setCaught(name: string, value: boolean) {
@@ -72,7 +74,7 @@ export class ViewComponent {
     if (where instanceof TrackerLocation) {
       return where.areas.map(this.caughtNum).reduce((x, y) => x + y, 0);
     } else {
-      return where.encounters 
+      return where.encounters
         ? (where.encounters.filter(e => this.caught[e.name]?.caught).length)
         : (
           where.subareas.map(s => s.encounters.filter(e => this.caught[e.name]?.caught).length)
