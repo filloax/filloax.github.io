@@ -9,7 +9,7 @@
     <!-- <ng-template matTabContent> -->
     <div class="vspacer"></div>
     <app-oakview
-      [locations]="locationsMain"
+      [locations]="loaded ? locationsMain : []"
       [caught]="caught"
       (saveCaught)="saveCaught($event)"
     ></app-oakview>
@@ -19,7 +19,7 @@
     <!-- <ng-template matTabContent> -->
     <div class="vspacer"></div>
     <app-oakview
-      [locations]="locationsPostgame"
+      [locations]="loaded ? locationsPostgame : []"
       [caught]="caught"
       (saveCaught)="saveCaught($event)"
     ></app-oakview>

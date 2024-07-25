@@ -62,6 +62,7 @@ export class LocationArea {
   subareas: LocationSubarea[] | null = null;
   encounters: EncounterInfo[] | null = null;
   expanded: boolean = true;
+  isGrotto: boolean = false;
 
   constructor(
     name: string,
@@ -87,11 +88,12 @@ export class LocationArea {
   }
 
   get label(): string {
-    return Utils.orElse(Object.values(AreaLabel)
+    return this.isGrotto ? AreaLabel.grotto[0] as string :
+      (Utils.orElse(Object.values(AreaLabel)
         .filter(x => x[1].includes(this.name.trim().toLowerCase().replace(/[^\sa-z]/g, '')))
         .map(x => x[0])[0],
         AreaLabel.unknown[0],
-      ) as string
+      )) as string
   }
 
   static parse(key: string, item: any): LocationArea {
@@ -169,6 +171,7 @@ export const AreaLabel = {
   surf: ["surf", ["surf"]],
   outsideSpecial: ["outsideSpecial", ["bridge"]],
   misc: ["misc", ["special gifts", "rooms", "special event"]],
+  grotto: ["grotto", []],
   unknown: ["unknown", []],
 }
 
@@ -176,6 +179,20 @@ export const AreaLabel = {
 
 export class HiddenGrottos {
   grottos: Record<string, Record<string, HiddenGrottoEncounterInfo[]>> = {};
+
+  static parse(data: any): HiddenGrottos {
+    const grottos = Object.fromEntries(Object.entries<any>(data)
+      .map(([key1, value1]) => [
+        key1, 
+        Object.fromEntries(Object.entries<any[]>(value1).map(([key2, value2]) => 
+          [key2, value2.map(x => HiddenGrottoEncounterInfo.parse(x))]
+        ))
+      ])
+    );
+    return {
+      grottos: grottos
+    }
+  }
 }
 
 export class HiddenGrottoEncounterInfo {

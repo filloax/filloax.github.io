@@ -15,7 +15,7 @@ import {
 import { FormsModule } from '@angular/forms';
 import { MatCheckbox } from '@angular/material/checkbox';
 import { FontAwesomeModule } from '@fortawesome/angular-fontawesome';
-import { faWater, faTree, faIcicles, faFish, faHouse, faCircle } from '@fortawesome/free-solid-svg-icons';
+import { faWater, faTree, faIcicles, faFish, faHouse, faCircle, faClover } from '@fortawesome/free-solid-svg-icons';
 
 const areaToIcon = {
   [AreaLabel.grass[0] as string]: faTree,
@@ -24,6 +24,7 @@ const areaToIcon = {
   [AreaLabel.cave[0] as string]: faIcicles,
   [AreaLabel.misc[0] as string]: faHouse,
   [AreaLabel.outsideSpecial[0] as string]: faWater,
+  [AreaLabel.grotto[0] as string]: faClover,
   [AreaLabel.unknown[0] as string]: faCircle,
 }
 
