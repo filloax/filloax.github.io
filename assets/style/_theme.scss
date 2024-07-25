@@ -1,14 +1,10 @@
-@import '../../app/shared/header/header-theme.scss';
-
 $theme: mat.define-theme((
   color: (
     theme-type: dark,
     primary: mat.$violet-palette,
-    tertiary: mat.$blue-palette,
+    tertiary: mat.$cyan-palette,
   )
 ));
-
-$background-color: mat.get-theme-color($theme, 'neutral', 10);
 
 html {
     @include mat.core-theme($theme);
@@ -17,6 +13,9 @@ html {
     @include mat.table-theme($theme);
     @include mat.checkbox-theme($theme);
     @include mat.tabs-theme($theme);
-    @include header-theme($theme);
     // @include mat.all-component-themes($theme);
+}
+
+:root {
+  @include theme-variables($theme);
 }
