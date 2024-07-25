@@ -26,7 +26,7 @@
           *ngIf="entry.newArea"
           (click)="entry.area.expanded = !entry.area.expanded"
           [attr.rowspan]="entry.area.height"
-          [attr.colspan]="entry.area.expanded ? 1 : 3"
+          [attr.colspan]="entry.area.width"
         >
           <div class="sticky">
             <h3>{{ entry.area.name }}</h3>
@@ -59,7 +59,7 @@
         [ngTemplateOutlet]="locationCell"
         [ngTemplateOutletContext]="{ location: location }"
       ></ng-template>
-  </tr>
+    </tr>
   </ng-template>
 </ng-template>
 
@@ -75,12 +75,24 @@
     <h2>{{ location.name }}</h2>
     <div class="progress">
       <span>{{ caughtPct(location) | percent }}</span>
-      <ng-template ngFor let-label [ngForOf]="locationLabelsComplete(location)">
-        <span class="area-icon" [ngClass]="'icon-area-' + label"></span>
-      </ng-template>
-      <ng-template ngFor let-label [ngForOf]="locationLabelsIncomplete(location)">
-        <span class="area-icon off" [ngClass]="'icon-area-' + label"></span>
-      </ng-template>
+      <div class="icons">
+        <ng-template ngFor let-label [ngForOf]="locationLabelsComplete(location)">
+          <ng-template [ngIf]="areaToIcon[label]" [ngIfElse]="missing">
+            <fa-icon [icon]="areaToIcon[label]" class="area-icon" [ngClass]="label"></fa-icon>
+          </ng-template>
+          <ng-template #missing>
+            <span>??? - '{{label}}'</span>
+          </ng-template>  
+        </ng-template>
+        <ng-template ngFor let-label [ngForOf]="locationLabelsIncomplete(location)">
+          <ng-template [ngIf]="areaToIcon[label]" [ngIfElse]="missing">
+            <fa-icon [icon]="areaToIcon[label]" class="area-icon off" [ngClass]="label"></fa-icon>
+          </ng-template>
+          <ng-template #missing>
+            <span>??? - '{{label}}'</span>
+          </ng-template>  
+        </ng-template>
+      </div>
     </div>
   </div>
 </td>

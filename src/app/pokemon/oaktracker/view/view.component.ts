@@ -1,5 +1,6 @@
 import { Component, EventEmitter, Input, Output } from '@angular/core';
 import {
+  AreaLabel,
   EncounterInfo,
   LocationArea,
   LocationSubarea,
@@ -13,6 +14,20 @@ import {
 } from '@angular/common';
 import { FormsModule } from '@angular/forms';
 import { MatCheckbox } from '@angular/material/checkbox';
+import { FontAwesomeModule } from '@fortawesome/angular-fontawesome';
+import { faWater, faTree, faIcicles, faFish, faHouse, faCircle } from '@fortawesome/free-solid-svg-icons';
+
+const areaToIcon = {
+  [AreaLabel.grass[0] as string]: faTree,
+  [AreaLabel.surf[0] as string]: faWater,
+  [AreaLabel.fish[0] as string]: faFish,
+  [AreaLabel.cave[0] as string]: faIcicles,
+  [AreaLabel.misc[0] as string]: faHouse,
+  [AreaLabel.outsideSpecial[0] as string]: faWater,
+  [AreaLabel.unknown[0] as string]: faCircle,
+}
+
+console.log("AREA TO ICON", areaToIcon);
 
 @Component({
   selector: 'app-oakview',
@@ -20,7 +35,8 @@ import { MatCheckbox } from '@angular/material/checkbox';
   imports: [
     CommonModule, KeyValuePipe, FormsModule,
     PercentPipe,
-    MatCheckbox
+    MatCheckbox,
+    FontAwesomeModule,
   ],
   templateUrl: './view.component.html',
   styleUrl: './view.component.scss',
@@ -35,6 +51,8 @@ export class ViewComponent {
   }[];
 
   @Output() saveCaught = new EventEmitter<Record<string, boolean>>();
+
+  get areaToIcon() { return areaToIcon; }
 
   ngOnInit() {
     this.buildTable();
@@ -79,12 +97,12 @@ export class ViewComponent {
     }
   }
 
-  locationLabelsComplete(location: TrackerLocation) {
+  locationLabelsComplete(location: TrackerLocation): string[] {
     return location.areas.filter(x => this.caughtNum(x) >= x.numEncounters)
       .map(x => x.label);
   }
 
-  locationLabelsIncomplete(location: TrackerLocation) {
+  locationLabelsIncomplete(location: TrackerLocation): string[] {
     return location.areas.filter(x => this.caughtNum(x) < x.numEncounters)
       .map(x => x.label);
   }

@@ -1,10 +1,8 @@
-@import '/assets/style/_variables.scss';
-
 .old-website {
     opacity: 75%;
 }
 
 mat-toolbar.header {
-    color: $color-secondary;
-    background: $color-secondary-container;
+    color: var(--color-secondary);
+    background: var(--color-secondary-container);
 }

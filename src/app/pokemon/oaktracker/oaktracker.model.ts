@@ -78,16 +78,20 @@ export class LocationArea {
     : this.subareas.map(x => x.numEncounters).reduce((x, y) => x + y, 0)
   }
 
+  get width() {
+    return this.expanded ? (this.encounters ? 2 : 1) : 3;
+  }
+
   get height() {
     return this.expanded ? this.numEncounters : 1;
   }
 
-  get label() {
+  get label(): string {
     return Utils.orElse(Object.values(AreaLabel)
         .filter(x => x[1].includes(this.name.trim().toLowerCase().replace(/[^\sa-z]/g, '')))
         .map(x => x[0])[0],
-        AreaLabel.unknown,
-      )
+        AreaLabel.unknown[0],
+      ) as string
   }
 
   static parse(key: string, item: any): LocationArea {
@@ -161,7 +165,7 @@ export interface TrackedPokemon {
 export const AreaLabel = {
   grass: ["grass", ["grass"]],
   fish: ["fish", ["fish"]],
-  cave: ["cave", ["cave", "sewer", "floor"]],
+  cave: ["cave", ["cave", "sewer", "floor", "sand"]],
   surf: ["surf", ["surf"]],
   outsideSpecial: ["outsideSpecial", ["bridge"]],
   misc: ["misc", ["special gifts", "rooms", "special event"]],
