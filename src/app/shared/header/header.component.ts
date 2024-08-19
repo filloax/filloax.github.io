@@ -1,7 +1,7 @@
 import { Component } from '@angular/core';
 import { MatToolbarModule } from '@angular/material/toolbar';
 import { MatButtonModule } from '@angular/material/button';
-import { Constants } from '../../constants';
+import { Constants } from '../constants';
 import { RouterLink } from '@angular/router';
 
 @Component({

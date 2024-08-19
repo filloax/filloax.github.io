@@ -1,0 +1,119 @@
+table.oaktracker {
+  border-collapse: collapse;
+  width: 100%;
+
+  $border-color: var(--color-surface-container-highest);
+
+  $color-completed-1: #2a3632;
+  $color-completed-2: #36443f;
+  $color-completed-expanded: #252e29;
+
+  .clickable {
+    cursor: pointer;
+  }
+
+  .sticky {
+    position: -webkit-sticky;
+    position: sticky;
+    top: 0;
+  }
+
+  th,
+  td {
+    // border: 1px solid #ffffff;
+    padding: 8px;
+    text-align: center;
+    transition: background-color 1s;
+  }
+
+
+  .expanded {
+    background-color: var(--color-surface-container-lowest);
+    border-right: 1px solid $border-color;
+
+    &.location {
+      color: var(--color-primary);
+    }
+    &.area {
+      border-left: 1px solid $border-color;
+      color: var(--color-tertiary);
+    }
+    &.completed {
+      background-color: $color-completed-expanded;
+    }
+  }
+  .subarea {
+    background-color: var(--color-surface-container-lowest);
+    border-left: 1px solid $border-color;
+    border-right: 1px solid $border-color;
+
+    &.completed {
+      background-color: $color-completed-expanded;
+      .pokemon {
+        background-color: $color-completed-expanded;
+      }
+    }
+  }
+  .pokemon {
+    background-color: var(--color-surface-container-lowest);
+    border-left: 1px solid $border-color;
+  }
+
+  tr {
+    background-color: var(--color-surface-container);
+    &.completed {
+      background-color: $color-completed-1;
+      .location.expanded {
+        background-color: $color-completed-expanded;
+      }
+    }
+    &:nth-child(2n+1) {
+      background-color: var(--color-surface-container-high);
+      &.completed {
+        background-color: $color-completed-2;
+      }
+    }
+
+
+    &:not(:first-child) {
+      .location.expanded,.area,.subarea,.subareaFirst {
+        border-top: 1px solid $border-color;
+      }
+    }
+  }
+}
+
+.progress .icons {
+  display: inline-block;
+  margin-left: 15px;
+  .area-icon {
+    margin: 3px;
+
+    &.off {
+      opacity: 33%;
+    }
+    &:not(.off) {
+      &.grass {
+        color: #1f911f
+      }
+      &.surf {
+        color: #4184ff
+      }
+      &.fish {
+        color: #41f2ff
+      }
+      &.cave {
+        color: #856e2f
+      }
+      &.misc {
+        color: #cfb9db
+      }
+      &.outsideSpecial {
+        color: #adb62f
+      }
+      &.unknown {
+        color: #ffffff;
+      }
+    }
+  }
+}

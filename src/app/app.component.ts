@@ -1,7 +1,6 @@
 import { Component } from '@angular/core';
 import { RouterOutlet } from '@angular/router';
 import { HeaderComponent } from './shared/header/header.component';
-import { MatSlideToggleModule } from '@angular/material/slide-toggle';
 
 @Component({
   selector: 'app-root',
@@ -9,11 +8,7 @@ import { MatSlideToggleModule } from '@angular/material/slide-toggle';
   imports: [
     RouterOutlet,
     HeaderComponent,
-    MatSlideToggleModule,
   ],
-  templateUrl: './app.component.html',
-  styleUrl: './app.component.scss'
+  templateUrl: './app.component.html'
 })
-export class AppComponent {
-  title = 'filloax.github.io';
-}
+export class AppComponent {}
