@@ -1,0 +1,52 @@
+body {
+    background-color: #1e1e1e;
+    color: #e0dede;
+    font-family: 'bwfont';
+    font-size: 20px;
+}
+
+.container {
+    width: 800px;
+    margin: auto;
+}
+
+.area-cell h2 {
+    font-size: 32px;
+}
+.tracker-cell.completed {
+    background-color: #0f0f0f;
+}
+.tracker-cell.completed * {
+    text-decoration: line-through;
+}
+
+table {
+    border-collapse: collapse;
+    width: 100%;
+}
+
+th, td {
+    border: 1px solid #ffffff;
+    padding: 8px;
+    text-align: center;
+}
+
+.sticky {
+    position: -webkit-sticky;
+    position: sticky;
+    top: 0;
+}
+
+.hidden {
+    display: none;
+}
+
+.clickable {
+    cursor: pointer;
+}
+
+.clickable:hover {
+    color: yellow;
+    text-decoration: underline;
+    background-color: #ffffff11;
+}

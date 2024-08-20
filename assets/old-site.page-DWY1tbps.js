@@ -1,0 +1,1 @@
+import{ɵ as d,a as o,b as a}from"./index-CqY9Doch.js";let l=(()=>{var e;class t{constructor(){a(()=>{window.location.href="/old-site/index.html"})}}return e=t,e.ɵfac=function(r){return new(r||e)},e.ɵcmp=d({type:e,selectors:[["ng-component"]],standalone:!0,features:[o],decls:0,vars:0,template:function(r,i){},encapsulation:2}),t})();export{l as default};
