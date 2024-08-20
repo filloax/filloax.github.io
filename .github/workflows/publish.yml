@@ -16,6 +16,6 @@ jobs:
           node-version: '20.x'
       - uses: k9n-dev/analog-publish-gh-pages@v1.0.0
         with:
-          access-token: ${{ secrets.GITHUB_TOKEN }}
+          access-token: ${{ secrets.ACCESS_KEY }}
           deploy-branch: 'gh-pages' # important: --dry-run (see option below) won't actually deploy the site!
         #   dry-run: true
