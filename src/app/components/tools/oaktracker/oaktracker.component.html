@@ -1,0 +1,28 @@
+<div class="button-row centering">
+  <button mat-flat-button (click)="downloadCaught()">Save data</button>
+  <button mat-flat-button (click)="fileInput.click()">Load data</button>
+  <input type="file" name="files" (change)="uploadCaught(fileInput.files[0])" accept=".json" hidden #fileInput/>
+</div>
+
+<mat-tab-group>
+  <mat-tab label="Main game">
+    <!-- <ng-template matTabContent> -->
+    <div class="vspacer"></div>
+    <app-oakview
+      [locations]="loaded ? locationsMain : []"
+      [caught]="caught"
+      (saveCaught)="saveCaught($event)"
+    ></app-oakview>
+    <!-- </ng-template> -->
+  </mat-tab>
+  <mat-tab label="Postgame" *ngIf="hasPostgame">
+    <!-- <ng-template matTabContent> -->
+    <div class="vspacer"></div>
+    <app-oakview
+      [locations]="loaded ? locationsPostgame : []"
+      [caught]="caught"
+      (saveCaught)="saveCaught($event)"
+    ></app-oakview>
+    <!-- </ng-template> -->
+  </mat-tab>
+</mat-tab-group>

@@ -1,0 +1,116 @@
+<table class="oaktracker">
+  <ng-container *ngFor="let le of locationEntries">
+    <ng-container
+      [ngTemplateOutlet]="locationGroup"
+      [ngTemplateOutletContext]="{ location: le.location, rows: le.rows }"
+    ></ng-container>
+  </ng-container>
+</table>
+
+<ng-template #locationGroup let-location="location" let-rows="rows">
+  <ng-template [ngIf]="location.expanded" [ngIfElse]="locationNonExpanded">
+    <ng-template ngFor let-entry [ngForOf]="rows" let-isFirst="first">
+      <tr *ngIf="entry.area.expanded || entry.newArea"
+        [ngClass]="{'completed': caughtPct(location) >= 1}"
+      >
+        <ng-template *ngIf="isFirst"
+          [ngTemplateOutlet]="locationCell"
+          [ngTemplateOutletContext]="{ location: location }"
+        ></ng-template>
+        <td
+          class="area clickable"
+          [ngClass]="{
+            'expanded': entry.area.expanded,
+            'completed': caughtPct(entry.area) >= 1,
+          }"
+          *ngIf="entry.newArea"
+          (click)="entry.area.expanded = !entry.area.expanded"
+          [attr.rowspan]="entry.area.height"
+          [attr.colspan]="entry.area.width"
+        >
+          <div class="sticky">
+            <h3>{{ entry.area.name }}</h3>
+          </div>
+        </td>
+        <ng-template [ngIf]="entry.area.expanded">
+          <td
+            class="subarea"
+            *ngIf="entry.newSubarea"
+            [attr.rowspan]="entry.subarea.encounters.length"
+            [ngClass]="{
+              'completed': caughtPct(entry.subarea) >= 1,
+            }"
+          >
+            {{ entry.subarea.name }}
+          </td>
+          <ng-container
+            [ngTemplateOutlet]="pokemonCell"
+            [ngTemplateOutletContext]="{ pokemon: entry.encounter, subareaFirst: entry.newSubarea || entry.newArea }"
+          ></ng-container>
+        </ng-template>
+      </tr>
+    </ng-template>
+  </ng-template>
+  <ng-template #locationNonExpanded>
+    <tr
+      [ngClass]="{'completed': caughtPct(location) >= 1}"
+    >
+      <ng-template
+        [ngTemplateOutlet]="locationCell"
+        [ngTemplateOutletContext]="{ location: location }"
+      ></ng-template>
+    </tr>
+  </ng-template>
+</ng-template>
+
+<ng-template #locationCell let-location="location">
+  <td
+    class="location clickable"
+    [ngClass]="{'expanded': location.expanded}"
+    [attr.colspan]="location.expanded ? 1 : 4"
+    [attr.rowspan]="location.height"
+    (click)="location.expanded = !location.expanded"
+  >
+  <div class="sticky loclabel">
+    <h2>{{ location.name }}</h2>
+    <div class="progress">
+      <span>{{ caughtPct(location) | percent }}</span>
+      <div class="icons">
+        <ng-template ngFor let-label [ngForOf]="locationLabelsComplete(location)">
+          <ng-template [ngIf]="areaToIcon[label]" [ngIfElse]="missing">
+            <fa-icon [icon]="areaToIcon[label]" class="area-icon" [ngClass]="label"></fa-icon>
+          </ng-template>
+          <ng-template #missing>
+            <span>??? - '{{label}}'</span>
+          </ng-template>  
+        </ng-template>
+        <ng-template ngFor let-label [ngForOf]="locationLabelsIncomplete(location)">
+          <ng-template [ngIf]="areaToIcon[label]" [ngIfElse]="missing">
+            <fa-icon [icon]="areaToIcon[label]" class="area-icon off" [ngClass]="label"></fa-icon>
+          </ng-template>
+          <ng-template #missing>
+            <span>??? - '{{label}}'</span>
+          </ng-template>  
+        </ng-template>
+      </div>
+    </div>
+  </div>
+</td>
+</ng-template>
+
+<ng-template #pokemonCell let-pokemon="pokemon" let-subareaFirst="subareaFirst">
+  <td class="pokemon"
+    [ngClass]="{'subareaFirst': subareaFirst}"
+  >
+    {{ pokemon.name }}
+    <ng-template [ngIf]="caught[pokemon.name]" [ngIfElse]="untrackedPokemon">
+      <mat-checkbox
+        (change)="setCaught(pokemon.name, $event.checked)"
+        [checked]="caught[pokemon.name].caught"
+      />
+    </ng-template>
+    <ng-template #untrackedPokemon>
+      <mat-checkbox disabled="true"></mat-checkbox>
+    </ng-template>
+  </td>
+</ng-template>
