@@ -1,26 +1,36 @@
-import { defineConfig } from 'astro/config'
-import svelte from '@astrojs/svelte'
-import mdx from '@astrojs/mdx'
-import remarkGfm from 'remark-gfm'
-import remarkSmartypants from 'remark-smartypants'
-import rehypeExternalLinks from 'rehype-external-links'
+import { defineConfig } from 'astro/config';
+import svelte from '@astrojs/svelte';
+import mdx from '@astrojs/mdx';
+import remarkGfm from 'remark-gfm';
+import remarkSmartypants from 'remark-smartypants';
+import rehypeExternalLinks from 'rehype-external-links';
+import angular from '@analogjs/astro-angular';
 
 // https://astro.build/config
 export default defineConfig({
   site: 'https://astro-blog-template.netlify.app',
-  integrations: [mdx(), svelte()],
+  integrations: [
+    mdx(), 
+    svelte(), 
+    angular({
+      vite: {
+        inlineStylesExtension: 'scss|sass|less',
+      },
+    })
+  ],
+  vite: {
+    ssr: {
+      // transform these packages during SSR. Globs supported
+      noExternal: ['@rx-angular/**'],
+    },
+  },
   markdown: {
     shikiConfig: {
-      theme: 'nord',
+      theme: 'nord'
     },
     remarkPlugins: [remarkGfm, remarkSmartypants],
-    rehypePlugins: [
-      [
-        rehypeExternalLinks,
-        {
-          target: '_blank',
-        },
-      ],
-    ],
-  },
-})
+    rehypePlugins: [[rehypeExternalLinks, {
+      target: '_blank'
+    }]]
+  }
+});
