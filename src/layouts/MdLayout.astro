@@ -1,0 +1,20 @@
+---
+import type { MarkdownLayoutProps } from 'astro';
+import BaseLayout from './BaseLayout.astro';
+
+type Props = MarkdownLayoutProps<{
+  title: string;
+  description: string;
+  current?: string;
+}>;
+
+const { file, url, frontmatter } = Astro.props;
+let { title, description, current } = frontmatter;
+if (current) {
+  current = url.split("/")[0];
+}
+const permalink = `${Astro.site.href}${url}`;
+---
+<BaseLayout title={title} description={description} permalink={permalink} current={current}>
+  <slot/>
+</BaseLayout>

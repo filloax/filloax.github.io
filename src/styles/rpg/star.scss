@@ -1,0 +1,151 @@
+@import '../font/childs-handwriting.scss';
+@import '../font/zatanna.scss';
+
+img {
+    max-width: 700px;
+}
+
+badwriting {
+    // font-size: var(--margin-mult);
+    font-family: 'Childs Handwriting';
+    margin-top: 5px;
+
+    span {
+        font-size: 28px;
+        white-space: pre;
+    }
+}
+
+.notes,
+.notes a {
+    // font-size: var(--margin-mult);
+    font-family: 'Zatanna Misdirection';
+
+    span {
+        font-size: 15px;
+    }
+
+    em {
+        font-family: 'Zatanna Misdirection';
+        font-style: italic;
+        transform: skew(-10deg);
+        display: inline-block;
+    }
+}
+
+.big-notes {
+    font-size: 2em;
+    margin-top: 5px;
+}
+
+.check::before {
+    content: "✔";
+    color: green;
+}
+
+
+table.quest {
+    td:first-child {
+        font-weight: bolder;
+        font-size: 2em;
+    }
+
+    td:nth-child(1) {
+        width: 15%;
+    }
+
+    td:nth-child(2) {
+        width: 10%;
+    }
+
+    td:nth-child(3) {
+        width: 10%;
+    }
+
+    td:nth-child(4) {
+        width: 10%;
+    }
+
+    td:nth-child(5) {
+        max-width: 200px;
+    }
+}
+
+.quest-paper {
+    background-color: rgb(227, 230, 216);
+    margin: 15px;
+    color: rgb(37, 37, 37);
+    padding: 8px;
+    margin: auto;
+    width: 80%;
+}
+
+.incarnate-word {
+    font-variant: small-caps;
+    font-weight: bold;
+    font-family: Times;
+}
+
+@media (prefers-reduced-motion: no-preference) {
+    .letter-animation-quiver>span {
+        animation: quiver 250ms ease calc(var(--index) * 100 * 1ms) infinite alternate;
+        display: inline-block;
+        transform-origin: 50% 50%;
+        text-indent: 0;
+    }
+
+    .letter-animation-quiver>span.squash-letter {
+        animation: quiver-squash 250ms ease calc(var(--index) * 100 * 1ms) infinite alternate;
+    }
+}
+
+@keyframes quiver {
+    0% {
+        transform: rotate(0deg) translate(0, 0);
+    }
+
+    25% {
+        transform: rotate(-10deg) translate(-0.1px, 0.1px);
+    }
+
+    50% {
+        transform: rotate(10deg) translate(0.1px, 0.1px);
+    }
+
+    75% {
+        transform: rotate(-10deg) translate(0.1px, -0.1px);
+    }
+
+    100% {
+        transform: rotate(0deg) translate(0, 0);
+    }
+}
+
+@keyframes quiver-squash {
+    0% {
+        transform: rotate(0deg) scaleX(0.9) translate(0, 0);
+    }
+
+    25% {
+        transform: rotate(-10deg) scaleX(0.9) translate(-0.1px, 0.1px);
+    }
+
+    50% {
+        transform: rotate(10deg) scaleX(0.9) translate(0.1px, 0.1px);
+    }
+
+    75% {
+        transform: rotate(-10deg) scaleX(0.9) translate(0.1px, -0.1px);
+    }
+
+    100% {
+        transform: rotate(0deg) scaleX(0.9) translate(0, 0);
+    }
+}
+
+a.fill-div {
+    display: block;
+    height: 100%;
+    width: 100%;
+    text-decoration: none;
+}

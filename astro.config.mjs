@@ -5,6 +5,7 @@ import remarkGfm from 'remark-gfm';
 import remarkSmartypants from 'remark-smartypants';
 import rehypeExternalLinks from 'rehype-external-links';
 import angular from '@analogjs/astro-angular';
+import remarkToc from 'remark-toc';
 
 // https://astro.build/config
 export default defineConfig({
@@ -28,7 +29,13 @@ export default defineConfig({
     shikiConfig: {
       theme: 'nord'
     },
-    remarkPlugins: [remarkGfm, remarkSmartypants],
+    remarkPlugins: [
+      remarkGfm, 
+      remarkSmartypants, 
+      [remarkToc, {
+        heading: 'contents',
+      }],
+    ],
     rehypePlugins: [[rehypeExternalLinks, {
       target: '_blank'
     }]]

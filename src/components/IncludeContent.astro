@@ -1,0 +1,13 @@
+---
+import { getCollection } from 'astro:content';
+
+export class Props {
+    path: string;
+}
+
+const { path } = Astro.props;
+
+const files = await Astro.glob('@content/**').then(x => x.filter(file => file.file.includes(path)))
+---
+
+{files.map((file) => (<div set:html={file.compiledContent()}></div>))}
