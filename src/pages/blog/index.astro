@@ -1,11 +1,11 @@
 ---
-import BaseLayout from '../../layouts/BaseLayout.astro';
+import BaseLayout from '@layouts/BaseLayout.astro';
 
 const title = 'Blog';
 const description = 'Latest articles.';
 const permalink = `${Astro.site.href}blog`;
 
-let allPosts = await Astro.glob('../../data/blog-posts/*.md');
+let allPosts = await Astro.glob('../../content/blog-posts/*.md');
 allPosts = allPosts.sort((a, b) => new Date(b.frontmatter.publishDate).valueOf() - new Date(a.frontmatter.publishDate).valueOf());
 ---
 
