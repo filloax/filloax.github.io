@@ -1,0 +1,22 @@
+---
+import type { MarkdownLayoutProps } from 'astro';
+
+export interface SessionFrontMatter {
+    title: string;
+    date: string;
+    recap?: string;
+    levelup?: number;
+    new?: boolean;
+}
+
+export interface Props {
+    // Output of glob
+    files: Record<string, any>[];
+}
+
+const files = (await Astro.props).files as MarkdownLayoutProps<SessionFrontMatter>[];
+
+
+
+
+---

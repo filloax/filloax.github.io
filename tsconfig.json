@@ -16,5 +16,12 @@
       "@content/*": ["src/content/*"]
     }
   },
+  "angularCompilerOptions": {
+    "enableI18nLegacyMessageIdFormat": false,
+    "strictInjectionParameters": true,
+    "strictInputAccessModifiers": true,
+    "strictTemplates": true,
+    "allowJs": false
+  },
   "extends": "astro/tsconfigs/base"
 }

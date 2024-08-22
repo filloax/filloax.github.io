@@ -1,0 +1,35 @@
+<div class="session-index">
+    <!-- Toggle View Mode Button -->
+    <button id="toggle-view-mode" (click)="changeMode()">
+        Show All
+    </button>
+    
+    <ng-template *ngTemplateOutlet="paginationControls"></ng-template>
+
+    <!-- Session Cards Container -->
+    <div id="session-cards" class="session-cards">
+        @for (file of showFiles; track file.frontmatter.title) {
+            <div class="session-card">
+                <h2 [innerHtml]="file.frontmatter.title"></h2>
+                <p *ngIf="file.frontmatter.recap">{{file.frontmatter.recap}}</p>
+            </div>
+        } @empty {
+            Ancora nessuna sessione!
+        }
+    </div>
+
+    <ng-template *ngTemplateOutlet="paginationControls"></ng-template>
+</div>
+
+<ng-template #paginationControls>
+    <div id="pagination-controls" class="pagination" *ngIf="!showAll">
+        @for (item of [].constructor(numPages); track $index) {
+            <button 
+                [ngClass]="$index === page ? 'active' : ''"
+                (click)="setPage($index)"
+            >
+                {{$index + 1}}
+            </button>
+        }
+    </div>
+</ng-template>
