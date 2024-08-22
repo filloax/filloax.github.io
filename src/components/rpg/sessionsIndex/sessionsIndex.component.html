@@ -1,7 +1,9 @@
 <div class="session-index">
   <!-- Toggle View Mode Button -->
   <div class="show-settings">
-    <button id="toggle-view-mode" (click)="changeMode()">Show All</button>
+    <button id="toggle-view-mode" (click)="changeMode()" [ngClass]="!showAll ? 'inactive' : ''">
+      Mostra tutti
+    </button>
     <button id="toggle-view-order" (click)="changeOrder()">
       <fa-icon
         [icon]="faArrowDownWideShort"
