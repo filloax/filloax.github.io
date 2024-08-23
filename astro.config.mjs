@@ -6,6 +6,7 @@ import remarkSmartypants from 'remark-smartypants';
 import rehypeExternalLinks from 'rehype-external-links';
 import angular from '@analogjs/astro-angular';
 import remarkToc from 'remark-toc';
+import remarkRawFrontmatter from './plugins/remark-raw-frontmatter.mjs';
 
 // https://astro.build/config
 export default defineConfig({
@@ -35,6 +36,7 @@ export default defineConfig({
       [remarkToc, {
         heading: 'contents',
       }],
+      remarkRawFrontmatter,
     ],
     rehypePlugins: [[rehypeExternalLinks, {
       target: '_blank'

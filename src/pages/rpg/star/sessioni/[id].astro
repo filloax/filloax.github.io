@@ -1,0 +1,68 @@
+---
+import {
+  getSessionId,
+  getSessionPostData,
+} from "@/utils/sessions";
+import StarBaseLayout from "@layouts/rpg/StarBaseLayout.astro";
+
+export async function getStaticPaths() {
+  const posts = await Astro.glob("@content/rpg/star/sessions/*");
+  return posts.map((post) => ({
+    params: { id: getSessionId(post.frontmatter) },
+    props: { post },
+  }));
+}
+
+const { Content, frontmatter } = Astro.props.post;
+const { id, readingTime } = getSessionPostData(Astro.props.post);
+
+const permalink = `${Astro.site.href}rpg/star/sessioni/${id}`;
+const description = frontmatter.recap
+  ? frontmatter.recap
+  : `Riassunto della sessione ${id}`;
+const date = new Date(frontmatter.date).toLocaleDateString("it-IT", {
+  weekday: "short",
+  day: "numeric",
+  month: "short",
+  year: "2-digit",
+});
+---
+
+<StarBaseLayout
+  title={frontmatter.title}
+  description={description}
+  permalink={permalink}
+>
+  <header>
+    <p>{date} ~ {readingTime}</p>
+    <h1>{frontmatter.title}</h1>
+    <hr />
+  </header>
+  <div class="container">
+    <article class="content">
+      <Content />
+    </article>
+  </div>
+</StarBaseLayout>
+
+<style>
+  header {
+    text-align: center;
+  }
+
+  header h1 {
+    margin-bottom: 0.7em;
+  }
+
+  header p {
+    color: var(--text-secondary);
+    text-transform: uppercase;
+    font-family: var(--font-family-sans);
+    font-weight: 600;
+  }
+
+  header hr {
+    min-width: 100px;
+    width: 30%;
+  }
+</style>

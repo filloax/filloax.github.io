@@ -1,6 +1,5 @@
 ---
 import BaseLayout from '../BaseLayout.astro';
-import '@/styles/rpg/pctable.scss'
 import '@/styles/rpg/star.scss'
 
 export interface Props {
@@ -13,7 +12,9 @@ const { title, description, permalink, current } = Astro.props;
 ---
 
 <BaseLayout title={title} description={description} permalink={permalink} current={current ? current : 'rpg'}>
-  <slot/>
+  <div class="dnd-container">
+    <slot/>
+  </div>
 </BaseLayout>
 
 

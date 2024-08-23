@@ -1,0 +1,125 @@
+@import "../font/phb.scss";
+
+@mixin useSansSerif() {
+  font-family: ScalySans;
+  em {
+    font-family: ScalySans;
+    font-style: italic;
+  }
+  strong {
+    font-family: ScalySans;
+    font-weight: 800;
+    letter-spacing: -0.02em;
+  }
+}
+
+:root {
+  $background: #eee5ce;
+  $noteGreen: #e0e5c1;
+  $headerUnderline: #c9ad6a;
+  $horizontalRule: #9c2b1b;
+  $headerText: #58180d;
+  $monsterStatBackground: #fdf1dc;
+
+  &.theme-dark {
+    $background: #252525;
+    $noteGreen: #262638;
+    $headerUnderline: #52421f;
+    $horizontalRule: #55130b;
+    $headerText: #e4e4e4;
+    $monsterStatBackground: #3d3838;
+  }
+
+  .dnd-container {
+    //*****************************
+    // *            NOTE
+    // *****************************/
+    blockquote {
+      box-sizing: border-box;
+      margin-bottom: 1em;
+      padding: 5px 10px;
+      background-color: $noteGreen;
+      border-style: solid;
+      border-width: 11px;
+      border-image: $noteBorderImage 11;
+      border-image-outset: 9px 0px;
+      box-shadow: 1px 4px 14px var(--surface-secondary);
+      @include useSansSerif();
+      p, ul, li {
+        font-size: 0.9rem;
+        margin: 0.2rem;
+      }
+    }
+    //If a note starts a column, give it space at the top to render border
+    pre + blockquote,
+    h2 + blockquote,
+    h3 + blockquote,
+    h4 + blockquote,
+    h5 + blockquote {
+      margin-top: 13px;
+    }
+    //*****************************
+    // *    MONSTER STAT BLOCK
+    // *****************************/
+    hr + blockquote {
+      position: relative;
+      padding-top: 15px;
+      background-color: $monsterStatBackground;
+      border-style: solid;
+      border-width: 10px;
+      border-image: $monsterBorderImage 10;
+      h2 {
+        margin-top: -8px;
+        margin-bottom: 0px;
+        & + p {
+          padding-bottom: 0px;
+        }
+      }
+      h3 {
+        font-family: ScalySans;
+        font-weight: 400;
+        border-bottom: 1px solid $headerText;
+      }
+      hr + ul {
+        color: $headerText;
+      }
+      ul {
+        padding-left: 1em;
+        font-size: 0.352cm;
+        @include useSansSerif();
+      }
+      // Monster Ability table
+      hr + table {
+        margin: 0;
+        column-span: 1;
+        background-color: transparent;
+        border-style: none;
+        border-image: none;
+        -webkit-column-span: 1;
+        tbody {
+          tr:nth-child(odd),
+          tr:nth-child(even) {
+            background-color: transparent;
+          }
+        }
+      }
+      table {
+        color: $headerText;
+      }
+      p + p {
+        margin-top: 0em;
+        padding-bottom: 0.5em;
+        text-indent: 0em;
+      }
+      //Triangle dividers
+      hr {
+        visibility: visible;
+        height: 6px;
+        margin: 4px 0px;
+        background-image: $redTriangleImage;
+        background-size: 100% 100%;
+        border: none;
+      }
+    }
+  }
+}
