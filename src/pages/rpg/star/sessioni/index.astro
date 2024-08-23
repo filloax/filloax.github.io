@@ -1,0 +1,22 @@
+---
+import StarBaseLayout from "@/layouts/rpg/StarBaseLayout.astro";
+import { SessionsIndexComponent } from "@/components/rpg/sessionsIndex/sessionsIndex.component";
+
+const url = Astro.url.pathname;
+const title = "Riassunto Sessioni - Stella Nera";
+const description = "Riassunto sessioni della campagna La Stella Nera";
+const permalink = `${Astro.site.href}${url}`;
+
+const files = await Astro.glob("@content/rpg/star/sessions/*");
+---
+
+<StarBaseLayout title={title} description={description} permalink={permalink}>
+  <h1>Sessioni</h1>
+
+  <p>
+    Elenco dei riassunti per le sessioni disponibili, cliccate sui riquadri per
+    aprirli completi (con immagini e altro).
+  </p>
+
+  <SessionsIndexComponent files={files} baseUrl={url} client:load />
+</StarBaseLayout>
