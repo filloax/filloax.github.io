@@ -1,5 +1,6 @@
-import { CommonModule, NgIf } from "@angular/common";
-import { afterNextRender, Component, ElementRef, Input, Renderer2 } from "@angular/core";
+import { CommonModule, NgIf, registerLocaleData } from "@angular/common";
+import localeIt from '@angular/common/locales/it';
+import { afterNextRender, Component, ElementRef, Input, LOCALE_ID, Renderer2, type SimpleChanges } from "@angular/core";
 import type { MarkdownLayoutProps } from "astro";
 import { setupShakyText } from "@/utils/shakyText";
 import { FontAwesomeModule } from "@fortawesome/angular-fontawesome";
@@ -18,6 +19,8 @@ export interface SessionFrontMatter {
   new?: boolean;
 }
 
+registerLocaleData(localeIt);
+
 type File = MarkdownLayoutProps<SessionFrontMatter>;
 
 @Component({
@@ -26,6 +29,9 @@ type File = MarkdownLayoutProps<SessionFrontMatter>;
   imports: [CommonModule, FontAwesomeModule, EllipsisDirective],
   templateUrl: "./sessionsIndex.component.html",
   styleUrl: "./sessionsIndex.component.scss",
+  providers: [
+    { provide: LOCALE_ID, useValue: 'it-IT' },
+  ],
 })
 export class SessionsIndexComponent {
   @Input() files: Record<string, any>[] = [];
@@ -38,6 +44,7 @@ export class SessionsIndexComponent {
 
   // fileRecapsRaw: Record<string, string> = {};
   hoveredCard: any = null;
+  sessionLevels: Record<string, number> = {};
 
   faArrowDownWideShort = faArrowDownWideShort;
   faArrowUpWideShort = faArrowUpWideShort;
@@ -52,35 +59,72 @@ export class SessionsIndexComponent {
     afterNextRender(this.onRender.bind(this));
   }
 
+  ngOnInit() {
+    this.buildFiles();
+    this.loadLevels();
+  }
+
+  ngOnChanges(changes: SimpleChanges) {
+    if (changes.files) {
+      this.buildFiles();
+      this.loadLevels();
+    }
+  }
+
   buildFiles() {
-    const files = this.recentFirst
-      ? (this.files as File[]).toSorted((a, b) =>
+    const files = this.files as File[];
+    const sortedFiles = this.recentFirst
+      ? files.toSorted((a, b) =>
           this.compareDates(b.frontmatter.date, a.frontmatter.date)
         )
-      : (this.files as File[]).toSorted((a, b) =>
+      : files.toSorted((a, b) =>
           this.compareDates(a.frontmatter.date, b.frontmatter.date)
         );
 
     if (this.showAll) {
-      this.showFiles = files;
+      this.showFiles = sortedFiles;
     } else {
-      this.showFiles = files.slice(
+      this.showFiles = sortedFiles.slice(
         this.page * this.pageFiles,
         (this.page + 1) * this.pageFiles
       );
     }
 
     // this.showFiles.forEach(file => {
-    //   this.fileRecapsRaw[file.url] = file.frontmatter.recap;
+    //   this.fileRecapsRaw[file.file] = file.frontmatter.recap;
     // });
+  }
+
+  loadLevels() {
+    const files = this.files as File[];
+    const sortedFiles = files.toSorted((a, b) =>
+        this.compareDates(a.frontmatter.date, b.frontmatter.date)
+      );
+
+    let level = 1;
+    // find starting level
+    for (let i = 0; i < sortedFiles.length; i++) {
+      const file = sortedFiles[i];
+      if (file.frontmatter.levelup) {
+        level = file.frontmatter.levelup;
+        if (i > 0) // if not first, starts from level before
+          level--;
+        break;
+      }
+    }
+
+    const levels = {};
+    for (const file of sortedFiles) {
+      if (file.frontmatter.levelup) {
+        level = file.frontmatter.levelup;
+      }
+      levels[file.file] = level;
+    }
+    this.sessionLevels = levels;
   }
 
   onRender() {
     setupShakyText();
-  }
-
-  ngOnInit() {
-    this.buildFiles();
   }
 
   changeMode() {

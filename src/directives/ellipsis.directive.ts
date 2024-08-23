@@ -8,14 +8,14 @@ import { Directive, ElementRef, Input } from "@angular/core";
 export class EllipsisDirective {
   element: ElementRef;
   fullHeight: string;
-  margin = 5;
 
   @Input() ellipsisData: any;
   @Input() checkElement: HTMLElement;
+  @Input() ellipsisMargin = 10;
 
   cssMaxHeight: number; // add more as needed
 
-  //   static int = 0;
+  running: boolean = false; // prevent recursion
 
   private get _checkElement(): HTMLElement {
     return this.checkElement ? this.checkElement : this.element.nativeElement;
@@ -43,10 +43,15 @@ export class EllipsisDirective {
 
     this.buildEllipsis();
 
-    this.resizeObserver = new ResizeObserver((entries) => {
-      for (let entry of entries) {
-        // console.debug("Element resized:", entry.contentRect);
+    this.resizeObserver = new ResizeObserver(([entry]) => {
+      if (this.running) return;
+      
+      // console.debug("Element resized:", entry.contentRect);
+      this.running = true;
+      try {
         this.buildEllipsis();
+      } finally {
+        this.running = false;
       }
     });
 
@@ -69,7 +74,7 @@ export class EllipsisDirective {
     var ellipsisSymbol = "&hellip;";
     var appendString = ellipsisSymbol;
 
-    //   console.log("TEST", this.element.nativeElement, appendString, this._checkElement);
+    // console.debug("TEST", this.element.nativeElement, appendString, this._checkElement);
 
     this.element.nativeElement.attributes.isTruncated = false;
     this.element.nativeElement.innerHTML = this.ellipsisData;
@@ -87,10 +92,10 @@ export class EllipsisDirective {
         this.element.nativeElement.innerHTML =
           bindArray.join(" ") + appendString;
 
-        // console.log("\t", i, this.element.nativeElement.innerHTML, this._checkElement.scrollHeight, initialMaxHeight, this.isOverflowed(this._checkElement))
+        // console.debug("\t", i, this.element.nativeElement.innerHTML, this._checkElement.scrollHeight, initialMaxHeight, this.isOverflowed(this._checkElement))
 
         if (
-          this._checkElement.scrollHeight < initialMaxHeight - this.margin ||
+          this._checkElement.scrollHeight < initialMaxHeight - this.ellipsisMargin ||
           this.isOverflowed(this._checkElement) === false
         ) {
           this.element.nativeElement.attributes.isTruncated = true;
@@ -101,7 +106,7 @@ export class EllipsisDirective {
   }
 
   isOverflowed(el) {
-    return el.scrollHeight > el.clientHeight + this.margin;
+    return el.scrollHeight > el.clientHeight + this.ellipsisMargin;
   }
 
   getFullHeight() {

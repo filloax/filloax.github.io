@@ -1,7 +1,11 @@
 <div class="session-index">
   <!-- Toggle View Mode Button -->
   <div class="show-settings">
-    <button id="toggle-view-mode" (click)="changeMode()" [ngClass]="!showAll ? 'inactive' : ''">
+    <button
+      id="toggle-view-mode"
+      (click)="changeMode()"
+      [ngClass]="!showAll ? 'inactive' : ''"
+    >
       Mostra tutti
     </button>
     <button id="toggle-view-order" (click)="changeOrder()">
@@ -25,16 +29,30 @@
         [id]="'card-' + file.url"
         (mouseenter)="startHover(card)"
         (mouseleave)="endHover(card)"
-        [style.height]="hoveredCard === card ? calcFullHeight(card) : ''"
-        [style.maxHeight]="hoveredCard === card ? calcFullMaxHeight(card) : ''"
       >
-        <h2 [innerHtml]="file.frontmatter.title"></h2>
-        <p
-          *ngIf="file.frontmatter.recap"
-          appEllipsis
-          [ellipsisData]="file.frontmatter.recap"
-          [checkElement]="card"
-        ></p>
+        <div class="card-content"
+        #cardContent
+        [style.height]="hoveredCard === card ? calcFullHeight(cardContent) : ''"
+        [style.maxHeight]="hoveredCard === card ? calcFullMaxHeight(cardContent) : ''"
+        >
+          <h2 [innerHtml]="file.frontmatter.title"></h2>
+          <p
+            *ngIf="file.frontmatter.recap"
+            appEllipsis
+            [ellipsisData]="file.frontmatter.recap"
+            [checkElement]="cardContent"
+          ></p>
+        </div>
+
+        <div class="session-card-footer info">
+          <span class="session-level">{{ sessionLevels[file.file] }}</span>
+          <span class="session-icon-levelup" *ngIf="file.frontmatter.levelup">
+          </span>
+          <span class="session-icon-new" *ngIf="file.frontmatter.new"> </span>
+        </div>
+        <div class="session-card-footer date">
+          <span class="session-date">{{ file.frontmatter.date | date }}</span>
+        </div>
       </div>
     } @empty {
       Caricamento...

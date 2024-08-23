@@ -25,8 +25,6 @@
 
   .session-card {
     cursor: pointer;
-    display: flex;
-    flex-direction: column;
     padding: 5px;
     background-color: var(--surface-primary);
     color: var(--on-surface-primary);
@@ -37,34 +35,93 @@
     transition: background-position 0.6s cubic-bezier(0.22, 1, 0.36, 1);
     box-shadow: inset 0 0 0 1px
       color-mix(in srgb, var(--text-main), transparent 90%);
+    position: relative;
+    --footer-height: 1rem;
+    padding-bottom: var(--footer-height);
 
-    min-height: 3rem;
-    max-height: 7rem;
-    transition: max-height 0.6s cubic-bezier(0.22, 1, 0.36, 1);
-    // transition: height 0.6s cubic-bezier(0.22, 1, 0.36, 1);
-    overflow: hidden;
+    .card-content {
+      display: flex;
+      flex-direction: column;
 
-    &:hover {
+      min-height: 3rem;
+      max-height: 7rem;
+      transition: max-height 0.6s cubic-bezier(0.22, 1, 0.36, 1);
+      overflow: hidden;
+
+      &:hover {
+        p {
+          opacity: 0.8;
+        }
+      }
+  
+      h2,
       p {
-        opacity: 0.8;
+        transition:
+          color 0.6s cubic-bezier(0.22, 1, 0.36, 1),
+          opacity 0.6s cubic-bezier(0.22, 1, 0.36, 1);
+      }
+      h2 {
+        font-size: 1.25rem;
+        margin: 0;
+      }
+      p {
+        font-size: 0.75rem;
+        opacity: 0.6;
+        //   overflow: hidden;
+        //   text-overflow: ellipsis;
       }
     }
+  }
 
-    h2,
-    p {
-      transition:
-        color 0.6s cubic-bezier(0.22, 1, 0.36, 1),
-        opacity 0.6s cubic-bezier(0.22, 1, 0.36, 1);
+  .session-card-footer {
+    position: absolute;
+    bottom: 0;
+    padding: 0.5rem;
+    background-color: rgba(0, 0, 0, 0.1); // Optional: Add a subtle background
+    width: fit-content;
+    height: var(--footer-height);
+    font-size: 0.8rem;
+    display: flex;
+    
+    &.info {
+      left: 0;
+      border-radius: 0 5px 0 0;
     }
-    h2 {
-      font-size: 1.25rem;
-      margin: 0;
+    &.date {
+      right: 0;
+      border-radius: 5px 0 0 0;
     }
-    p {
-      font-size: 0.75rem;
-      opacity: 0.6;
-      //   overflow: hidden;
-      //   text-overflow: ellipsis;
+
+    * {
+      position: relative;
+      bottom: 10px;
+      font-family: var(--font-family-sans);
+    }
+
+    .session-level {
+      grid-area: level;
+      color: var(--text-secondary);
+    }
+
+    .session-icon {
+      &-new::after {
+        content: "•";
+        margin-left: 5px;
+        font-size: 1.5rem;
+        color: var(--primary-color);
+        text-shadow: 0 0 3px
+          color-mix(in srgb, var(--primary-color), transparent 50%);
+        position: relative;
+        bottom: 0.52rem;
+      }
+
+      &-levelup::after {
+        content: "!";
+        margin-left: 2px;
+        color: var(--text-secondary);
+        text-shadow: 0 0 3px
+          color-mix(in srgb, var(--text-secondary), transparent 50%);
+      }
     }
   }
 }
