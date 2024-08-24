@@ -1,6 +1,9 @@
 ---
-import BaseLayout from '../BaseLayout.astro';
-import '@/styles/rpg/star.scss'
+import BaseLayout from "../BaseLayout.astro";
+import { Breadcrumbs } from "astro-breadcrumbs";
+
+import "@/styles/rpg/star.scss";
+import "@/styles/astro-breadcrumbs-config.scss";
 
 export interface Props {
   title: string;
@@ -9,14 +12,51 @@ export interface Props {
   current?: string;
 }
 const { title, description, permalink, current } = Astro.props;
+
+const bcLinks = [
+  {
+    index: "0",
+    hidden: true,
+  },
+  {
+    index: "1",
+    text: "RPG",
+  },
+  {
+    index: "2",
+    text: "Stella Nera",
+  },
+];
 ---
 
-<BaseLayout title={title} description={description} permalink={permalink} current={current ? current : 'rpg'}>
+<BaseLayout
+  title={title}
+  description={description}
+  permalink={permalink}
+  current={current ? current : "rpg"}
+>
+  <Breadcrumbs
+    ariaLabel="List of section pages"
+    linkTextFormat="capitalized"
+    customizeLinks={bcLinks}
+  >
+    <svg
+      slot="separator"
+      xmlns="http://www.w3.org/2000/svg"
+      width="24"
+      height="24"
+      viewBox="0 0 24 24"
+      fill="none"
+      stroke="currentColor"
+      stroke-width="2"
+      stroke-linecap="round"
+      stroke-linejoin="round"><polyline points="9 18 15 12 9 6"></polyline></svg
+    >
+  </Breadcrumbs>
   <div class="dnd-container">
-    <slot/>
+    <slot />
   </div>
 </BaseLayout>
-
 
 <script>
   import { setupShakyText } from "@/utils/shakyText";
