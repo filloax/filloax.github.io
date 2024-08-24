@@ -1,0 +1,84 @@
+---
+import type { SessionPost } from "@/model/rpg.model";
+import getSessionPostData from "@/utils/rpg/getSessionPostData";
+import type { MarkdownLayoutProps } from "astro";
+import getSessionPlayers from "@/utils/rpg/getSessionPlayers";
+
+export interface Props {
+  post: SessionPost;
+}
+
+const { Content, frontmatter } = Astro.props.post;
+const { id, readingTime } = getSessionPostData(Astro.props.post);
+
+const date = new Date(frontmatter.date).toLocaleDateString("it-IT", {
+  weekday: "short",
+  day: "numeric",
+  month: "short",
+  year: "2-digit",
+});
+const players = getSessionPlayers(frontmatter);
+---
+
+<header>
+  <p>{date} ~ {readingTime}</p>
+  <h1>{frontmatter.title}</h1>
+  <hr />
+</header>
+<div class="container">
+  <div class="players">
+    Giocatori:
+    {
+      players.map((p, i) => (
+        <span>
+          <span class="char">{p.character}</span>
+          <span class="player">{p.player}</span>
+          {i < players.length - 1 && ", "}
+        </span>
+      ))
+    }
+  </div>
+  <article class="content">
+    <Content />
+  </article>
+</div>
+
+<style lang="scss">
+  header {
+    text-align: center;
+  }
+
+  header h1 {
+    margin-bottom: 0.7em;
+  }
+
+  header p {
+    color: var(--text-secondary);
+    text-transform: uppercase;
+    font-family: var(--font-family-sans);
+    font-weight: 600;
+  }
+
+  header hr {
+    min-width: 100px;
+    width: 30%;
+  }
+
+  .players {
+    font-size: 0.8rem;
+    color: var(--text-secondary);
+
+    .player {
+      font-size: 0.7rem;
+      color: var(--text-tertiary);
+      margin-right: 0;
+
+      &::before {
+        content: "(";
+      }
+      &::after {
+        content: ")";
+      }
+    }
+  }
+</style>

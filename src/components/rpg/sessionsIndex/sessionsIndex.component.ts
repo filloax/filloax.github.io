@@ -176,6 +176,6 @@ export class SessionsIndexComponent {
 
   openSession(frontmatter: SessionFrontMatter) {
     const id = getSessionId(frontmatter);
-    navigate(`${this.baseUrl}/${id}`);
+    navigate(`${this.baseUrl.replace(/\/$/, '')}/${id}`);
   }
 }

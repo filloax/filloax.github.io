@@ -7,3 +7,8 @@ export interface SessionFrontMatter {
   new?: boolean;
   rawMarkdown: string;
 }
+
+export interface SessionPost {
+  frontmatter: SessionFrontMatter,
+  Content: any,
+}
