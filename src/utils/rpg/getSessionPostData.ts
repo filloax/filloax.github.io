@@ -1,9 +1,9 @@
 import type { SessionFrontMatter } from "@/model/rpg.model";
 import type { MarkdownLayoutProps } from "astro";
 import readingTime from "reading-time";
-import { getSessionId } from "./getSessionId";
+import getSessionId from "./getSessionId";
 
-export function getSessionPostData(
+export default function getSessionPostData(
   session: MarkdownLayoutProps<SessionFrontMatter>
 ) {
   return {

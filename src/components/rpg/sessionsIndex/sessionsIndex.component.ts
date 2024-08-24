@@ -12,7 +12,7 @@ import { EllipsisDirective } from "@/directives/ellipsis.directive";
 import { Constants } from "@/utils/constants";
 import type { SessionFrontMatter } from "@/model/rpg.model";
 import { navigate } from 'astro:transitions/client';
-import { getSessionId } from "@/utils/rpg/getSessionId";
+import getSessionId from "@/utils/rpg/getSessionId";
 
 registerLocaleData(localeIt);
 

@@ -1,6 +1,6 @@
 import type { SessionFrontMatter } from "@/model/rpg.model";
 
-export function getSessionId(frontmatter: SessionFrontMatter | string) {
+export default function getSessionId(frontmatter: SessionFrontMatter | string) {
   const title =
     typeof frontmatter === "string" ? frontmatter : frontmatter.title;
 

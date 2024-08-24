@@ -1,6 +1,7 @@
 ---
-import { getSessionId } from "@/utils/rpg/getSessionId";
-import { getSessionPostData } from "@/utils/rpg/getSessionPostData";
+import getSessionId from "@/utils/rpg/getSessionId";
+import getSessionPlayers from "@/utils/rpg/getSessionPlayers";
+import getSessionPostData from "@/utils/rpg/getSessionPostData";
 import StarBaseLayout from "@layouts/rpg/StarBaseLayout.astro";
 
 export async function getStaticPaths() {
@@ -24,6 +25,7 @@ const date = new Date(frontmatter.date).toLocaleDateString("it-IT", {
   month: "short",
   year: "2-digit",
 });
+const players = getSessionPlayers(frontmatter);
 ---
 
 <StarBaseLayout
@@ -37,13 +39,25 @@ const date = new Date(frontmatter.date).toLocaleDateString("it-IT", {
     <hr />
   </header>
   <div class="container">
+    <div class="players">
+      Giocatori:
+      {
+        players.map((p, i) => (
+          <span>
+            <span class="char">{p.character}</span>
+            <span class="player">{p.player}</span>
+            {i < players.length - 1 && ", "}
+          </span>
+        ))
+      }
+    </div>
     <article class="content">
       <Content />
     </article>
   </div>
 </StarBaseLayout>
 
-<style>
+<style lang="scss">
   header {
     text-align: center;
   }
@@ -62,5 +76,25 @@ const date = new Date(frontmatter.date).toLocaleDateString("it-IT", {
   header hr {
     min-width: 100px;
     width: 30%;
+  }
+
+  .players {
+    font-size: 0.8rem;
+    color: var(--text-secondary);
+
+    .player {
+      font-size: 0.7rem;
+      color: var(--text-tertiary);
+      margin-right: 0;
+
+      &::before {
+        content: '(';
+      }
+      &::after {
+        content: ')';
+      }
+
+      
+    }
   }
 </style>
