@@ -10,14 +10,9 @@ import {
 } from "@fortawesome/free-solid-svg-icons";
 import { EllipsisDirective } from "@/directives/ellipsis.directive";
 import { Constants } from "@/utils/constants";
-
-export interface SessionFrontMatter {
-  title: string;
-  date: string;
-  recap?: string;
-  levelup?: number;
-  new?: boolean;
-}
+import type { SessionFrontMatter } from "@/model/rpg.model";
+import { navigate } from 'astro:transitions/client';
+import { getSessionId } from "@/utils/rpg/getSessionId";
 
 registerLocaleData(localeIt);
 
@@ -35,6 +30,7 @@ type File = MarkdownLayoutProps<SessionFrontMatter>;
 })
 export class SessionsIndexComponent {
   @Input() files: Record<string, any>[] = [];
+  @Input() baseUrl: string = "";
 
   showFiles: File[] = [];
   showAll: boolean = true;
@@ -73,6 +69,8 @@ export class SessionsIndexComponent {
 
   buildFiles() {
     const files = this.files as File[];
+    if (!this.files) return;
+    
     const sortedFiles = this.recentFirst
       ? files.toSorted((a, b) =>
           this.compareDates(b.frontmatter.date, a.frontmatter.date)
@@ -174,5 +172,10 @@ export class SessionsIndexComponent {
 
   endHover(card: HTMLElement) {
     this.hoveredCard = null;
+  }
+
+  openSession(frontmatter: SessionFrontMatter) {
+    const id = getSessionId(frontmatter);
+    navigate(`${this.baseUrl}/${id}`);
   }
 }

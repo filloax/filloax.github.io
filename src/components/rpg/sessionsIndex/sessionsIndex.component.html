@@ -29,8 +29,9 @@
         [id]="'card-' + file.url"
         (mouseenter)="startHover(card)"
         (mouseleave)="endHover(card)"
+        (click)="openSession(file.frontmatter)"
       >
-        <div class="card-content"
+      <div class="card-content"
         #cardContent
         [style.height]="hoveredCard === card ? calcFullHeight(cardContent) : ''"
         [style.maxHeight]="hoveredCard === card ? calcFullMaxHeight(cardContent) : ''"
