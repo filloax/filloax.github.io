@@ -1,0 +1,26 @@
+---
+import { onMount } from 'solid-js'; // Or use your preferred framework if you're using React, Vue, or Svelte
+
+export function navigate(event) {
+  const link = event.target.closest('a');
+  if (link && link.href.startsWith(window.location.origin)) {
+    event.preventDefault();
+    // Push the new URL to the browser history
+    history.pushState(null, '', link.href);
+
+    // Trigger page content loading dynamically
+    const targetPath = link.pathname;
+    const targetPage = await fetch(targetPath).then(res => res.text());
+    
+    // Here, you can inject the HTML into your app container or call Astro's router
+    document.querySelector('#app').innerHTML = targetPage;
+  }
+}
+
+onMount(() => {
+  document.querySelectorAll('a').forEach(link => {
+    link.addEventListener('click', navigate);
+  });
+});
+---
+<slot />

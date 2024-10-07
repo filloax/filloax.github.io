@@ -1,1 +1,26 @@
-<emph>NYI campaign index</emph>
+---
+const currentPagePath = Astro.url.pathname;
+const currentFolder = currentPagePath//.replace(/\/[^\/]+$/, ""); // Get the folder path
+
+const { files } = Astro.props;
+
+function getTitle(file: any) {
+    const fullTitle = file.frontmatter ? file.frontmatter.title : file.title;
+
+    return fullTitle;
+}
+
+const titles = files.map(getTitle);
+
+
+
+---
+
+<ul>
+  {files.map((file) => (
+    
+    <li>
+      <a href={file.url}>{getTitle(file)}</a> {/* Strip folder from display */}
+    </li>
+  ))}
+</ul>

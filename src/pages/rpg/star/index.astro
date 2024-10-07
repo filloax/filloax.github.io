@@ -1,0 +1,46 @@
+---
+import CampaignIndex from '@components/rpg/CampaignIndex.astro'
+import StarBaseLayout from "@/layouts/rpg/StarBaseLayout.astro";
+
+const url = Astro.url.pathname;
+const title = "La Stella Nera";
+const description = "Indice della campagna Stella Nera - La compagnia del Pomello";
+const permalink = `${Astro.site.href}${url}`;
+
+const files = await Astro.glob('./*');
+---
+
+<StarBaseLayout title={title} description={description} permalink={permalink}>
+	<h1>{title}</h1>
+
+	<img src="https://i.imgur.com/z7FdwdU.jpg"/>
+
+	<h5>La compagnia del Pomello</h5>
+
+	<CampaignIndex files={files}/>
+
+	<h2>Timeline</h2>
+
+	<p>Anni in calendario <a href="https://forgottenrealms.fandom.com/wiki/Marking_the_years">DR</a></p>
+
+	<ul>
+		<li>-800 (2350 anni fa)
+			<ul>
+				<li>Guerra con Illithid, eroismo di Darian</li>
+			</ul>
+		</li>
+		<li>-339
+			<ul>
+				<li>Follia di Karsus, caduta delle città volanti</li>
+			</ul>
+		</li>
+		<li>Ches [3] 1550
+			<ul>
+				<li><b>FINE STAGIONE 2</b></li>
+				<li><b>Caduta di Elturel</b></li>
+			</ul>
+		</li>
+	</ul>
+
+</StarBaseLayout>
+	
