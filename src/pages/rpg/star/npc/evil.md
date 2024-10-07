@@ -1,3 +1,9 @@
+---
+layout: '@layouts/rpg/StarLayout.astro'
+title: NPC Antagonisti
+description: NPC Antagonisti - La Stella Nera
+---
+
 ## Antagonisti
 
 ### Culto della stella Nera

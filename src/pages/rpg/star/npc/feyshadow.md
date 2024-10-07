@@ -1,3 +1,9 @@
+---
+layout: '@layouts/rpg/StarLayout.astro'
+title: NPC Fatati
+description: NPC Fatati - La Stella Nera
+---
+
 ## Selva Fatata e Coltre Oscura
 
 Selva Fatata e Coltre Oscura sono entrambi riflessi del Piano Materiale, i piani più vicini ad esso e tra loro opposti.

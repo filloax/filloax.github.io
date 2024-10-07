@@ -1,3 +1,9 @@
+---
+layout: '@layouts/rpg/StarLayout.astro'
+title: NPC Baldur's Gate
+description: NPC Baldur's Gate - La Stella Nera
+---
+
 ## Personaggi di Baldur's Gate
 
 <div style="float: left; width: 250px"><img src="https://5e.tools/img/adventure/BGDIA/044-637000773572596171.png"></div>

@@ -1,3 +1,9 @@
+---
+layout: '@layouts/rpg/StarLayout.astro'
+title: NPC Elturel
+description: NPC Elturel - La Stella Nera
+---
+
 ## Personaggi di Elturel
 
 ### Università Magica

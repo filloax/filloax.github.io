@@ -1,3 +1,9 @@
+---
+layout: '@layouts/rpg/StarLayout.astro'
+title: NPC Avernus
+description: NPC Avernus - La Stella Nera
+---
+
 ## Personaggi dell'Avernus
 
 #### Gargauth

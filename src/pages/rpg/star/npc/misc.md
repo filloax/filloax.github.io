@@ -1,3 +1,9 @@
+---
+layout: '@layouts/rpg/StarLayout.astro'
+title: NPC Vari
+description: NPC Vari - La Stella Nera
+---
+
 ## Altri personaggi
 
 #### Galdrick Braccioforte

@@ -1,3 +1,9 @@
+---
+layout: '@layouts/rpg/StarLayout.astro'
+title: NPC Kor'plactz
+description: NPC Kor'plactz - La Stella Nera
+---
+
 ## Personaggi isolani
 
 ### Tribù della Palude

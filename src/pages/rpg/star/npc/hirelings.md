@@ -1,3 +1,9 @@
+---
+layout: '@layouts/rpg/StarLayout.astro'
+title: NPC Ingaggiati
+description: NPC Ingaggiati - La Stella Nera
+---
+
 ## Personaggi ingaggiati
 
 O in altro modo con il gruppo.

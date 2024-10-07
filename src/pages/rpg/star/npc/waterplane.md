@@ -1,3 +1,9 @@
+---
+layout: '@layouts/rpg/StarLayout.astro'
+title: NPC Piano dell'Acqua
+description: NPC Piano dell'Acqua - La Stella Nera
+---
+
 ## Personaggi del Piano dell'Acqua
 
 ### Resort fluttuante Sabbiascura

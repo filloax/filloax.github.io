@@ -1,3 +1,9 @@
+---
+layout: '@layouts/rpg/StarLayout.astro'
+title: NPC Antichi Eroi
+description: NPC Antichi Eroi - La Stella Nera
+---
+
 ## Antichi eroi
 
 Il gruppo con cui Ser Darian in antichità sventò la minaccia di Illithid e Stella Near.

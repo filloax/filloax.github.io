@@ -1,3 +1,9 @@
+---
+layout: '@layouts/rpg/StarLayout.astro'
+title: NPC Est
+description: NPC Est - La Stella Nera
+---
+
 ## Personaggi di Thesk e Toril Est
 
 Personaggi incontrati durante la missione dei [Gemelli Prodigio](/star/mainquest) o in generale a Thesk e terre orientali.

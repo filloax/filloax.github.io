@@ -1,3 +1,9 @@
+---
+layout: '@layouts/rpg/StarLayout.astro'
+title: NPC Discesa nell'Avernus
+description: NPC Discesa nell'Avernus - La Stella Nera
+---
+
 Lista NPC correlati all'avventura discesa nell'Avernus.
 
 Aggiunti:
