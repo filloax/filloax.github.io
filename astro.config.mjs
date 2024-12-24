@@ -10,7 +10,8 @@ import remarkRawFrontmatter from './plugins/remark-raw-frontmatter.mjs';
 
 // https://astro.build/config
 export default defineConfig({
-  site: 'https://astro-blog-template.netlify.app',
+  site: 'https://filloax.github.io',
+  base: '/',
   integrations: [
     mdx(), 
     svelte(), 
