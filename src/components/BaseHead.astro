@@ -1,4 +1,6 @@
 ---
+import { getImage } from 'astro:assets';
+
 import { ViewTransitions } from 'astro:transitions'
 import '../styles/main.scss'
 
@@ -10,12 +12,22 @@ export interface Props {
 
 const { title, description, permalink } = Astro.props
 const socialUrl = Astro.site.href + 'assets/social.png'
+
+import faviconSrc from '../assets/img/favicon.ico'
+
+const appleTouchIcon = await getImage({
+  src: faviconSrc,
+  width: 180,
+  height: 180,
+  format: 'png'
+})
 ---
 
 <!-- Global Metadata -->
 <meta charset="utf-8" />
 <meta name="viewport" content="width=device-width" />
-<link rel="icon" type="image/x-icon" href="/favicon.ico" />
+<link rel="icon" href={faviconSrc} type="image/x-icon" />
+<link rel="apple-touch-icon" href={appleTouchIcon.src} />
 
 <!-- Primary Meta Tags -->
 <title>{title}</title>
