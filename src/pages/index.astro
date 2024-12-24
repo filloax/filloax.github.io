@@ -1,30 +1,33 @@
 ---
 import BaseLayout from '../layouts/BaseLayout.astro';
+import { Image } from 'astro:assets';
 
-const title = 'My Astro Blog';
-const description = 'The perfect starter for your perfect blog.';
+const title = 'Filloax\'s Mods, Tools & Things';
+const description = 'Filloax\'s webpage for mods, tools, D&D and more';
 const permalink = Astro.site.href;
+
+import profileImage from '../assets/img/channels4_profile.jpg';
 ---
 
 <BaseLayout title={title} description={description} permalink={permalink}>
   <div class="home-container">
     <div class="home-copy">
-      <h1>Welcome to your new Astro Blog</h1>
-      <p>Check out the docs on <a href="https://www.github.com/Charca/astro-blog-template" target="_blank" rel="noopener">GitHub</a> to get started.</p>
+      <h1>{title}</h1>
+      <p>Filloax's page for mods, tools, posts about them and assorted D&D stuff and things</p>
     </div>
-
     <div class="hero-image-container">
       <picture>
-        <source srcset="/assets/home-illustration.webp" media="(min-width: 600px)">
-        <img class="hero-image" alt="Illustration of person reading a book" src="/assets/home-illustration-small.webp" width="550" height="466">
+        <Image 
+          class="hero-image" alt="Photo of a person in a Isaac costume made with a paper bag, dressed like Dante" 
+          src={profileImage} width="350"
+        />
       </picture>
       <p class="caption">
-        Illustration by
-        <a href="https://icons8.com/illustrations/author/5c07e68d82bcbc0092519bb6" target="_blank" rel="noopener">Icons 8</a>
-        from
-        <a href="https://icons8.com/illustrations" target="_blank" rel="noopener">Ouch!</a>
+        Usually my profile picture, <a href="https://www.youtube.com/watch?v=_8cTHqO-7UQ&pp=ygUacmV2ZWxhdGlvbnMgdmFuaXR5IHRyYWlsZXI%3D">context</a>
       </p>
     </div>
+
+    <p>Still WIP</p>
   </div>
 </BaseLayout>
 

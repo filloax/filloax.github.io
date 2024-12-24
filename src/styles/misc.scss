@@ -12,3 +12,17 @@
         content: unquote("\"#{ $fa-var-youtube }\"");
     }
 }
+
+.image-left {
+    float: left;
+}
+.image-right {
+    float: right;
+}
+
+.fill-theme {
+    fill: var(--text-secondary);
+    * {
+        fill: var(--text-secondary);
+    }
+}
