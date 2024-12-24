@@ -14,6 +14,10 @@ import profileImage from '../assets/img/channels4_profile.jpg';
     <div class="home-copy">
       <h1>{title}</h1>
       <p>Filloax's page for mods, tools, posts about them and assorted D&D stuff and things</p>
+
+      <em>Still WIP</em> 
+
+      <a class="old-website-link" href="/oldwebsite">Old Website</a>
     </div>
     <div class="hero-image-container">
       <picture>
@@ -26,8 +30,6 @@ import profileImage from '../assets/img/channels4_profile.jpg';
         Usually my profile picture, <a href="https://www.youtube.com/watch?v=_8cTHqO-7UQ&pp=ygUacmV2ZWxhdGlvbnMgdmFuaXR5IHRyYWlsZXI%3D">context</a>
       </p>
     </div>
-
-    <p>Still WIP</p>
   </div>
 </BaseLayout>
 
@@ -76,6 +78,17 @@ import profileImage from '../assets/img/channels4_profile.jpg';
     width: 100%;
     max-width: 550px;
     margin-bottom: 1em;
+  }
+
+  .old-website-link {
+    background-color: var(--surface-primary);
+    color: var(--on-surface-primary);
+    border-radius: 5px;
+    padding: 5px;
+    text-decoration: none;
+    margin: 5px;
+    display: block;
+    width: fit-content;
   }
 
   @media (max-width: 1200px) {
