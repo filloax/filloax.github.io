@@ -1,0 +1,14 @@
+---
+import SoliBaseLayout from "@/layouts/rpg/SoliBaseLayout.astro";
+
+const url = Astro.url.pathname;
+const title = "Soli Gemelli";
+const description = "Ambientazione Soli Gemelli";
+const permalink = `${Astro.site.href}${url}`;
+---
+
+<SoliBaseLayout title={title} description={description} permalink={permalink}>
+    <h1>Soli Gemelli</h1>
+
+    <p><em>WIP</em></p>
+</SoliBaseLayout>
