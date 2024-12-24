@@ -9,7 +9,7 @@ description: Indice NPC della campagna Stella Nera - La compagnia del Pomello
 Ovviamente sono state omesse le informazioni che non avete ancora.
 
 - [Correlati ai PG](./npc/pgrel). NPC correlati ai background dei PG.
-- [Ingaggiati](./npc/hirelings). Ingaggiati o circa dal party. 
+- [Ingaggiati](./npc/hirelings). Ingaggiati o circa dal party.
 - [Antagonisti](./npc/evil). Cultisti e affini.
 - [Eroi dell'antichità](./npc/heroes). Il gruppo di Ser Darian.
 - [Elturel](./npc/elturel). Personaggi dell'accademia, e del resto della città.
