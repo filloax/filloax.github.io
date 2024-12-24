@@ -26,3 +26,17 @@
         fill: var(--text-secondary);
     }
 }
+
+.nomobile {
+    @media (max-width: 800px) {
+        display: none;
+    }
+}
+.mobileonly {
+    @media (min-width: 800px) {
+        display: none;
+    }
+}
+.nomobile,.mobileonly p {
+    text-indent: 0 !important;
+}

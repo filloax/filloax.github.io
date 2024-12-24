@@ -1,0 +1,10 @@
+---
+const { link, mobileImage, image } = Astro.props;
+
+const rpgLink = '/rpg/' + link;
+---
+
+<a href={rpgLink}>
+    <img src={image} class="nomobile">
+    <img src={mobileImage} class="mobileonly">
+</a>
