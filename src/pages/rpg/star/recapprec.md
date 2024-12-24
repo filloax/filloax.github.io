@@ -1,5 +1,5 @@
 ---
-layout: '@layouts/rpg/StarLayout.astro'
+layout: '@/layouts/rpg/StarLayout.astro'
 title: Riassunto stagioni precedenti - La Stella Nera
 description: Riassunto stagioni precedenti della campagna Stella Nera - La compagnia del Pomello
 ---

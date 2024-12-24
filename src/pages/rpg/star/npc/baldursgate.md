@@ -1,5 +1,5 @@
 ---
-layout: '@layouts/rpg/StarLayout.astro'
+layout: '@/layouts/rpg/StarLayout.astro'
 title: NPC Baldur's Gate
 description: NPC Baldur's Gate - La Stella Nera
 ---

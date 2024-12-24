@@ -1,32 +1,34 @@
 ---
 import getSessionId from "@/utils/rpg/getSessionId";
-import StarBaseLayout from "@layouts/rpg/StarBaseLayout.astro";
-import SessionRecap from '@components/rpg/SessionRecap.astro';
+import StarBaseLayout from "@/layouts/rpg/StarBaseLayout.astro";
+import SessionRecap from '@/components/rpg/SessionRecap.astro';
+import { getCollection } from "astro:content";
 
 export async function getStaticPaths() {
-  const posts = await Astro.glob("@content/rpg/star/sessions/*");
+  const posts = await getCollection("rpg/star/sessions");
   return posts.map((post) => ({
-    params: { id: getSessionId(post.frontmatter) },
+    params: { id: getSessionId(post.data) },
     props: { post },
   }));
 }
 
 const { post } = Astro.props;
-const { frontmatter } = post;
-const id = getSessionId(frontmatter);
+const { data } = post;
+const id = getSessionId(data);
 const permalink = `${Astro.site.href}rpg/star/sessioni/${id}`;
-const description = frontmatter.recap
-  ? frontmatter.recap
+const description = data.recap
+  ? data.recap
   : `Riassunto della sessione ${id}`;
 
 ---
 
 <StarBaseLayout
-  title={frontmatter.title}
+  title={data.title}
   description={description}
   permalink={permalink}
 >
-  <SessionRecap post={post}>
+  {post}
+  <!-- <SessionRecap post={post.body}> -->
 
   </SessionRecap>
 </StarBaseLayout>

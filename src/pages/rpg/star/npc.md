@@ -1,5 +1,5 @@
 ---
-layout: '@layouts/rpg/StarLayout.astro'
+layout: '@/layouts/rpg/StarLayout.astro'
 title: NPC - La Stella Nera
 description: Indice NPC della campagna Stella Nera - La compagnia del Pomello
 ---

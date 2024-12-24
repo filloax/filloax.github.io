@@ -1,5 +1,5 @@
 ---
-layout: '@layouts/rpg/StarLayout.astro'
+layout: '@/layouts/rpg/StarLayout.astro'
 title: Luoghi - La Stella Nera
 description: Indice della campagna Stella Nera - La compagnia del Pomello
 ---

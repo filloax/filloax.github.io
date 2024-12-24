@@ -29,7 +29,7 @@ type File = MarkdownLayoutProps<SessionFrontMatter>;
   ],
 })
 export class SessionsIndexComponent {
-  @Input() files: Record<string, any>[] = [];
+  @Input() files: any[] = [];
   @Input() baseUrl: string = "";
 
   showFiles: File[] = [];
