@@ -1,0 +1,14 @@
+.youtube-link {
+    // content: "\f167"; /* Font Awesome YouTube Icon */
+    // font-family: "Font Awesome 6 Free";
+    // margin-right: 8px;
+    // font-weight: 900;
+    // vertical-align: middle;
+    &::before {
+        color: #ff242488;
+        margin-right: 2px;
+        @extend %fa-icon;
+        @extend .fa-brands;
+        content: unquote("\"#{ $fa-var-youtube }\"");
+    }
+}
