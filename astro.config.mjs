@@ -1,5 +1,4 @@
 import { defineConfig } from 'astro/config';
-import svelte from '@astrojs/svelte';
 import mdx from '@astrojs/mdx';
 import remarkGfm from 'remark-gfm';
 import remarkSmartypants from 'remark-smartypants';
@@ -9,20 +8,29 @@ import remarkRawFrontmatter from './plugins/remark-raw-frontmatter.mjs';
 
 import analogjsangular from '@analogjs/astro-angular';
 
+import svelte from '@astrojs/svelte';
+
 // https://astro.build/config
 export default defineConfig({
   site: 'https://filloax.github.io',
   base: '/',
-  integrations: [mdx(), svelte(), analogjsangular({
+  integrations: [mdx(), analogjsangular({
     vite: {
       inlineStylesExtension: 'scss|sass|less',
     },
-  })],
+  }), svelte()],
   vite: {
     ssr: {
       // transform these packages during SSR. Globs supported
       noExternal: ['@rx-angular/**'],
     },
+    css: {
+      preprocessorOptions: {
+        scss: {
+          quietDeps: true,
+        }
+      },
+    }
   },
   markdown: {
     shikiConfig: {
