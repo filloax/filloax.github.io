@@ -1,7 +1,11 @@
 {
     "compilerOptions": {
-        "paths": {
-            "@/*": ["./src/*"],
+        "resolveJsonModule": true,
+        "isolatedModules": true,
+        "noEmit": true,
+        "baseUrl": ".",
+            "paths": {
+            "@/*": ["src/*"],
         },
     },
     "angularCompilerOptions": {
