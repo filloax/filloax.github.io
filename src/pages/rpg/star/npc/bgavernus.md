@@ -1,5 +1,5 @@
 ---
-layout: '@layouts/rpg/StarLayout.astro'
+layout: '@/layouts/rpg/StarLayout.astro'
 title: NPC Discesa nell'Avernus
 description: NPC Discesa nell'Avernus - La Stella Nera
 ---

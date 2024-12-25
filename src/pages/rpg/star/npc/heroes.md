@@ -1,5 +1,5 @@
 ---
-layout: '@layouts/rpg/StarLayout.astro'
+layout: '@/layouts/rpg/StarLayout.astro'
 title: NPC Antichi Eroi
 description: NPC Antichi Eroi - La Stella Nera
 ---

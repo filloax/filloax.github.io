@@ -1,5 +1,5 @@
 ---
-layout: '@layouts/rpg/StarLayout.astro'
+layout: '@/layouts/rpg/StarLayout.astro'
 title: NPC Primordiali
 description: NPC Primordiali - La Stella Nera
 ---

@@ -1,13 +1,14 @@
 ---
 import StarBaseLayout from "@/layouts/rpg/StarBaseLayout.astro";
 import { SessionsIndexComponent } from "@/components/rpg/sessionsIndex/sessionsIndex.component";
+import { getCollection } from "astro:content";
 
 const url = Astro.url.pathname;
 const title = "Riassunto Sessioni - Stella Nera";
 const description = "Riassunto sessioni della campagna La Stella Nera";
 const permalink = `${Astro.site.href}${url}`;
 
-const files = await Astro.glob("@content/rpg/star/sessions/*");
+const posts = await getCollection('rpg-star-sessions');
 ---
 
 <StarBaseLayout title={title} description={description} permalink={permalink}>
@@ -18,5 +19,7 @@ const files = await Astro.glob("@content/rpg/star/sessions/*");
     aprirli completi (con immagini e altro).
   </p>
 
-  <SessionsIndexComponent files={files} baseUrl={url} client:load />
+  <!-- {posts.map(post => <p>{Object.entries(post)}</p>)} -->
+
+  <SessionsIndexComponent files={posts} baseUrl={url} client:load />
 </StarBaseLayout>

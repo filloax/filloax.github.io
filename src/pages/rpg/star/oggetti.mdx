@@ -1,10 +1,11 @@
 ---
-layout: '@layouts/rpg/StarLayout.astro'
+layout: '@/layouts/rpg/StarLayout.astro'
 title: Oggetti Homebrew - La Stella Nera
 description: Oggetti Homebrew della campagna Stella Nera - La compagnia del Pomello
 ---
 import { Image } from 'astro:assets';
-import IncludeContent from '@components/IncludeContent.astro'
+import IncludeContent from '@/components/IncludeContent.astro'
+import { getCollection } from 'astro:content';
 
 # Oggetti Homebrew
 
@@ -176,7 +177,7 @@ I danni subiti da esso sono inflitti per metà al proprietario.
 
 Ciò che i membri del [gruppo di Darian](./mainquest) avevano ottenuto per combattere la Stella Nera; legami metafisici con insiemi di concetti che permettono di manifestare idee più grandi di quelle di un semplice umano. E anche buoni vecchi superpoteri. Offrono tutte uno "slot" di sintonia di oggetti magici in più, insieme a effetti secondari passivi e attivi (generalmente una volta per settimana).
 
-<IncludeContent path="rpg/star/items" raw="true"/>
+<IncludeContent collection={await getCollection('rpg-star-items')} raw="true"/>
 
 *\*Potrebbero applicarsi eccezioni se si scopre essere sbroccato.*
 

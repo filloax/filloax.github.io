@@ -1,5 +1,5 @@
 ---
-layout: '@layouts/rpg/StarLayout.astro'
+layout: '@/layouts/rpg/StarLayout.astro'
 title: NPC Antagonisti
 description: NPC Antagonisti - La Stella Nera
 ---

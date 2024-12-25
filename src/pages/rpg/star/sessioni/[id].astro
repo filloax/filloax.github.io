@@ -1,13 +1,17 @@
 ---
 import getSessionId from "@/utils/rpg/getSessionId";
-import StarBaseLayout from "@layouts/rpg/StarBaseLayout.astro";
-import SessionRecap from '@components/rpg/SessionRecap.astro';
+import StarBaseLayout from "@/layouts/rpg/StarBaseLayout.astro";
+import SessionRecap from '@/components/rpg/SessionRecap.astro';
+import { getCollection } from "astro:content";
+import getSessionPost from "@/utils/rpg/getSessionPost";
 
 export async function getStaticPaths() {
-  const posts = await Astro.glob("@content/rpg/star/sessions/*");
-  return posts.map((post) => ({
+  const posts = await getCollection('rpg-star-sessions');
+  const sessionPosts = await Promise.all(posts.map(post => getSessionPost(post)));
+  
+  return sessionPosts.map((post) => ({
     params: { id: getSessionId(post.frontmatter) },
-    props: { post },
+    props: { post: post },
   }));
 }
 

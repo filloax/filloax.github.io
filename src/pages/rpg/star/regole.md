@@ -1,5 +1,5 @@
 ---
-layout: '@layouts/rpg/StarLayout.astro'
+layout: '@/layouts/rpg/StarLayout.astro'
 title: Regole - La Stella Nera
 description: Regole casalinghe della campagna Stella Nera - La compagnia del Pomello
 ---

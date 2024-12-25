@@ -1,7 +1,7 @@
 ---
 import { getImage } from 'astro:assets';
 
-import { ViewTransitions } from 'astro:transitions'
+import { ClientRouter } from 'astro:transitions'
 import '../styles/main.scss'
 
 export interface Props {
@@ -48,7 +48,7 @@ const appleTouchIcon = await getImage({
 <meta property="twitter:description" content={description} />
 <meta property="twitter:image" content={socialUrl} />
 
-<!-- <ViewTransitions /> -->
+<!-- <ClientRouter /> -->
 
 <!-- This is intentionally inlined to avoid FOUC -->
 <script is:inline>

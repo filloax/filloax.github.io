@@ -1,13 +1,20 @@
 ---
-import { getCollection } from 'astro:content';
+import { render, type AnyEntryMap, type CollectionEntry } from 'astro:content';
 
 export class Props {
-    path: string;
+    collection: CollectionEntry<keyof AnyEntryMap>[];
 }
 
-const { path } = Astro.props;
+const { collection } = Astro.props;
 
-const files = await Astro.glob('@content/**').then(x => x.filter(file => file.file.includes(path)))
+// const fileContents = await Promise.all(
+//     collection.map(async (post) => {
+//         const { Content, headings, remarkPluginFrontmatter } = await render(post);
+//         console.log("[DEBUG] RENDERED", post, "TO", Content);
+//         return { ...post, Content };
+//     })
+// );
 ---
 
-{files.map((file) => (<div set:html={file.compiledContent()}></div>))}
+<!-- {fileContents.map((renderedFile) => (<div set:html={renderedFile.Content}></div>))} -->
+{collection.map((file) => (<div set:html={file.rendered.html}></div>))}

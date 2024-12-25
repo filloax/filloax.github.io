@@ -1,5 +1,5 @@
 ---
-layout: '@layouts/rpg/StarLayout.astro'
+layout: '@/layouts/rpg/StarLayout.astro'
 title: NPC Ingaggiati
 description: NPC Ingaggiati - La Stella Nera
 ---

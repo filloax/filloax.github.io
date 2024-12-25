@@ -2,25 +2,43 @@
 const currentPagePath = Astro.url.pathname;
 const currentFolder = currentPagePath//.replace(/\/[^\/]+$/, ""); // Get the folder path
 
-const { files } = Astro.props;
+type File = {
+  title?: string;
+  frontmatter?: { title?: string };
+  url: string;
+}
 
-function getTitle(file: any) {
+export interface Props {
+  files: File[];
+  staticElements?: {name: string, href: string, order?: number}[];
+}
+
+const { files, staticElements } = Astro.props;
+
+const staticListElements = staticElements ? staticElements : [];
+
+function getTitle(file: File) {
     const fullTitle = file.frontmatter ? file.frontmatter.title : file.title;
 
     return fullTitle;
 }
 
-const titles = files.map(getTitle);
+function isNumber(n) { return !isNaN(parseFloat(n)) && !isNaN(n - 0) }
 
-
-
+const list = files.map(file => ({href: file.url, name: getTitle(file)}));
+staticListElements.forEach(el => {
+  if (isNumber(el.order)) {
+    list.splice(el.order, 0, el);
+  } else {
+    list.push(el);
+  }
+});
 ---
 
 <ul>
-  {files.map((file) => (
-    
+  {list.map((el) => (
     <li>
-      <a href={file.url}>{getTitle(file)}</a> {/* Strip folder from display */}
+      <a href={el.href}>{el.name}</a> {/* Strip folder from display */}
     </li>
   ))}
 </ul>

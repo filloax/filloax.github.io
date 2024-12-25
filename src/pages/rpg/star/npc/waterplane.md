@@ -1,5 +1,5 @@
 ---
-layout: '@layouts/rpg/StarLayout.astro'
+layout: '@/layouts/rpg/StarLayout.astro'
 title: NPC Piano dell'Acqua
 description: NPC Piano dell'Acqua - La Stella Nera
 ---
