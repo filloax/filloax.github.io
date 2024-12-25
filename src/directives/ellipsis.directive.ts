@@ -62,6 +62,7 @@ export class EllipsisDirective {
 
   buildEllipsis() {
     if (!this.ellipsisData) return;
+    if (!window) return;
 
     const maxHeight = parseFloat(
       window.getComputedStyle(this._checkElement).maxHeight
@@ -112,6 +113,8 @@ export class EllipsisDirective {
   }
 
   getFullHeight() {
+    if (!window) return;
+
     this.element.nativeElement.innerHTML = this.ellipsisData;
 
     const clone = this._checkElement.cloneNode(true) as HTMLElement;
