@@ -28,6 +28,7 @@
     "astro": "^5.1.1",
     "astro-breadcrumbs": "^3.3.1",
     "filloax-pages-astro": "file:",
+    "html-to-text": "^9.0.5",
     "reading-time": "^1.5.0",
     "rehype-external-links": "^3.0.0",
     "remark-gfm": "^4.0.0",

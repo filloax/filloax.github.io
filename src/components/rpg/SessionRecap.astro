@@ -22,7 +22,7 @@ const players = getSessionPlayers(frontmatter);
 
 <header>
   <p>{date} ~ {readingTime}</p>
-  <h1>{frontmatter.title}</h1>
+  <h1 set:html={frontmatter.title}></h1>
   <hr />
 </header>
 <div class="container">

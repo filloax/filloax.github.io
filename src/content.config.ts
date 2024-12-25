@@ -2,13 +2,15 @@ import { defineCollection } from "astro:content";
 import { glob } from 'astro/loaders';
 
 const starItems = defineCollection({
-    loader: glob({ pattern: "rpg/star/items/*.[md|mdx]", base: "./src/content" }),
+    loader: glob({ pattern: "**/*.md", base: "./src/content/rpg/star/items" }),
 });
 const starSessions = defineCollection({
-    loader: glob({ pattern: "rpg/star/sessions/*.[md|mdx]", base: "./src/content" }),
+    loader: glob({ pattern: "**/*.mdx", base: "./src/content/rpg/star/sessions" }),
 });
 
+console.log("[DEBUG 1] COLL STAR ITEMS:", starItems);
+
 export const collections = {
-    'rpg/star/items': starItems,
-    'rpg/star/sessions': starSessions,
+    'rpg-star-items': starItems,
+    'rpg-star-sessions': starSessions,
 };

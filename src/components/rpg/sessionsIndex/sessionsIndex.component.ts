@@ -1,7 +1,6 @@
-import { CommonModule, NgIf, registerLocaleData } from "@angular/common";
+import { CommonModule, registerLocaleData } from "@angular/common";
 import localeIt from '@angular/common/locales/it';
-import { afterNextRender, Component, ElementRef, Input, LOCALE_ID, Renderer2, type SimpleChanges } from "@angular/core";
-import type { MarkdownLayoutProps } from "astro";
+import { afterNextRender, Component, Input, LOCALE_ID, Renderer2, type SimpleChanges } from "@angular/core";
 import { setupShakyText } from "@/utils/shakyText";
 import { FontAwesomeModule } from "@fortawesome/angular-fontawesome";
 import {
@@ -13,10 +12,11 @@ import { Constants } from "@/utils/constants";
 import type { SessionFrontMatter } from "@/model/rpg.model";
 import { navigate } from 'astro:transitions/client';
 import getSessionId from "@/utils/rpg/getSessionId";
+import type { AnyEntryMap, CollectionEntry } from "astro:content";
 
 registerLocaleData(localeIt);
 
-type File = MarkdownLayoutProps<SessionFrontMatter>;
+type File = CollectionEntry<keyof AnyEntryMap>;
 
 @Component({
   selector: "app-sessions-index",
@@ -73,10 +73,10 @@ export class SessionsIndexComponent {
     
     const sortedFiles = this.recentFirst
       ? files.toSorted((a, b) =>
-          this.compareDates(b.frontmatter.date, a.frontmatter.date)
+          this.compareDates(b.data.date, a.data.date)
         )
       : files.toSorted((a, b) =>
-          this.compareDates(a.frontmatter.date, b.frontmatter.date)
+          this.compareDates(a.data.date, b.data.date)
         );
 
     if (this.showAll) {
@@ -96,15 +96,15 @@ export class SessionsIndexComponent {
   loadLevels() {
     const files = this.files as File[];
     const sortedFiles = files.toSorted((a, b) =>
-        this.compareDates(a.frontmatter.date, b.frontmatter.date)
+        this.compareDates(a.data.date, b.data.date)
       );
 
     let level = 1;
     // find starting level
     for (let i = 0; i < sortedFiles.length; i++) {
       const file = sortedFiles[i];
-      if (file.frontmatter.levelup) {
-        level = file.frontmatter.levelup;
+      if (file.data.levelup) {
+        level = file.data.levelup;
         if (i > 0) // if not first, starts from level before
           level--;
         break;
@@ -113,10 +113,10 @@ export class SessionsIndexComponent {
 
     const levels = {};
     for (const file of sortedFiles) {
-      if (file.frontmatter.levelup) {
-        level = file.frontmatter.levelup;
+      if (file.data.levelup) {
+        level = file.data.levelup;
       }
-      levels[file.file] = level;
+      levels[file.id] = level;
     }
     this.sessionLevels = levels;
   }

@@ -28,6 +28,8 @@ export class EllipsisDirective {
   }
 
   ngAfterViewInit() {
+    if (!window) return;
+
     // console.log(this.element.nativeElement);
     this.element.nativeElement.attributes.lastWindowResizeTime = 0;
     this.element.nativeElement.attributes.lastWindowResizeWidth = 0;

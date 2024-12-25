@@ -22,37 +22,37 @@
 
   <!-- Session Cards Container -->
   <div id="session-cards" class="session-cards">
-    @for (file of showFiles; track file.frontmatter.title) {
+    @for (file of showFiles; track file.data.title) {
       <div
         #card
         class="session-card"
-        [id]="'card-' + file.url"
+        [id]="'card-' + file.id"
         (mouseenter)="startHover(card)"
         (mouseleave)="endHover(card)"
-        (click)="openSession(file.frontmatter)"
+        (click)="openSession(file.data)"
       >
       <div class="card-content"
         #cardContent
         [style.height]="hoveredCard === card ? calcFullHeight(cardContent) : ''"
         [style.maxHeight]="hoveredCard === card ? calcFullMaxHeight(cardContent) : ''"
         >
-          <h2 [innerHtml]="file.frontmatter.title"></h2>
+          <h2 [innerHtml]="file.data.title"></h2>
           <p
-            *ngIf="file.frontmatter.recap"
+            *ngIf="file.data.recap"
             appEllipsis
-            [ellipsisData]="file.frontmatter.recap"
+            [ellipsisData]="file.data.recap"
             [checkElement]="cardContent"
           ></p>
         </div>
 
         <div class="session-card-footer info">
-          <span class="session-level">{{ sessionLevels[file.file] }}</span>
-          <span class="session-icon-levelup" *ngIf="file.frontmatter.levelup">
+          <span class="session-level">{{ sessionLevels[file.id] }}</span>
+          <span class="session-icon-levelup" *ngIf="file.data.levelup">
           </span>
-          <span class="session-icon-new" *ngIf="file.frontmatter.new"> </span>
+          <span class="session-icon-new" *ngIf="file.data.new"> </span>
         </div>
         <div class="session-card-footer date">
-          <span class="session-date">{{ file.frontmatter.date | date }}</span>
+          <span class="session-date">{{ file.data.date | date }}</span>
         </div>
       </div>
     } @empty {

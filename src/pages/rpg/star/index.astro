@@ -8,6 +8,9 @@ const description = "Indice della campagna Stella Nera - La compagnia del Pomell
 const permalink = `${Astro.site.href}${url}`;
 
 const files = await Astro.glob('./*');
+const extraElements = [
+	{href: "./star/sessioni", name: "Riassunti sessioni", order: 0}
+]
 ---
 
 <StarBaseLayout title={title} description={description} permalink={permalink}>
@@ -17,7 +20,7 @@ const files = await Astro.glob('./*');
 
 	<h5>La compagnia del Pomello</h5>
 
-	<CampaignIndex files={files}/>
+	<CampaignIndex files={files} staticElements={extraElements}/>
 
 	<h2>Timeline</h2>
 
