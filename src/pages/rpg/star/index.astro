@@ -7,10 +7,11 @@ const title = "La Stella Nera";
 const description = "Indice della campagna Stella Nera - La compagnia del Pomello";
 const permalink = `${Astro.site.href}${url}`;
 
-const files = await Astro.glob('./*');
+const files = Object.values(import.meta.glob('./*', { eager: true })) as any[];
 const extraElements = [
 	{href: "./star/sessioni", name: "Riassunti sessioni", order: 0}
 ]
+
 ---
 
 <StarBaseLayout title={title} description={description} permalink={permalink}>
