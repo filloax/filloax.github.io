@@ -2,6 +2,7 @@
 import StarBaseLayout from "@/layouts/rpg/StarBaseLayout.astro";
 import { PostIndexComponent, type SessionPostInformation } from "@/components/rpg/postIndex/postIndex.component";
 import { getCollection } from "astro:content";
+import getSessionId from "@/utils/rpg/getSessionId";
 
 const url = Astro.url.pathname;
 const title = "Riassunto Sessioni - Stella Nera";
@@ -12,7 +13,7 @@ const posts = await getCollection('rpg-star-sessions');
 
 const postInformation = posts.map(post => ({
   title: post.data.title,
-  id: post.slug,
+  id: getSessionId(post.data.title).toString(),
   date: post.data.date,
   levelup: post.data.levelup,
   new: post.data.new,
