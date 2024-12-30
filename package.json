@@ -3,10 +3,11 @@
   "version": "0.0.1",
   "scripts": {
     "dev": "astro dev",
-    "start": "astro dev",
-    "build": "astro check && astro build",
+    "start": "npm run prebuild && astro dev",
+    "build": "npm run prebuild && astro build",
     "preview": "astro preview",
-    "astro": "astro"
+    "astro": "astro",
+    "prebuild": "node scripts/prebuild.js"
   },
   "dependencies": {
     "@analogjs/astro-angular": "^1.10.3",
