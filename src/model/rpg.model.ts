@@ -1,19 +1,15 @@
-export interface SessionFrontMatter {
+import type { DefaultFrontmatter } from "./post.model";
+
+export interface SessionFrontMatter extends DefaultFrontmatter {
   title: string;
   date: string;
   players: string[];
   recap?: string;
   levelup?: number;
   new?: boolean;
-  rawMarkdown: string;
 }
 
-export interface SessionPost {
-  frontmatter: SessionFrontMatter,
-  Content: any,
-}
-
-export interface SettingFrontMatter {
+export interface SettingFrontMatter extends DefaultFrontmatter {
   title: string;
   date: string;
 }

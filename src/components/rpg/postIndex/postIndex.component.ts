@@ -192,7 +192,6 @@ export class PostIndexComponent {
   }
 
   postUrl(post: PostInformation) {
-    console.log(this.baseUrl, "HEY", post)
     return `${this.baseUrl.replace(/\/$/, '')}/${post.id}`;
   }
 
