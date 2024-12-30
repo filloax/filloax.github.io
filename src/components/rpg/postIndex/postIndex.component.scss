@@ -1,4 +1,4 @@
-.session-index {
+.post-index {
   max-width: 800px;
 }
 
@@ -18,12 +18,12 @@
   }
 }
 
-.session-cards {
+.post-cards {
   display: grid;
   grid-template-columns: repeat(auto-fill, minmax(380px, 1fr));
   gap: 1rem;
 
-  .session-card {
+  .post-card {
     cursor: pointer;
     padding: 5px;
     background-color: var(--surface-primary);
@@ -73,7 +73,7 @@
     }
   }
 
-  .session-card-footer {
+  .post-card-footer {
     position: absolute;
     bottom: 0;
     padding: 0.5rem;
@@ -98,12 +98,12 @@
       font-family: var(--font-family-sans);
     }
 
-    .session-level {
+    .post-level {
       grid-area: level;
       color: var(--text-secondary);
     }
 
-    .session-icon {
+    .post-icon {
       &-new::after {
         content: "•";
         margin-left: 5px;

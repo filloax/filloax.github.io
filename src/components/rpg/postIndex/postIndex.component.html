@@ -1,4 +1,4 @@
-<div class="session-index">
+<div class="post-index" [ngClass]="isSession ? 'sessions' : ''">
   <!-- Toggle View Mode Button -->
   <div class="show-settings">
     <button
@@ -21,38 +21,38 @@
   <ng-template *ngTemplateOutlet="paginationControls"></ng-template>
 
   <!-- Session Cards Container -->
-  <div id="session-cards" class="session-cards">
-    @for (file of showFiles; track file.data.title) {
+  <div id="post-cards" class="post-cards">
+    @for (post of showPosts; track post.id) {
       <div
         #card
-        class="session-card"
-        [id]="'card-' + file.id"
+        class="post-card"
+        [id]="'card-' + post.id"
         (mouseenter)="startHover(card)"
         (mouseleave)="endHover(card)"
-        (click)="openSession(file.data)"
+        (click)="openPost(post)"
       >
       <div class="card-content"
         #cardContent
         [style.height]="hoveredCard === card ? calcFullHeight(cardContent) : ''"
         [style.maxHeight]="hoveredCard === card ? calcFullMaxHeight(cardContent) : ''"
         >
-          <h2 [innerHtml]="file.data.title"></h2>
+          <h2 [innerHtml]="post.title"></h2>
           <p
-            *ngIf="file.data.recap"
+            *ngIf="post.recap"
             appEllipsis
-            [ellipsisData]="file.data.recap"
+            [ellipsisData]="post.recap"
             [checkElement]="cardContent"
           ></p>
         </div>
 
-        <div class="session-card-footer info">
-          <span class="session-level">{{ sessionLevels[file.id] }}</span>
-          <span class="session-icon-levelup" *ngIf="file.data.levelup">
+        <div class="post-card-footer info">
+          <span class="post-level" *ngIf="isSession">{{ sessionLevels[post.id] }}</span>
+          <span class="post-icon-levelup" *ngIf="isSession && castSession(post).levelup">
           </span>
-          <span class="session-icon-new" *ngIf="file.data.new"> </span>
+          <span class="post-icon-new" *ngIf="post.new"> </span>
         </div>
-        <div class="session-card-footer date">
-          <span class="session-date">{{ file.data.date | date }}</span>
+        <div class="post-card-footer date">
+          <span class="post-date">{{ post.date | date }}</span>
         </div>
       </div>
     } @empty {

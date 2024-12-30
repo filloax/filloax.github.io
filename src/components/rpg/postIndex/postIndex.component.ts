@@ -12,27 +12,37 @@ import { Constants } from "@/utils/constants";
 import type { SessionFrontMatter } from "@/model/rpg.model";
 import { navigate } from 'astro:transitions/client';
 import getSessionId from "@/utils/rpg/getSessionId";
-import type { AnyEntryMap, CollectionEntry } from "astro:content";
 
 registerLocaleData(localeIt);
 
-type File = CollectionEntry<keyof AnyEntryMap>;
+export interface PostInformation {
+  title: string;
+  date: string;
+  id: string;
+  new?: boolean;
+  recap?: string;
+}
+
+export interface SessionPostInformation extends PostInformation {
+  levelup?: number;
+}
 
 @Component({
-  selector: "app-sessions-index",
+  selector: "app-post-index",
   standalone: true,
   imports: [CommonModule, FontAwesomeModule, EllipsisDirective],
-  templateUrl: "./sessionsIndex.component.html",
-  styleUrl: "./sessionsIndex.component.scss",
+  templateUrl: "./postIndex.component.html",
+  styleUrl: "./postIndex.component.scss",
   providers: [
     { provide: LOCALE_ID, useValue: 'it-IT' },
   ],
 })
-export class SessionsIndexComponent {
-  @Input() files: any[] = [];
+export class PostIndexComponent {
+  @Input() posts: PostInformation[] = [];
   @Input() baseUrl: string = "";
+  @Input() isSession: boolean = false;
 
-  showFiles: File[] = [];
+  showPosts: PostInformation[] = [];
   showAll: boolean = true;
   page: number = 0;
   pageFiles = 10;
@@ -46,7 +56,11 @@ export class SessionsIndexComponent {
   faArrowUpWideShort = faArrowUpWideShort;
 
   get numPages() {
-    return Math.ceil(this.files.length / this.pageFiles);
+    return Math.ceil(this.posts.length / this.pageFiles);
+  }
+
+  get sessionPosts(): SessionPostInformation[] {
+    return this.isSession ? this.posts.map(x => x as SessionPostInformation) : [];
   }
 
   constructor(
@@ -68,21 +82,21 @@ export class SessionsIndexComponent {
   }
 
   buildFiles() {
-    const files = this.files as File[];
-    if (!this.files) return;
+    const files = this.posts;
+    if (!this.posts) return;
     
     const sortedFiles = this.recentFirst
       ? files.toSorted((a, b) =>
-          this.compareDates(b.data.date, a.data.date)
+          this.compareDates(b.date, a.date)
         )
       : files.toSorted((a, b) =>
-          this.compareDates(a.data.date, b.data.date)
+          this.compareDates(a.date, b.date)
         );
 
     if (this.showAll) {
-      this.showFiles = sortedFiles;
+      this.showPosts = sortedFiles;
     } else {
-      this.showFiles = sortedFiles.slice(
+      this.showPosts = sortedFiles.slice(
         this.page * this.pageFiles,
         (this.page + 1) * this.pageFiles
       );
@@ -94,17 +108,16 @@ export class SessionsIndexComponent {
   }
 
   loadLevels() {
-    const files = this.files as File[];
-    const sortedFiles = files.toSorted((a, b) =>
-        this.compareDates(a.data.date, b.data.date)
+    const sessions = this.sessionPosts;
+    const sortedSessions = sessions.toSorted((a, b) =>
+        this.compareDates(a.date, b.date)
       );
 
     let level = 1;
     // find starting level
-    for (let i = 0; i < sortedFiles.length; i++) {
-      const file = sortedFiles[i];
-      if (file.data.levelup) {
-        level = file.data.levelup;
+    for (let i = 0; i < sortedSessions.length; i++) {
+      if (sessions[i].levelup) {
+        level = sessions[i].levelup;
         if (i > 0) // if not first, starts from level before
           level--;
         break;
@@ -112,11 +125,11 @@ export class SessionsIndexComponent {
     }
 
     const levels = {};
-    for (const file of sortedFiles) {
-      if (file.data.levelup) {
-        level = file.data.levelup;
+    for (const session of sortedSessions) {
+      if (session.levelup) {
+        level = session.levelup;
       }
-      levels[file.id] = level;
+      levels[session.id] = level;
     }
     this.sessionLevels = levels;
   }
@@ -174,8 +187,9 @@ export class SessionsIndexComponent {
     this.hoveredCard = null;
   }
 
-  openSession(frontmatter: SessionFrontMatter) {
-    const id = getSessionId(frontmatter);
-    navigate(`${this.baseUrl.replace(/\/$/, '')}/${id}`);
+  openPost(post: PostInformation) {
+    navigate(`${this.baseUrl.replace(/\/$/, '')}/${post.id}`);
   }
+
+  castSession(post: PostInformation) { return post as SessionPostInformation }
 }
