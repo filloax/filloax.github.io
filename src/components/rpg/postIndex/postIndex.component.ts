@@ -41,11 +41,13 @@ export class PostIndexComponent {
   @Input() posts: PostInformation[] = [];
   @Input() baseUrl: string = "";
   @Input() isSession: boolean = false;
+  @Input() showControls: boolean = true;
+  @Input() startPaged: boolean = false;
+  @Input() pagePosts: number = 10;
 
   showPosts: PostInformation[] = [];
   showAll: boolean = true;
   page: number = 0;
-  pageFiles = 10;
   recentFirst = true;
 
   // fileRecapsRaw: Record<string, string> = {};
@@ -56,7 +58,7 @@ export class PostIndexComponent {
   faArrowUpWideShort = faArrowUpWideShort;
 
   get numPages() {
-    return Math.ceil(this.posts.length / this.pageFiles);
+    return Math.ceil(this.posts.length / this.pagePosts);
   }
 
   get sessionPosts(): SessionPostInformation[] {
@@ -72,6 +74,8 @@ export class PostIndexComponent {
   ngOnInit() {
     this.buildFiles();
     this.loadLevels();
+
+    this.showAll = !this.startPaged;
   }
 
   ngOnChanges(changes: SimpleChanges) {
@@ -97,8 +101,8 @@ export class PostIndexComponent {
       this.showPosts = sortedFiles;
     } else {
       this.showPosts = sortedFiles.slice(
-        this.page * this.pageFiles,
-        (this.page + 1) * this.pageFiles
+        this.page * this.pagePosts,
+        (this.page + 1) * this.pagePosts
       );
     }
 

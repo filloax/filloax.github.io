@@ -1,6 +1,6 @@
 <div class="post-index" [ngClass]="isSession ? 'sessions' : ''">
   <!-- Toggle View Mode Button -->
-  <div class="show-settings">
+  <div class="show-settings" *ngIf="showControls">
     <button
       id="toggle-view-mode"
       (click)="changeMode()"
@@ -45,7 +45,7 @@
           ></p>
         </div>
 
-        <div class="post-card-footer info">
+        <div class="post-card-footer info" *ngIf="isSession || post.new">
           <span class="post-level" *ngIf="isSession">{{ sessionLevels[post.id] }}</span>
           <span class="post-icon-levelup" *ngIf="isSession && castSession(post).levelup">
           </span>
