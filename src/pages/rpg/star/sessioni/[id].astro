@@ -4,7 +4,7 @@ import StarBaseLayout from "@/layouts/rpg/StarBaseLayout.astro";
 import SessionRecap from '@/components/rpg/SessionRecap.astro';
 import { getCollection } from "astro:content";
 import type { SessionFrontMatter } from "@/model/rpg.model";
-import { render } from "astro:content";
+import { renderTypedPost } from "@/utils/getTypedPost";
 
 export async function getStaticPaths() {
   const posts = await getCollection('rpg-star-sessions');
@@ -15,10 +15,7 @@ export async function getStaticPaths() {
   }));
 }
 
-const { post } = Astro.props;
-const { Content, remarkPluginFrontmatter } = await render(post);
-
-const data = remarkPluginFrontmatter as SessionFrontMatter;
+const { post, data, Content } = await renderTypedPost<SessionFrontMatter>(Astro.props.post);
 const id = getSessionId(data);
 const permalink = `${Astro.site.href}rpg/star/sessioni/${id}`;
 const description = data.recap
