@@ -29,31 +29,33 @@
         [id]="'card-' + post.id"
         (mouseenter)="startHover(card)"
         (mouseleave)="endHover(card)"
-        (click)="openPost(post)"
       >
-      <div class="card-content"
-        #cardContent
-        [style.height]="hoveredCard === card ? calcFullHeight(cardContent) : ''"
-        [style.maxHeight]="hoveredCard === card ? calcFullMaxHeight(cardContent) : ''"
-        >
-          <h2 [innerHtml]="post.title"></h2>
-          <p
-            *ngIf="post.recap"
-            appEllipsis
-            [ellipsisData]="post.recap"
-            [checkElement]="cardContent"
-          ></p>
-        </div>
+      <!-- (click)="openPost(post)" -->
+      <a [href]="postUrl(post)">
+        <div class="card-content"
+          #cardContent
+          [style.height]="hoveredCard === card ? calcFullHeight(cardContent) : ''"
+          [style.maxHeight]="hoveredCard === card ? calcFullMaxHeight(cardContent) : ''"
+          >
+            <h2 [innerHtml]="post.title"></h2>
+            <p
+              *ngIf="post.recap"
+              appEllipsis
+              [ellipsisData]="post.recap"
+              [checkElement]="cardContent"
+            ></p>
+          </div>
 
-        <div class="post-card-footer info" *ngIf="isSession || post.new">
-          <span class="post-level" *ngIf="isSession">{{ sessionLevels[post.id] }}</span>
-          <span class="post-icon-levelup" *ngIf="isSession && castSession(post).levelup">
-          </span>
-          <span class="post-icon-new" *ngIf="post.new"> </span>
-        </div>
-        <div class="post-card-footer date">
-          <span class="post-date">{{ post.date | date }}</span>
-        </div>
+          <div class="post-card-footer info" *ngIf="isSession || post.new">
+            <span class="post-level" *ngIf="isSession">{{ sessionLevels[post.id] }}</span>
+            <span class="post-icon-levelup" *ngIf="isSession && castSession(post).levelup">
+            </span>
+            <span class="post-icon-new" *ngIf="post.new"> </span>
+          </div>
+          <div class="post-card-footer date">
+            <span class="post-date">{{ post.date | date }}</span>
+          </div>
+        </a>
       </div>
     } @empty {
       Caricamento...

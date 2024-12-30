@@ -191,9 +191,14 @@ export class PostIndexComponent {
     this.hoveredCard = null;
   }
 
-  openPost(post: PostInformation) {
-    navigate(`${this.baseUrl.replace(/\/$/, '')}/${post.id}`);
+  postUrl(post: PostInformation) {
+    console.log(this.baseUrl, "HEY", post)
+    return `${this.baseUrl.replace(/\/$/, '')}/${post.id}`;
   }
+
+  // openPost(post: PostInformation) {
+  //   navigate(`${this.baseUrl.replace(/\/$/, '')}/${post.id}`);
+  // }
 
   castSession(post: PostInformation) { return post as SessionPostInformation }
 }

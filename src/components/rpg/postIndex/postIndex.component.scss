@@ -23,6 +23,13 @@
   grid-template-columns: repeat(auto-fill, minmax(380px, 1fr));
   gap: 1rem;
 
+  a {
+    text-decoration: none;
+    &:hover {
+      color: var(--on-surface-primary);
+    }
+  }
+
   .post-card {
     cursor: pointer;
     padding: 5px;
