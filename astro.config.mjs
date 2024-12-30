@@ -5,6 +5,7 @@ import remarkSmartypants from 'remark-smartypants';
 import rehypeExternalLinks from 'rehype-external-links';
 import remarkToc from 'remark-toc';
 import remarkReadingTime from './plugins/remark-reading-time.mjs';
+import rehypeFootnoteTitles from './plugins/remark-gfm-footnote-title.mjs';
 
 import analogjsangular from '@analogjs/astro-angular';
 
@@ -40,6 +41,7 @@ export default defineConfig({
     remarkPlugins: [
       remarkGfm, 
       remarkSmartypants, 
+      rehypeFootnoteTitles,
       [remarkToc, {
         heading: 'contents',
       }],
