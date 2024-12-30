@@ -3,3 +3,30 @@
 
 @import '../assets/phb.assets.scss';
 @import './dnd.scss';
+
+.footnotes {
+    li::marker {
+        color: var(--text-primary);
+        font-size: 0.75rem;
+    }
+    p {
+        color: var(--text-primary);
+        font-size: 0.75rem;
+        font-style: italic;
+    }
+}
+
+.red {
+    color: var(--color-red) !important;
+}
+
+img {
+    max-width: 1000px;
+    margin: auto;
+}
+
+a:has(img) {
+    margin: auto;
+    width: fit-content;
+    display: block;
+}

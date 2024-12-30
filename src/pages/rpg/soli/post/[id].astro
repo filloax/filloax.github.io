@@ -1,6 +1,9 @@
 ---
 import SoliBaseLayout from '@/layouts/rpg/SoliBaseLayout.astro';
 import { getCollection, getEntry, render } from 'astro:content';
+import { renderTypedPost } from "@/utils/getTypedPost";
+import type { SettingFrontMatter } from '@/model/rpg.model';
+import Post from '@/components/Post.astro';
 
 // 1. Generate a new path for every collection entry
 export async function getStaticPaths() {
@@ -13,10 +16,25 @@ export async function getStaticPaths() {
 
 // 2. For your template, you can get the entry directly from the prop
 const { post } = Astro.props;
-const { Content } = await render(post);
+const { Content, data } = await renderTypedPost<SettingFrontMatter>(post);
+const permalink = `${Astro.site.href}rpg/soli/post/${post.id}`;
 
 ---
 
-<SoliBaseLayout title="test1" description="test" permalink="test3">
+<SoliBaseLayout title={data.title} description={data.title} permalink={permalink}>
+  <Post date={data.date} readingTime={data.minutesRead} title={data.title}>
     <Content />
+  </Post>
 </SoliBaseLayout>
+
+<style>
+  * {
+    font-size: 12px;
+  }
+</style>
+
+<style is:global>
+  :root {
+    --page-width: var(--page-width-max);
+  }
+</style>
