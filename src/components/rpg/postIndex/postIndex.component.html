@@ -1,0 +1,79 @@
+<div class="post-index" [ngClass]="isSession ? 'sessions' : ''">
+  <!-- Toggle View Mode Button -->
+  <div class="show-settings" *ngIf="showControls">
+    <button
+      id="toggle-view-mode"
+      (click)="changeMode()"
+      [ngClass]="!showAll ? 'inactive' : ''"
+    >
+      Mostra tutti
+    </button>
+    <button id="toggle-view-order" (click)="changeOrder()">
+      <fa-icon
+        [icon]="faArrowDownWideShort"
+        *ngIf="recentFirst"
+        alt="a"
+      ></fa-icon>
+      <fa-icon [icon]="faArrowUpWideShort" *ngIf="!recentFirst"></fa-icon>
+    </button>
+  </div>
+
+  <ng-template *ngTemplateOutlet="paginationControls"></ng-template>
+
+  <!-- Session Cards Container -->
+  <div id="post-cards" class="post-cards">
+    @for (post of showPosts; track post.id) {
+      <div
+        #card
+        class="post-card"
+        [id]="'card-' + post.id"
+        (mouseenter)="startHover(card)"
+        (mouseleave)="endHover(card)"
+      >
+      <!-- (click)="openPost(post)" -->
+      <a [href]="postUrl(post)">
+        <div class="card-content"
+          #cardContent
+          [style.height]="hoveredCard === card ? calcFullHeight(cardContent) : ''"
+          [style.maxHeight]="hoveredCard === card ? calcFullMaxHeight(cardContent) : ''"
+          >
+            <h2 [innerHtml]="post.title"></h2>
+            <p
+              *ngIf="post.recap"
+              appEllipsis
+              [ellipsisData]="post.recap"
+              [checkElement]="cardContent"
+            ></p>
+          </div>
+
+          <div class="post-card-footer info" *ngIf="isSession || post.new">
+            <span class="post-level" *ngIf="isSession">{{ sessionLevels[post.id] }}</span>
+            <span class="post-icon-levelup" *ngIf="isSession && castSession(post).levelup">
+            </span>
+            <span class="post-icon-new" *ngIf="post.new"> </span>
+          </div>
+          <div class="post-card-footer date">
+            <span class="post-date">{{ post.date | date }}</span>
+          </div>
+        </a>
+      </div>
+    } @empty {
+      Caricamento...
+    }
+  </div>
+
+  <ng-template *ngTemplateOutlet="paginationControls"></ng-template>
+</div>
+
+<ng-template #paginationControls>
+  <div id="pagination-controls" class="pagination" *ngIf="!showAll">
+    @for (item of [].constructor(numPages); track $index) {
+      <button
+        [ngClass]="$index === page ? 'active' : ''"
+        (click)="setPage($index)"
+      >
+        {{ $index + 1 }}
+      </button>
+    }
+  </div>
+</ng-template>

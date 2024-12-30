@@ -43,7 +43,7 @@
       border-width: 11px;
       border-image: $noteBorderImage 11;
       border-image-outset: 9px 0px;
-      box-shadow: 1px 4px 14px var(--surface-secondary);
+      box-shadow: 1px 4px 14px rgba(var(--surface-primary), 0.5);
       @include useSansSerif();
       p, ul, li {
         font-size: 0.9rem;

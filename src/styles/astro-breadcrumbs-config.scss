@@ -1,22 +1,22 @@
-// @use "astro-breadcrumbs/breadcrumbs.scss"// with (
-//   /// Your config goes here
-//   /// $size-font: 12px;
-//   /// $color-link: rebeccapurple;
-// // )
-// ;
+@use "modules/breadcrumbs.scss"// with (
+  /// Your config goes here
+  /// $size-font: 12px;
+  /// $color-link: rebeccapurple;
+// )
+;
 
 
-// .#{breadcrumbs.$bem-root} {
-//   background-color: var(--surface-primary);
-//   color: var(--on-surface-primary);
-//   width: fit-content;
-//   padding-right: 2rem;
-//   border-radius: 10px 0 10px 0;
-//   margin-bottom: 1rem;
+.#{breadcrumbs.$bem-root} {
+  background-color: var(--surface-primary);
+  color: var(--on-surface-primary);
+  width: fit-content;
+  padding-right: 2rem;
+  border-radius: 10px 0 10px 0;
+  margin-bottom: 1rem;
 
-//   &__crumb {
-//     &:not(:last-child) {
-//       opacity: 75%;
-//     }
-//   }
-// }
+  &__crumb {
+    &:not(:last-child) {
+      opacity: 75%;
+    }
+  }
+}

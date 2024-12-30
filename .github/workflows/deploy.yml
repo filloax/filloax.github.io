@@ -38,7 +38,7 @@ jobs:
 
       - name: Build
         shell: "bash"
-        run: npx astro build
+        run: npm run build
 
       - name: Upload Pages Artifact
         uses: actions/upload-pages-artifact@v3

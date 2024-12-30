@@ -1,14 +1,67 @@
 ---
 import SoliBaseLayout from "@/layouts/rpg/SoliBaseLayout.astro";
+import { PostIndexComponent, type PostInformation } from "@/components/rpg/postIndex/postIndex.component";
+import { getCollection } from "astro:content";
 
 const url = Astro.url.pathname;
 const title = "Soli Gemelli";
 const description = "Ambientazione Soli Gemelli";
 const permalink = `${Astro.site.href}${url}`;
+
+const posts = await getCollection('rpg-soli-post');
+
+const postInformation = posts.map(post => ({
+  title: post.data.title,
+  id: post.id,
+  date: post.data.date,
+  new: post.data.new,
+  recap: post.data.recap,
+} as PostInformation));
 ---
 
 <SoliBaseLayout title={title} description={description} permalink={permalink}>
     <h1>Soli Gemelli</h1>
 
     <p><em>WIP</em></p>
+
+    <div class="columns">
+        <div>
+            <ul>
+                <li>Ut mollis risus at nulla ornare laoreet.</li>
+                <li>Cras et odio congue, tincidunt enim sed, porttitor enim.</li>
+                <li>Duis ultricies augue nec nibh mattis, vel finibus ligula faucibus.</li>
+            </ul>
+        </div>
+        <div>
+            <h4>Ultimi post sull'ambientazione (<a href={`${url}/post`}>archivio completo</a>)</h4>
+
+            <PostIndexComponent 
+                posts={postInformation} baseUrl={`${url}/post`} isSession={false} 
+                showControls={false} startPaged={false} pagePosts={5}
+                client:load 
+            />
+        </div>
+    </div>
 </SoliBaseLayout>
+
+<style lang="scss">
+    .columns {
+        @media (min-width: 800px) {
+            display: flex;
+
+            > div {
+                padding: 0 10px;
+                width: 50%;
+            }
+
+            > :not(:first-child) {
+                border-left: 1px solid var(--text-tertiary);
+            }
+        }
+        @media (max-width: 800px) {
+            > :not(:first-child) {
+                border-top: 1px solid var(--text-tertiary);
+            }
+        }
+    }
+</style>

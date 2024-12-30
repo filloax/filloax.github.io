@@ -1,8 +1,8 @@
 import type { SessionFrontMatter } from "@/model/rpg.model";
 
-export default function getSessionId(frontmatter: SessionFrontMatter | string) {
+export default function getSessionId(frontmatterData: SessionFrontMatter | string) {
   const title =
-    typeof frontmatter === "string" ? frontmatter : frontmatter.title;
+    typeof frontmatterData === "string" ? frontmatterData : frontmatterData.title;
 
   const id = parseInt(
     title.split("-")[0].toLowerCase().replaceAll(/[^\d]/g, "")
