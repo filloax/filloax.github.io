@@ -12,3 +12,8 @@ export interface SessionPost {
   frontmatter: SessionFrontMatter,
   Content: any,
 }
+
+export interface SettingFrontMatter {
+  title: string;
+  date: string;
+}

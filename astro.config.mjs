@@ -33,6 +33,9 @@ export default defineConfig({
       },
     }
   },
+  redirects: {
+    '/rpg/soli/post': '/rpg/soli'
+  },
   markdown: {
     shikiConfig: {
       theme: 'nord'

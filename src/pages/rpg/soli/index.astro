@@ -11,4 +11,38 @@ const permalink = `${Astro.site.href}${url}`;
     <h1>Soli Gemelli</h1>
 
     <p><em>WIP</em></p>
+
+    <div class="columns">
+        <div>
+            <ul>
+                <li>Ut mollis risus at nulla ornare laoreet.</li>
+                <li>Cras et odio congue, tincidunt enim sed, porttitor enim.</li>
+                <li>Duis ultricies augue nec nibh mattis, vel finibus ligula faucibus.</li>
+            </ul>
+        </div>
+        <div>
+            <ul>
+                <li>Lorem ipsum dolor sit amet, consectetur adipiscing elit.</li>
+                <li>Aliquam sed nisl eget arcu viverra accumsan sed id eros.</li>
+                <li>In eu elit quis sem elementum pretium.</li>
+                <li></li>
+                <li>Curabitur ut orci vitae arcu convallis sodales.</li>
+                <li>In at ex sit amet lorem pulvinar vehicula.</li>
+            </ul>
+        </div>
+    </div>
 </SoliBaseLayout>
+
+<style lang="scss">
+    .columns {
+        @media (min-width: 800px) {
+            column-count: 2;
+            column-rule: 1px solid var(--text-main);
+        }
+        @media (max-width: 800px) {
+            > :not(:first-child) {
+                border-top: 1px solid var(--text-main);
+            }
+        }
+    }
+</style>
