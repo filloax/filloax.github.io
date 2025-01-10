@@ -15,7 +15,7 @@ export default function rehypeFootnoteTitles() {
                 .map((child) => stringifyNode(child))
                 .join("");
 
-            console.log(footnoteId, node, footnoteContent);
+            // console.log(footnoteId, node, footnoteContent);
 
             footnotesMap.set(footnoteId, footnoteContent);
         });
@@ -24,14 +24,14 @@ export default function rehypeFootnoteTitles() {
         visit(tree, "footnoteReference", (node) => {
             const footnoteId = node.identifier;
 
-            console.log(footnoteId, footnotesMap.get(footnoteId));
+            // console.log(footnoteId, footnotesMap.get(footnoteId));
 
             if (footnotesMap.has(footnoteId)) {
                 node.data = node.data || {};
                 node.data.hProperties = node.data.hProperties || {};
                 node.data.hProperties.title = footnotesMap.get(footnoteId);
 
-                console.log(node.data);
+                // console.log(node.data);
             }
         });
     };

@@ -11,9 +11,13 @@ const starSessions = defineCollection({
 const soliPosts = defineCollection({
     loader: glob({ pattern: "**/*.md", base: "./src/content/rpg/soli/post" }),
 })
+const gearPosts = defineCollection({
+    loader: glob({ pattern: "**/*.md", base: "./src/content/rpg/gears/post" }),
+})
 
 export const collections = {
     'rpg-star-items': starItems,
     'rpg-star-sessions': starSessions,
     'rpg-soli-post': soliPosts,
+    'rpg-gears-post': gearPosts,
 };

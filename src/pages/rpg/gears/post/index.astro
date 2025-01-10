@@ -1,0 +1,29 @@
+---
+import SoliBaseLayout from "@/layouts/rpg/SoliBaseLayout.astro";
+import { PostIndexComponent, type PostInformation } from "@/components/rpg/postIndex/postIndex.component";
+import { getCollection } from "astro:content";
+
+const url = Astro.url.pathname;
+const title = "Post Soli Gemelli";
+const description = "Post Ambientazione Soli Gemelli";
+const permalink = `${Astro.site.href}${url}`;
+
+const posts = await getCollection('rpg-gears-post');
+
+const postInformation = posts.map(post => ({
+  title: post.data.title,
+  id: post.id,
+  date: post.data.date,
+  new: post.data.new,
+  recap: post.data.recap,
+} as PostInformation));
+---
+
+<SoliBaseLayout title={title} description={description} permalink={permalink}>
+    <h1>Soli Gemelli - Ingranaggi di Guerra - Archivio dei post</p>
+
+    <PostIndexComponent 
+        posts={postInformation} baseUrl={`${url}`} isSession={false} 
+        client:load 
+    />
+</SoliBaseLayout>
