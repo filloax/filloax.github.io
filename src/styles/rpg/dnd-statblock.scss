@@ -1,0 +1,66 @@
+// unused for now
+@mixin dnd-statblock() {
+    //*****************************
+    // *    MONSTER STAT BLOCK
+    // *****************************/
+    hr + blockquote {
+        position: relative;
+        padding-top: 15px;
+        background-color: $monsterStatBackground;
+        border-style: solid;
+        border-width: 10px;
+        border-image: $monsterBorderImage 10;
+        h2 {
+            margin-top: -8px;
+            margin-bottom: 0px;
+            & + p {
+                padding-bottom: 0px;
+            }
+        }
+        h3 {
+            font-family: ScalySans;
+            font-weight: 400;
+            border-bottom: 1px solid $headerText;
+        }
+        hr + ul {
+            color: $headerText;
+        }
+        ul {
+            padding-left: 1em;
+            font-size: 0.352cm;
+            @include useSansSerif();
+        }
+        // Monster Ability table
+        hr + table {
+            margin: 0;
+            column-span: 1;
+            background-color: transparent;
+            border-style: none;
+            border-image: none;
+            -webkit-column-span: 1;
+            tbody {
+                tr:nth-child(odd),
+                tr:nth-child(even) {
+                    background-color: transparent;
+                }
+            }
+        }
+        table {
+            color: $headerText;
+        }
+        p + p {
+            margin-top: 0em;
+            padding-bottom: 0.5em;
+            text-indent: 0em;
+        }
+        //Triangle dividers
+        hr {
+            visibility: visible;
+            height: 6px;
+            margin: 4px 0px;
+            background-image: $redTriangleImage;
+            background-size: 100% 100%;
+            border: none;
+        }
+    }
+}
