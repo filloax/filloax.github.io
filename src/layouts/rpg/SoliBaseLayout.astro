@@ -8,7 +8,7 @@ import "@/styles/astro-breadcrumbs-config.scss";
 export interface Props {
   title: string;
   description: string;
-  permalink: string;
+  permalink?: string;
   current?: string;
 }
 const { title, description, permalink, current } = Astro.props;
@@ -57,6 +57,12 @@ const bcLinks = [
     <slot />
   </div>
 </BaseLayout>
+
+<style is:global>
+  :root {
+    --page-width: var(--page-width-max);
+  }
+</style>
 
 <script>
   import { setupShakyText } from "@/utils/shakyText";

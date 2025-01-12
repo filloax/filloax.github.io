@@ -1,7 +1,6 @@
 ---
 title: "Soli Gemelli: Introduzione"
 date: 2024-12-30
-new: true
 ---
 
 > Nota: post originalmente fatto come introduzione mandata pre-campagna al mio gruppo, la prima volta che ho usato (e creato) questo setting.

@@ -1,10 +1,14 @@
+import type { DefaultFrontmatter } from "@/model/post.model";
 import { render, type AnyEntryMap, type CollectionEntry } from "astro:content";
 
 /**
- * 
+ * Also handles post refs
  * @param post Collection entry
  */
-export async function renderTypedPost<T>(post: CollectionEntry<keyof AnyEntryMap>) {
+export async function renderTypedPost<T extends DefaultFrontmatter>(post: CollectionEntry<keyof AnyEntryMap>) {
     const { Content, remarkPluginFrontmatter } = await render(post);
-    return { post, data: remarkPluginFrontmatter as T, Content };
+    
+    const data = remarkPluginFrontmatter as T;
+
+    return { post, data, Content };
 }

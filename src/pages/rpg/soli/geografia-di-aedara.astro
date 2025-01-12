@@ -1,0 +1,13 @@
+---
+import SoliBaseLayout from '@/layouts/rpg/SoliBaseLayout.astro';
+import { getEntry } from 'astro:content';
+import { renderTypedPost } from "@/utils/getTypedPost";
+import type { SettingFrontMatter } from '@/model/rpg.model';
+
+const post = await getEntry("rpg-soli-post", "geografia-di-aedara");
+const { Content, data } = await renderTypedPost<SettingFrontMatter>(post);
+---
+
+<SoliBaseLayout title={data.title} description={data.title}>
+    <Content />
+</SoliBaseLayout>  

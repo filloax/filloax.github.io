@@ -17,6 +17,7 @@ export async function getStaticPaths() {
 // 2. For your template, you can get the entry directly from the prop
 const { post } = Astro.props;
 const { Content, data } = await renderTypedPost<SettingFrontMatter>(post);
+
 const permalink = `${Astro.site.href}rpg/soli/post/${post.id}`;
 
 ---
@@ -26,15 +27,3 @@ const permalink = `${Astro.site.href}rpg/soli/post/${post.id}`;
     <Content />
   </Post>
 </SoliBaseLayout>
-
-<style>
-  * {
-    font-size: 12px;
-  }
-</style>
-
-<style is:global>
-  :root {
-    --page-width: var(--page-width-max);
-  }
-</style>
