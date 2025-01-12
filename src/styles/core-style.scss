@@ -274,3 +274,13 @@ input[name="theme-toggle"] {
   color: var(--text-secondary);
   size: 1.35rem;
 }
+
+img,a:has(img) {
+    + em { 
+        margin: auto;
+        text-align: center;
+        display: block;
+        width: fit-content;
+    }
+}
+

@@ -1,7 +1,7 @@
 ---
 import SoliBaseLayout from "@/layouts/rpg/SoliBaseLayout.astro";
 import { PostIndexComponent, type PostInformation } from "@/components/rpg/postIndex/postIndex.component";
-import { getCollection } from "astro:content";
+import { getCollection, render } from "astro:content";
 
 const url = Astro.url.pathname;
 const title = "Soli Gemelli";
@@ -17,20 +17,17 @@ const postInformation = posts.map(post => ({
   new: post.data.new,
   recap: post.data.recap,
 } as PostInformation));
+
+import * as indexBlurb from '@/content/rpg/soli/index-blurb.md';
+const { Content } = indexBlurb;
 ---
 
 <SoliBaseLayout title={title} description={description} permalink={permalink}>
     <h1>Soli Gemelli</h1>
 
-    <p><em>WIP</em></p>
-
     <div class="columns">
         <div>
-            <ul>
-                <li>Ut mollis risus at nulla ornare laoreet.</li>
-                <li>Cras et odio congue, tincidunt enim sed, porttitor enim.</li>
-                <li>Duis ultricies augue nec nibh mattis, vel finibus ligula faucibus.</li>
-            </ul>
+            <Content/>
         </div>
         <div>
             <h4>Ultimi post sull'ambientazione (<a href={`${url}/post`}>archivio completo</a>)</h4>
