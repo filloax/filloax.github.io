@@ -1,7 +1,6 @@
 ---
 title: Terre di Aedara
-date: 2025-01-24
-new: true
+date: 2025-01-14
 ---
 <style>img { max-width: 600px}</style>
 

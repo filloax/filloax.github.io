@@ -42,3 +42,19 @@
 .nomobile,.mobileonly p {
     text-indent: 0 !important;
 }
+
+
+.big-quote {
+    &-start {
+        font-size: 5em;
+        display: block;
+        margin-top: 0.33em;
+        float: left;
+    }
+    &-end {
+        font-size: 5em;
+        display: block;
+        margin-top: 0.33em;
+        float: right;
+    }
+}

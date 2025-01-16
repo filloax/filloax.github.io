@@ -9,7 +9,7 @@ const starSessions = defineCollection({
 });
 
 const soliPosts = defineCollection({
-    loader: glob({ pattern: "**/*.md", base: "./src/content/rpg/soli/post" }),
+    loader: glob({ pattern: "**/*.{md,mdx}", base: "./src/content/rpg/soli/post" }),
 })
 const gearPosts = defineCollection({
     loader: glob({ pattern: "**/*.md", base: "./src/content/rpg/gears/post" }),
