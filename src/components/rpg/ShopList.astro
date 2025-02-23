@@ -1,8 +1,9 @@
 ---
-import {getEntry} from "astro:content";
 import '@/styles/rpg/shop-cards.scss';
 import {api5eUrl, getFluffImage, type Item} from "../../utils/rpg/5e-common";
 import {encodeHash} from "../../utils/rpg/5e-urls";
+
+const { shopData } = Astro.props;
 
 interface ShopItem {
     name: string;
@@ -10,8 +11,7 @@ interface ShopItem {
     data: Item;
 }
 
-const shop = await getEntry("rpg-soli-shop", "test-shop");
-const items: ShopItem[] = shop.data;
+const items: ShopItem[] = shopData.data;
 
 const rarityOrder = [
     "artifact",
@@ -43,12 +43,10 @@ const getUrl = (item: Item) => `${api5eUrl}/items.html#${encodeHash(item)}`;
                 <li class={`shop-card rarity-${rarity}`} id={id}>
                     <a href={getUrl(data)}>
                         <div class="content">
-                            <h4>{data.name}</h4>
-                            <p>{price} <span class="coin-icon">🪙</span></p>
-                            <div class="product">
-                                <img src={imageUrl} alt="" />
-                                {imageUrl && <img class="bg-img" src={imageUrl} alt="" />}
+                            <h4 class="name">{data.name}</h4>
+                            <div class="product" style={"background-image: url('" + imageUrl + "')"}>
                             </div>
+                            <p class="price">{price} <span class="coin-icon">🪙</span></p>
                         </div>
                     </a>
                 </li>
