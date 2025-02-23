@@ -1,7 +1,7 @@
 ---
 import BaseLayout from "../BaseLayout.astro";
 import { Breadcrumbs } from "astro-breadcrumbs";
-
+import { getImage } from 'astro:assets';
 import "@/styles/rpg/soli.scss";
 import "@/styles/astro-breadcrumbs-config.scss";
 
@@ -27,6 +27,9 @@ const bcLinks = [
     text: "Soli Gemelli",
   },
 ];
+
+import Background from '@/assets/img/rpg/soli/World-map-v3.low.webp';
+const image = await getImage({src: Background, format: 'webp'});
 ---
 
 <BaseLayout
@@ -58,9 +61,13 @@ const bcLinks = [
   </div>
 </BaseLayout>
 
-<style is:global>
+<style define:vars={{ 'backgroundSoli': image.src }} is:global>
   :root {
     --page-width: var(--page-width-max);
+  }
+
+  .background-container {
+    background-image: url(var(--backgroundSoli));
   }
 </style>
 
