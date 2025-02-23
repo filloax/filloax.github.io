@@ -1,0 +1,169 @@
+@import url('https://fonts.googleapis.com/css?family=Raleway');
+
+$shop-main-color: #001a23;
+
+$color-common: #d8d8d8;
+$color-uncommon: #5d93ff;
+$color-rare: #68ca50;
+$color-very-rare: #b762fd;
+$color-legendary: #f9c22e;
+$color-artifact: #f9c22e;
+
+$border-radius-outer: 1.2vw;
+
+.shop {
+  //font-family: 'Raleway', sans-serif;
+  // font-size: 1em;
+
+  ul {
+    display: grid;
+    grid-template-columns: repeat(1,1fr);
+    transform-origin: top left;
+    margin: 1vw 25% 0 2%;
+    overflow: initial;
+    padding-left: initial;
+    line-height: initial;
+  }
+  li{
+    aspect-ratio: 1;
+    position: relative;
+    top: 45px;
+    list-style: none;
+    a {
+      width: 100%;
+      height: 100%;
+      border-radius: $border-radius-outer;
+    }
+  }
+  .content{
+    width: 100%;
+    height: 100%;
+    border: 2.5px solid var(--text-secondary);
+    border-radius: $border-radius-outer;
+    background: none;
+  }
+  .product{
+    position: absolute;
+    //top: 0;
+    //transform: translateX(6.5%) translateY(5%);
+    //background: var(--surface-primary);
+    overflow: hidden;
+    width: 100%;
+    height: 100%;
+  }
+
+  li.rarity-legendary {
+    h4 {
+      background-color: $color-legendary;
+    }
+  }
+  li.rarity-very-rare {
+    h4 {
+      background-color: $color-very-rare;
+    }
+  }
+  li.rarity-rare {
+    h4 {
+      background-color: $color-rare;
+    }
+  }
+  li.rarity-uncommon {
+    h4 {
+      background-color: $color-uncommon;
+    }
+  }
+  li.rarity-common {
+    h4 {
+      background-color: $color-common;
+    }
+  }
+
+  h4, p, img {
+    position: absolute;
+  }
+
+  img{
+    //height: 110%;
+    //left: 50%;
+
+    max-width: 100%;
+    object-fit: contain !important;
+
+    &.bg-img {
+      max-width: unset;
+      object-fit: cover !important;
+      z-index: -2;
+
+      filter: blur(25px);
+      -webkit-filter: blur(8px);
+
+      opacity: 65%;
+
+      background-position: center;
+      background-repeat: no-repeat;
+      background-size: cover;
+    }
+  }
+
+  h4, p {
+    padding: 0.4em;
+    z-index: 2;
+    border-radius: 10px;
+    color: var(--on-surface-secondary);
+
+    font-family: inherit;
+    font-size: inherit;
+    line-height: inherit;
+    margin: inherit;
+    font-weight: inherit;
+    break-inside: inherit;
+  }
+
+  h4{
+    top: 3.5%;
+    left: 4%;
+    width: 90%;
+    font-size: 0.86rem;
+  }
+  p {
+    bottom: 3.5%;
+    right: 5%;
+    font-size: 1em;
+    background-color: var(--surface-secondary);
+
+    margin-bottom: inherit !important;
+  }
+
+  @media (min-width:300px) {
+    body{
+      font-size: 2.75vw;
+    }
+    ul {
+      grid-template-columns: repeat(2,1fr);
+      grid-column-gap: 3vw;
+      margin: 1vw 14vw 0 2vw;
+    }
+  }
+
+  @media (min-width:600px) {
+    body{
+      font-size: 1.95vw;
+    }
+    ul {
+      grid-template-columns: repeat(3,1fr);
+      grid-column-gap: 2vw;
+      margin: 1vw 10vw 0 1vw;
+    }
+  }
+
+  @media (min-width:900px) {
+    body{
+      font-size: 1.5vw;
+    }
+    ul {
+      grid-template-columns: repeat(4,1fr);
+      grid-column-gap: 1.5vw;
+      margin: 1vw 7.5vw 0 0.5vw;
+    }
+  }
+}
