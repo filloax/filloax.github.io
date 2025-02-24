@@ -79,7 +79,7 @@ Anziana ma comunque vigorosa, questa ex-contadina ascesa al potere è, come tutt
 
 *Divinità, signore dei Nove Inferi*
 
-![](https://pbs.twimg.com/media/EerMRvtXYAAsz4B?format=png&name=medium)
+![](https://64.media.tumblr.com/e33cdbe271948765202500c7a43e971b/10b8a8fa7acd953e-0c/s1280x1920/900ec08737d85c2fe2e79e58445c103a8045f638.png)
 
 L'Arcidiavolo, un angelo caduto un tempo noto come Ashmedai che volle conquistare i paradisi dell'Avernus per sè, portandoli agli inferi. Nelle epoche a venire, è diventato il signore dei Nove Inferi, ha strappato la divinità a un dio minore ignoto, e ha architettato innumerevoli piani dalla durata spesso oltre le vite mortali. In epoca antica, è stato portato a processo dalle forze celestiali nel piano della neutralità, Mechanus, ma la sua astuzia gli ha permesso di uscirne vincitore.
 
