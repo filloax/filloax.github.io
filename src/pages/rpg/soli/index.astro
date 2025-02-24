@@ -1,7 +1,7 @@
 ---
 import SoliBaseLayout from "@/layouts/rpg/SoliBaseLayout.astro";
 import { PostIndexComponent, type PostInformation } from "@/components/rpg/postIndex/postIndex.component";
-import { getCollection, render } from "astro:content";
+import {getCollection, getEntry, render} from "astro:content";
 
 const url = Astro.url.pathname;
 const title = "Soli Gemelli";

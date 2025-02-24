@@ -1,0 +1,140 @@
+---
+import BaseLayout from "../BaseLayout.astro";
+import { Breadcrumbs } from "astro-breadcrumbs";
+import { getImage } from 'astro:assets';
+import "@/styles/rpg/soli.scss";
+import "@/styles/astro-breadcrumbs-config.scss";
+import SoliBaseLayout from "./SoliBaseLayout.astro";
+
+export interface Props {
+  title: string;
+  description: string;
+  permalink?: string;
+  current?: string;
+  section?: string;
+}
+const { title, description, permalink, current, section } = Astro.props;
+
+---
+
+<SoliBaseLayout
+  title={title}
+  description={description}
+  permalink={permalink}
+  current={current}
+  section={section}
+>
+  <slot />
+</SoliBaseLayout>
+
+<style is:global>
+  /* Global dreamy theme */
+  :root {
+    /* Color overrides */
+    --background-body: #f8f2ff;
+    --text-main: #6a6b83;
+    --text-secondary: #9a9bb3;
+    --text-tertiary: #c6c7d9;
+    --primary-color: #a8d1d1;
+    --primary-color-inactive: #8fb6b6;
+    --color-red: #ffb3ba;
+    --surface-primary: #fff9fb;
+    --surface-primary-inactive: #f0e6ff;
+    --on-surface-primary: #6a6b83;
+    --surface-secondary: #e6fff9;
+    --surface-secondary-inactive: #d1f5ed;
+  }
+
+  .layout {
+    position: relative;
+
+    &::before {
+      content: '';
+      position: absolute;
+      top: -2px;
+      left: -2px;
+      right: -2px;
+      bottom: -2px;
+      z-index: 0;
+      background: linear-gradient(
+          45deg,
+          #ffb3d9 0%,
+          #b3d9ff 50%,
+          #ffb3d9 100%
+      );
+      background-size: 400% 400%;
+      animation: edge-glow 12s ease infinite;
+      mask:
+          linear-gradient(#fff 0 0) content-box,
+          linear-gradient(#fff 0 0);
+      mask-composite: exclude;
+      padding: 2px;
+      filter: blur(6px) opacity(0.3);
+      mix-blend-mode: soft-light;
+      pointer-events: none;
+    }
+
+    /* Contain overflow while preserving original size */
+    &::after {
+      content: '';
+      position: absolute;
+      top: 0;
+      left: 0;
+      right: 0;
+      bottom: 0;
+      z-index: 0;
+      background: radial-gradient(circle at 50% 50%,
+      rgba(255,255,255,0.3) 0%,
+      rgba(255,255,255,0) 60%
+      );
+      filter: blur(20px);
+      pointer-events: none;
+    }
+  }
+
+  .layout > * {
+    position: relative;
+    z-index: 1;
+  }
+
+  @keyframes edge-glow {
+    0% { background-position: 0% 50%; }
+    50% { background-position: 100% 50%; }
+    100% { background-position: 0% 50%; }
+  }
+
+  /* Image styling */
+  img {
+    filter: saturate(0.8) brightness(1.05);
+  }
+
+  /* Link animations */
+  p a:not(:has(img)) {
+    box-shadow: inset 0 -0.12em 0 var(--primary-color);
+    &:hover {
+      box-shadow: inset 0 -1.5em 0 var(--primary-color);
+    }
+  }
+
+  /* Soft headers */
+  h1, h2, h3 {
+    text-shadow: 0 1px 2px rgba(0,0,0,0.1);
+  }
+
+  /* Ethereal HR */
+  hr {
+    background-image: url("data:image/svg+xml;charset=UTF-8,%3csvg...<path stroke='%23a8d1d1'/%3e%3c/svg%3e");
+    opacity: 0.7;
+  }
+
+  /* Dreamy code blocks */
+  pre {
+    background: #f8f2ff !important;
+    border: 1px solid #e6e1ff;
+  }
+</style>
+
+<script>
+  import { setupShakyText } from "@/utils/shakyText";
+  setupShakyText();
+</script>

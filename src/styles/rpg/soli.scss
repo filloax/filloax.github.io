@@ -47,3 +47,22 @@ a:has(img) {
     background-color: rgba(25,25,45,0.8);
     background-blend-mode: multiply;
 }
+
+.stellarborea {
+    font-weight: bold;
+    background: linear-gradient(90deg, #ff7eb3, #7eb8ff, #ff7eb3, #7eb8ff);
+    color: transparent;
+    -webkit-background-clip: text;
+    background-size: 300% auto;
+    background-clip: text;
+    animation: gradient-traverse 5s ease-in-out infinite alternate;
+}
+
+@keyframes gradient-traverse {
+    0% {
+        background-position: 0% 50%; /* Start the gradient at the left */
+    }
+    100% {
+        background-position: 100% 50%; /* Move the gradient to the right */
+    }
+}

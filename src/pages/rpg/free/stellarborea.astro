@@ -1,0 +1,42 @@
+---
+import { PostIndexComponent, type PostInformation } from "@/components/rpg/postIndex/postIndex.component";
+import {getCollection, getEntry} from "astro:content";
+import StellarboreaLayout from "../../../layouts/rpg/StellarboreaLayout.astro";
+
+import * as intro from '@/content/rpg/free/stellarborea-intro.md';
+import Tabs from "../../../components/Tabs.astro";
+import TabItem from "../../../components/TabItem.astro";
+import ShopList from "../../../components/rpg/ShopList.astro";
+
+const url = Astro.url.pathname;
+const title = "Soli Gemelli - La Terra Libera";
+const description = "Campagna casalinga di Soli Gemelli";
+const permalink = `${Astro.site.href}${url}`;
+
+const IntroContent = intro.Content;
+
+const currentShabakuShop = await getEntry("rpg-free-shop", "shabaku-current");
+
+---
+
+<StellarboreaLayout title={title} description={description} permalink={permalink} section="La Terra Libera">
+    <h1>Stellarborea</h1>
+
+    <IntroContent />
+
+    <Tabs>
+        <TabItem title="Giardino degli Echi" tabInnerShadow={true}>
+            <p>descrizione</p>
+
+            <ShopList shopData={currentShabakuShop} />
+        </TabItem>
+        <TabItem title="Biblioteca Astrale" tabInnerShadow={true}>
+            <p>WIP</p>
+        </TabItem>
+        <TabItem title="Forgia Celeste" tabInnerShadow={true}>
+            <p>WIP</p>
+        </TabItem>
+    </Tabs>
+
+</StellarboreaLayout>
+

@@ -1,0 +1,425 @@
+[
+    {
+        "name": "Turtle Brooch",
+        "count": 1,
+        "data": {
+            "name": "Turtle Brooch",
+            "source": "GriffonsSaddlebag2",
+            "page": 178,
+            "tier": "minor",
+            "rarity": "common",
+            "wondrous": true,
+            "entries": [
+                "This gold and amber brooch resembles a turtle that's been flipped on its back. While you're wearing it, standing up from being {@condition prone} costs 5 feet less of your movement (to a minimum of 5 feet)."
+            ],
+            "lootTables": [
+                "Magic Item Table A1|GriffonsSaddlebag2"
+            ],
+            "fluff": {
+                "images": [
+                    {
+                        "type": "image",
+                        "href": {
+                            "type": "external",
+                            "url": "https://raw.githubusercontent.com/TheGiddyLimit/homebrew-img/main/img/GriffonsSaddlebag2/Items/Turtle-Brooch.webp"
+                        }
+                    }
+                ]
+            },
+            "value": 3000,
+            "value_estimated": true
+        }
+    },
+    {
+        "name": "Cloak of Billowing",
+        "count": 1,
+        "data": {
+            "name": "Cloak of Billowing",
+            "source": "XDMG",
+            "page": 244,
+            "rarity": "common",
+            "wondrous": true,
+            "entries": [
+                "While wearing this cloak, you can take a {@variantrule Bonus Action|XPHB} to make it billow dramatically for 1 minute."
+            ],
+            "lootTables": [
+                "Arcana - Common|XDMG"
+            ],
+            "hasFluffImages": true,
+            "fluff": {
+                "name": "Cloak of Billowing",
+                "source": "XDMG",
+                "images": [
+                    {
+                        "type": "image",
+                        "href": {
+                            "type": "internal",
+                            "path": "items/XDMG/Cloak of Billowing.webp"
+                        }
+                    }
+                ]
+            },
+            "value": 7000,
+            "value_estimated": true
+        }
+    },
+    {
+        "name": "Medallion of Thoughts",
+        "count": 1,
+        "data": {
+            "name": "Medallion of Thoughts",
+            "source": "XDMG",
+            "page": 278,
+            "freeRules2024": true,
+            "rarity": "uncommon",
+            "reqAttune": true,
+            "wondrous": true,
+            "weight": 1,
+            "recharge": "dawn",
+            "rechargeAmount": "{@dice 1d4}",
+            "charges": 5,
+            "entries": [
+                "The medallion has 5 charges. While wearing it, you can expend 1 charge to cast {@spell Detect Thoughts|XPHB} (save {@dc 13}) from it. The medallion regains {@dice 1d4} expended charges daily at dawn."
+            ],
+            "optionalfeatures": [
+                "replicate magic item|tce"
+            ],
+            "attachedSpells": [
+                "detect thoughts|xphb"
+            ],
+            "lootTables": [
+                "Arcana - Uncommon|XDMG"
+            ],
+            "hasFluffImages": true,
+            "fluff": {
+                "name": "Medallion of Thoughts",
+                "source": "XDMG",
+                "images": [
+                    {
+                        "type": "image",
+                        "href": {
+                            "type": "internal",
+                            "path": "items/XDMG/Medallion of Thoughts.webp"
+                        }
+                    }
+                ]
+            },
+            "value": 300000
+        }
+    },
+    {
+        "name": "Knocking Boots",
+        "count": 1,
+        "data": {
+            "name": "Knocking Boots",
+            "source": "tgs1",
+            "page": 83,
+            "tier": "major",
+            "rarity": "uncommon",
+            "wondrous": true,
+            "attachedSpells": [
+                "knock"
+            ],
+            "entries": [
+                "These steel-toed boots of dwarven make are adorned with an embossed key on the toe. As an action, you can kick an object that contains a mundane or magical means of preventing access to cast the {@spell knock} spell on it using the boots. Once this property of the boots has been used, they can't be used again in this way until the following dawn."
+            ],
+            "fluff": {
+                "images": [
+                    {
+                        "type": "image",
+                        "href": {
+                            "type": "external",
+                            "url": "https://raw.githubusercontent.com/TheGiddyLimit/homebrew/master/_img/TGS1/Knocking-Boots.webp"
+                        }
+                    }
+                ]
+            },
+            "lootTables": [
+                "TGS Magic Item Table F|tgs1"
+            ],
+            "value": 30500,
+            "value_estimated": true
+        }
+    },
+    {
+        "name": "Mammoth Boots",
+        "count": 1,
+        "data": {
+            "name": "Mammoth Boots",
+            "source": "tgs1",
+            "page": 85,
+            "tier": "major",
+            "rarity": "uncommon",
+            "wondrous": true,
+            "entries": [
+                "These magical boots are as sturdy as the feet of a mammoth. Your weight increases by 50 pounds while wearing these boots, although you don't feel any different, and you ignore difficult terrain caused by snow or ice. In addition, whenever you're pushed against your will, the distance you would be moved is reduced by 5 feet."
+            ],
+            "fluff": {
+                "images": [
+                    {
+                        "type": "image",
+                        "href": {
+                            "type": "external",
+                            "url": "https://raw.githubusercontent.com/TheGiddyLimit/homebrew/master/_img/TGS1/Mammoth-Boots.webp"
+                        }
+                    }
+                ]
+            },
+            "lootTables": [
+                "TGS Magic Item Table F|tgs1"
+            ],
+            "value": 13500,
+            "value_estimated": true
+        }
+    },
+    {
+        "name": "Cat Eye Glasses",
+        "count": 2,
+        "data": {
+            "name": "Cat Eye Glasses",
+            "source": "GriffonsSaddlebag3",
+            "page": 0,
+            "rarity": "uncommon",
+            "tier": "minor",
+            "wondrous": true,
+            "entries": [
+                "These glasses are incredibly dark. When light hits them at the right angle, they seem to glow with an otherworldly light. While wearing the glasses, anything brightly lit appears dimly lit to you instead. Despite their shadowy lenses, the glasses offer additional clarity when seeing things in darkness: you don't suffer any penalties when perceiving or targeting a creature within 30 feet of you as a result of it being in nonmagical darkness.",
+                "If you have the Sunlight Sensitivity trait, you are unaffected by the trait while wearing the glasses."
+            ],
+            "fluff": {
+                "images": [
+                    {
+                        "type": "image",
+                        "href": {
+                            "type": "external",
+                            "url": "https://raw.githubusercontent.com/TheGiddyLimit/homebrew-img/main/img/GriffonsSaddlebag3/Cat-Eye-Glasses.webp"
+                        }
+                    }
+                ]
+            },
+            "value": 21000,
+            "value_estimated": true
+        }
+    },
+    {
+        "name": "Everice Box",
+        "count": 1,
+        "data": {
+            "name": "Everice Box",
+            "source": "tgs1",
+            "page": 60,
+            "tier": "minor",
+            "rarity": "uncommon",
+            "wondrous": true,
+            "entries": [
+                "This large wooden box weighs 25 pounds and is 3 feet long and both 2 feet deep and tall. It has rugged ropes on its left and right sides as well as on the top of its lid. The left and right sides of the box are covered by enchanted slabs of stone that magically keep the contents on the inside of the box at a consistent 40 degrees Fahrenheit. The box can hold up to 10 gallons of liquid, 24 rations, or a Small or smaller creature. A creature can use its action to make a DC 10 Strength check, freeing itself or another creature within its reach from the box on a success.",
+                "While the box's lid is closed and its latch is shut, you can use an action to speak the box's command word to shrink it and its contents down to a more portable size. The weight of the box and its contents is halved while it's reduced in this way and measures a mere 1 foot long by 8 inches deep and tall. You can speak the box's command word again to return it to its normal size. Opening the latch, whether by choice or by force from the inside, immediately returns the box and its contents to its full size and weight. A living creature can't be reduced in size in this way and forces the lid and latch to open if the box becomes too small for it."
+            ],
+            "fluff": {
+                "images": [
+                    {
+                        "type": "image",
+                        "href": {
+                            "type": "external",
+                            "url": "https://raw.githubusercontent.com/TheGiddyLimit/homebrew/master/_img/TGS1/Everice-Box.webp"
+                        }
+                    }
+                ]
+            },
+            "lootTables": [
+                "TGS Magic Item Table B|tgs1"
+            ],
+            "value": 22500,
+            "value_estimated": true
+        }
+    },
+    {
+        "name": "Horn of Fog",
+        "count": 1,
+        "data": {
+            "name": "Horn of Fog",
+            "source": "GriffonsSaddlebag3",
+            "page": 0,
+            "rarity": "uncommon",
+            "tier": "major",
+            "wondrous": true,
+            "recharge": "dawn",
+            "rechargeAmount": 1,
+            "charges": 1,
+            "entries": [
+                "You can use an action to blow this horn, which is audible out to 300 feet. When you do, you can choose one of the following effects:",
+                {
+                    "type": "entries",
+                    "name": "Create Fog",
+                    "entries": [
+                        "You cast the {@spell fog cloud} spell (2nd-level version; no {@status concentration} required) from the horn, centered on your location. The fog remains for 1 minute."
+                    ]
+                },
+                {
+                    "type": "entries",
+                    "name": "Defog",
+                    "entries": [
+                        "Any fog, mist, or similar atmospheric effect within 300 feet of you is dispersed. If the fog extends beyond that range, only the space within that radius is cleared of it. The space remains magically clear of the fog for 1 minute, after which time the fog can re-enter the space.",
+                        "Once either of the properties of the horn have been used, the horn can't be used again until the next dawn."
+                    ]
+                }
+            ],
+            "attachedSpells": [
+                "fog cloud"
+            ],
+            "fluff": {
+                "images": [
+                    {
+                        "type": "image",
+                        "href": {
+                            "type": "external",
+                            "url": "https://raw.githubusercontent.com/TheGiddyLimit/homebrew-img/main/img/GriffonsSaddlebag3/Horn-of-Fog.webp"
+                        }
+                    }
+                ]
+            },
+            "value": 33000,
+            "value_estimated": true
+        }
+    },
+    {
+        "name": "Smoking pipe of Dragon's Breath",
+        "count": 1,
+        "data": {
+            "name": "Smoking pipe of Dragon's Breath",
+            "source": "VSS",
+            "page": 302,
+            "rarity": "rare",
+            "reqAttune": true,
+            "wondrous": true,
+            "charges": 2,
+            "entries": [
+                "This pipe has 2 charges and regains 1 expended charge daily at dawn. If the pipe is full of one ounce of smoking herb, you can use an action and expend 1 charge to inhale deeply from it and exhale dragon's flame. Each creature in a 30-foot-radius cone must make a DC 15 Dexterity saving throw or take {@damage 8d6} fire damage, or half as much on a successful one."
+            ],
+            "value": 286500,
+            "value_estimated": true
+        }
+    },
+    {
+        "name": "Courier's Cap",
+        "count": 1,
+        "data": {
+            "name": "Courier's Cap",
+            "source": "GriffonsSaddlebag4",
+            "page": 0,
+            "rarity": "rare",
+            "reqAttune": true,
+            "wondrous": true,
+            "recharge": "dawn",
+            "rechargeAmount": 3,
+            "charges": 3,
+            "entries": [
+                "This tan bag cap bears a wax seal on its side and is stamped with a variety of messengers' markings. While wearing the hat, your walking speed is increased by 5 feet.",
+                "Within the hat is a special demiplane that can hold up to 100 letters, written notes, or similar mundane sheets of paper. You can use an action to reach into the hat and pull out a sheet you choose. If the hat is punctured or torn, the sheets of paper spill out in a pile within 5 feet of the hat.",
+                "The hat has 3 charges and regains all expended charges daily at dawn. While wearing the hat, you can use an action to expend some of its charges to cast one of the following spells from it: {@spell message} (0 charges, or 1 charge to cast the alternate version detailed below) or {@spell sending} (2 charges). If there's space within the demiplane, any message sent by either spell is automatically recorded on a mundane scrap of paper, torn to the size of the message, and stored within the hat.",
+                "If you expend 1 charge to cast the {@spell message} spell from the hat, the message you send as part of the spell materializes in front of you as a folded letter, complete with the message inside of it. The message is written in your handwriting. The letter then flies through the air towards the target, which can be up to 1,000 feet away from you. You don't need to be able to see the target in order to send the message in this way, but you must either know its name or provide a general description for the flying letter. The letter flies through the air with a speed of 50 feet; it has AC 10 and 1 hit point. When the letter arrives, it lands at the target's feet or in one of its open hands, provided it has one."
+            ],
+            "attachedSpells": [
+                "message",
+                "sending"
+            ],
+            "fluff": {
+                "images": [
+                    {
+                        "type": "image",
+                        "href": {
+                            "type": "external",
+                            "url": "https://raw.githubusercontent.com/TheGiddyLimit/homebrew-img/main/img/GriffonsSaddlebag4/Items/Couriers-Cap.webp"
+                        }
+                    }
+                ]
+            },
+            "value": 69000,
+            "value_estimated": true
+        }
+    },
+    {
+        "name": "Quiver of Lightning",
+        "count": 1,
+        "data": {
+            "name": "Quiver of Lightning",
+            "source": "GriffonsSaddlebag4",
+            "page": 1,
+            "rarity": "rare",
+            "reqAttune": true,
+            "wondrous": true,
+            "entries": [
+                "This jagged quiver zigs and zags in a lightninglike fashion. Ammunition you draw from the quiver is considered magical for the purpose of overcoming resistance and immunity to nonmagical attacks and damage. When you make an attack with the ammunition, the target takes an extra {@damage 1d4} lightning damage on a hit.",
+                "Alternatively, once on each of your turns, you can reach into the quiver and pull out a special arrow or bolt made of lightning, as part of making a ranged attack with a bow or crossbow, respectively. This special ammunition deals {@damage 2d8} lightning damage on a hit (adding your Dexterity modifier to the damage roll as normal), instead of the weapon's normal damage and without the extra {@damage 1d4} lightning damage. If the target is made of metal or wearing metal armor, the attack is made with advantage.",
+                "In addition, if you make a ranged attack with a {@item javelin of lightning}, the javelin vanishes after 1 minute (unless you retrieve it) and emerges from the quiver, falling to the floor at your feet when it does."
+            ],
+            "fluff": {
+                "images": [
+                    {
+                        "type": "image",
+                        "href": {
+                            "type": "external",
+                            "url": "https://raw.githubusercontent.com/TheGiddyLimit/homebrew-img/main/img/GriffonsSaddlebag4/Items/Quiver-of-Lightning.webp"
+                        }
+                    }
+                ]
+            },
+            "value": 164500,
+            "value_estimated": true
+        }
+    },
+    {
+        "name": "Bangle of the Arcane Assassin",
+        "count": 1,
+        "data": {
+            "name": "Bangle of the Arcane Assassin",
+            "source": "GriffonsSaddlebag4",
+            "page": 0,
+            "rarity": "rare",
+            "reqAttune": "by a spellcaster",
+            "reqAttuneTags": [
+                {
+                    "spellcasting": true
+                }
+            ],
+            "wondrous": true,
+            "entries": [
+                "Once per turn while wearing this bangle, you can deal an extra {@damage 3d6} damage to one creature you hit with a spell attack if you have advantage on the attack roll. The damage is of a type dealt by the spell attack. If you're a rogue, you can choose for the amount of extra damage you deal to be equal to your Sneak Attack damage instead; you can still only deal Sneak Attack damage once per turn. If a spell would allow you to attack multiple times over the course of its duration, this extra damage can only be dealt on the turn the spell is cast.",
+                "In addition, you can ignore the verbal component required for any enchantment or illusion spell you cast while you're in total darkness and wearing the bangle."
+            ],
+            "fluff": {
+                "images": [
+                    {
+                        "type": "image",
+                        "href": {
+                            "type": "external",
+                            "url": "https://raw.githubusercontent.com/TheGiddyLimit/homebrew-img/main/img/GriffonsSaddlebag4/Items/Bangle-of-the-Arcane-Assassin.webp"
+                        }
+                    }
+                ]
+            },
+            "value": 287000,
+            "value_estimated": true
+        }
+    },
+    {
+        "name": "Spellwrought Tattoo (4th Level)",
+        "count": 1,
+        "data": {
+            "name": "Spellwrought Tattoo (4th Level)",
+            "source": "TCE",
+            "page": 135,
+            "rarity": "rare",
+            "wondrous": true,
+            "tattoo": true,
+            "entries": [
+                "Produced by a special needle, this magic tattoo contains a single {@filter 4th level spell|spells|level=4}, wrought on your skin by a magic needle. To use the tattoo, you must hold the needle against your skin and speak the command word. The needle turns into ink that becomes the tattoo, which appears on the skin in whatever design you like. Once the tattoo is there, you can cast its spell, requiring no material components. The tattoo glows faintly while you cast the spell and for the spell's duration. Once the spell ends, the tattoo vanishes from your skin.",
+                "The Ability modifier for this spell is +4; the Save DC is 15 and the attack bonus is +7."
+            ],
+            "miscTags": [
+                "CNS"
+            ],
+            "value": 160000
+        }
+    }
+]
