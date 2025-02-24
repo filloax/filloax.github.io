@@ -4,4 +4,18 @@
 
 <script>
     import '@lion/ui/define/lion-tabs.js';
+
+    document.addEventListener('DOMContentLoaded', () => {
+        const lionTabs = document.querySelector('lion-tabs');
+        if (lionTabs && lionTabs.shadowRoot) {
+            const style = document.createElement('style');
+            style.textContent = `
+              .tabs__tab-group {
+                max-width: 100%;
+                flex-wrap: wrap;
+              }
+            `;
+            lionTabs.shadowRoot.appendChild(style);
+        }
+    });
 </script>

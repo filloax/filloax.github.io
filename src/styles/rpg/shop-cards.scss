@@ -86,7 +86,7 @@ $border-size: 2.5px;
       width: 90%;
       font-size: 0.65rem; // smallest screen size
       color: var(--text-main);
-      text-shadow: 1px 1px 1px black;
+      text-shadow: 0.2px 0.2px 1px rgba(0, 0, 0, 0.65);
       margin-bottom: 0;
     }
 
@@ -148,7 +148,8 @@ $border-size: 2.5px;
       margin: 1vw 10vw 0 1vw;
     }
     h4.name {
-       font-size: 0.86rem !important;
+      font-size: 0.86rem !important;
+      text-shadow: 1px 1px 1px black;
     }
   }
 
