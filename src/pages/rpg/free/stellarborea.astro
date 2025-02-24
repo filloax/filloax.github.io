@@ -45,9 +45,14 @@ const currentShabakuShop = await getEntry("rpg-free-shop", "shabaku-current");
             Venditore di oggetti magici (no armi).
 
             <ShopList shopData={currentShabakuShop} />
-
-            <hr>
-
+        </TabItem>
+        <TabItem title="Biblioteca Astrale" tabInnerShadow={true}>
+            <p>WIP</p>
+        </TabItem>
+        <TabItem title="Forgia Celeste" tabInnerShadow={true}>
+            <p>WIP</p>
+        </TabItem>
+        <TabItem title="Messaggeri" tabInnerShadow={true}>
             <h3>Messaggeri</h3>
 
             <Image src={ImgMessaggeri} alt="spiritelli messaggeri di vari colori e espressioni" width="400" />
@@ -57,6 +62,8 @@ const currentShabakuShop = await getEntry("rpg-free-shop", "shabaku-current");
                 Chissà dove arriveranno messaggi che gli lasciate...
             </em></p>
 
+            <hr>
+
             <h4>Messaggi lasciati</h4>
 
             <p>Nessuno per ora</p>
@@ -64,12 +71,6 @@ const currentShabakuShop = await getEntry("rpg-free-shop", "shabaku-current");
             <ul>
 
             </ul>
-        </TabItem>
-        <TabItem title="Biblioteca Astrale" tabInnerShadow={true}>
-            <p>WIP</p>
-        </TabItem>
-        <TabItem title="Forgia Celeste" tabInnerShadow={true}>
-            <p>WIP</p>
         </TabItem>
     </Tabs>
 
