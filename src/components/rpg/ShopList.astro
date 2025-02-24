@@ -2,6 +2,13 @@
 import '@/styles/rpg/shop-cards.scss';
 import {api5eUrl, getFluffImage, type Item} from "../../utils/rpg/5e-common";
 import {encodeHash} from "../../utils/rpg/5e-urls";
+import type {AnyEntryMap, DataEntryMap} from "astro:content";
+
+export interface Props {
+    shopData: {
+        data: any;
+    };
+}
 
 const { shopData } = Astro.props;
 

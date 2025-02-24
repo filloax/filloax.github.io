@@ -1,8 +1,8 @@
 $shop-main-color: #001a23;
 
 $color-common: #d8d8d8;
-$color-uncommon: #5d93ff;
-$color-rare: #68ca50;
+$color-uncommon: #68ca50;
+$color-rare: #5d93ff;
 $color-very-rare: #b762fd;
 $color-legendary: #f9c22e;
 $color-artifact: #f9c22e;
@@ -75,7 +75,6 @@ $border-size: 2.5px;
     &.rarity-common { @include rarity-styling($color-common); }
 
     h4.name, p.price {
-      padding: 0.4em;
       z-index: 2;
     }
 
@@ -85,7 +84,7 @@ $border-size: 2.5px;
       top: 1%;
       left: 2%;
       width: 90%;
-      font-size: 0.86rem;
+      font-size: 0.65rem; // smallest screen size
       color: var(--text-main);
       text-shadow: 1px 1px 1px black;
       margin-bottom: 0;
@@ -119,13 +118,12 @@ $border-size: 2.5px;
     p.price {
       border-radius: 10px;
       position: absolute;
-      bottom: 3.5%;
-      right: 5%;
+      bottom: 3%;
+      right: 3%;
       font-size: 1em;
       background-color: var(--surface-primary);
       color: var(--on-surface-primary);
-
-      margin-bottom: inherit !important;
+      margin-bottom: 0;
     }
   }
 
@@ -148,6 +146,9 @@ $border-size: 2.5px;
       grid-template-columns: repeat(3,1fr);
       grid-column-gap: 2vw;
       margin: 1vw 10vw 0 1vw;
+    }
+    h4.name {
+       font-size: 0.86rem !important;
     }
   }
 
