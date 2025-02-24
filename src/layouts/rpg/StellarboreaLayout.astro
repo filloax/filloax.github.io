@@ -24,7 +24,9 @@ const { title, description, permalink, current, section } = Astro.props;
   current={current}
   section={section}
 >
-  <slot />
+  <div class="stellarborea">
+    <slot />
+  </div>
 </SoliBaseLayout>
 
 <style>
@@ -37,12 +39,12 @@ const { title, description, permalink, current, section } = Astro.props;
     --text-secondary: #9a9bb3;
     --text-tertiary: #c6c7d9;
     --primary-color: #a8d1d1;
-    --primary-color-inactive: #8fb6b6;
+    --primary-color-inactive: #accaca;
     --color-red: #ffb3ba;
     --surface-primary: #fff9fb;
     --surface-primary-inactive: #f0e6ff;
     --on-surface-primary: #6a6b83;
-    --surface-secondary: #e6fff9;
+    --surface-secondary: #a1b8d8;
     --surface-secondary-inactive: #d1f5ed;
   }
 
@@ -104,34 +106,68 @@ const { title, description, permalink, current, section } = Astro.props;
     100% { background-position: 0% 50%; }
   }
 
-  /* Image styling */
-  img {
-    filter: saturate(0.8) brightness(1.05);
-  }
-
-  /* Link animations */
-  p a:not(:has(img)) {
-    box-shadow: inset 0 -0.12em 0 var(--primary-color);
-    &:hover {
-      box-shadow: inset 0 -1.5em 0 var(--primary-color);
+  .stellarborea {
+    img.dream {
+      filter: saturate(0.8) brightness(1.05);
     }
-  }
 
-  /* Soft headers */
-  h1, h2, h3 {
-    text-shadow: 0 1px 2px rgba(0,0,0,0.1);
-  }
+    /* Link animations */
+    p a:not(:has(img)) {
+      box-shadow: inset 0 -0.12em 0 var(--primary-color);
+      &:hover {
+        box-shadow: inset 0 -1.5em 0 var(--primary-color);
+      }
+    }
 
-  /* Ethereal HR */
-  hr {
-    background-image: url("data:image/svg+xml;charset=UTF-8,%3csvg...<path stroke='%23a8d1d1'/%3e%3c/svg%3e");
-    opacity: 0.7;
-  }
+    /* Soft headers */
+    h1, h2, h3 {
+      text-shadow: 0 1px 2px rgba(0,0,0,0.1);
+    }
 
-  /* Dreamy code blocks */
-  pre {
-    background: #f8f2ff !important;
-    border: 1px solid #e6e1ff;
+    hr {
+      border: none;
+      height: 2px;
+      background: linear-gradient(to right, transparent, var(--text-secondary) 20%, var(--text-secondary) 80%, transparent);
+      margin: 20px 0;
+      //font-family: Arial, sans-serif; /* choose the font you like */
+      //height: 1px; /* gap between the lines */
+      //border-width: 1px 0; /* top and bottom borders */
+      //border-style: solid;
+
+      font-size: 2em;
+      text-align: center; /* horizontal centering */
+      line-height: 1px; /* vertical centering */
+      border-color: var(--text-secondary);
+      overflow: visible;
+
+      /* ensure 1px gap between borders */
+      -webkit-box-sizing: content-box;
+      -moz-box-sizing: content-box;
+      -ms-box-sizing: content-box;
+      -o-box-sizing: content-box;
+      box-sizing: content-box;
+
+      background-color: inherit;
+
+      &:after {
+        content: "✦";
+        color: var(--text-secondary);
+        display: inline; /* for vertical centering and background knockout */
+        background-color: inherit;
+        padding: 0 0.5em; /* size of background color knockout */
+      }
+    }
+
+    /* Dreamy code blocks */
+    blockquote {
+      background: var(--surface-secondary) !important;
+      border-color: var(--surface-secondary) !important;
+      margin: 0 0 1rem;
+      padding: 5px !important;
+      border-image: none;
+      text-transform: none;
+      text-emphasis: none;
+    }
   }
 </style>
 

@@ -17,7 +17,10 @@ const gearPosts = defineCollection({
 
 const freeShop = defineCollection({
     loader: glob({ pattern: "**/*.json", base: "./src/content/rpg/free/shop" }),
-})
+});
+const freeTextFrags = defineCollection({
+    loader: glob({ pattern: "**/*.{md,mdx}", base: "./src/content/rpg/free/text" }),
+});
 
 export const collections = {
     'rpg-star-items': starItems,
@@ -25,4 +28,5 @@ export const collections = {
     'rpg-soli-post': soliPosts,
     'rpg-gears-post': gearPosts,
     'rpg-free-shop': freeShop,
+    'rpg-free-text-frags': freeTextFrags,
 };

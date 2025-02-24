@@ -6,3 +6,6 @@ centro di grandi e piccole storie del mondo si ritrovano, invitati da
 qualcuno o qualcosa. Visitato nei sogni o in altri modi, permette di accrescere la propria
 conoscenza e le proprie capacità, e talvolta interagire con altri visitatori,
 che magari hanno qualcosa da offrire...
+
+Gli oggetti in vendita cambieranno periodicamente. Se ne volete "bloccare" uno che non
+potete ancora permettervi, ne parliamo.

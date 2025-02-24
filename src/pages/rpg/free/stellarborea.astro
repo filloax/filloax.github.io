@@ -1,19 +1,19 @@
 ---
 import { PostIndexComponent, type PostInformation } from "@/components/rpg/postIndex/postIndex.component";
-import {getCollection, getEntry} from "astro:content";
+import {getEntry, render} from "astro:content";
 import StellarboreaLayout from "../../../layouts/rpg/StellarboreaLayout.astro";
-
-import * as intro from '@/content/rpg/free/stellarborea-intro.md';
+import { Image } from 'astro:assets';
 import Tabs from "../../../components/Tabs.astro";
 import TabItem from "../../../components/TabItem.astro";
 import ShopList from "../../../components/rpg/ShopList.astro";
+import ImgMessaggeri from '@/assets/img/rpg/soli/messaggeri.webp';
 
 const url = Astro.url.pathname;
 const title = "Soli Gemelli - La Terra Libera";
 const description = "Campagna casalinga di Soli Gemelli";
 const permalink = `${Astro.site.href}${url}`;
 
-const IntroContent = intro.Content;
+const { Content: IntroContent} = await getEntry("rpg-free-text-frags", "stellarborea-intro").then(render);
 
 const currentShabakuShop = await getEntry("rpg-free-shop", "shabaku-current");
 
@@ -26,9 +26,44 @@ const currentShabakuShop = await getEntry("rpg-free-shop", "shabaku-current");
 
     <Tabs>
         <TabItem title="Giardino degli Echi" tabInnerShadow={true}>
-            <p>descrizione</p>
+            <p><em>
+                Un giardino pavimentato di pietra bianca, dove passano numerosi echi di visitatori passati e futuri.
+                Alcune di queste apparizioni quasi spettrali sono più definite, e sembrano in grado di interagire con voi...
+            </em></p>
+
+            <hr>
+
+            <h3>Visitatori</h3>
+
+            <h4>Sha'baku del Runedan</h4>
+
+            <p><em>
+                Un ricercatore e commerciante di oggetti magici e informazioni, accompagnato sempre
+                dal suo fedele grifone, che ha una bisaccia particolare...
+            </em></p>
+
+            Venditore di oggetti magici (no armi).
 
             <ShopList shopData={currentShabakuShop} />
+
+            <hr>
+
+            <h3>Messaggeri</h3>
+
+            <Image src={ImgMessaggeri} alt="spiritelli messaggeri di vari colori e espressioni" width="400" />
+
+            <p><em>
+                Questi buffi spiritelli si aggirano per Stellarborea, e portano messaggi da altri tempi e visitatori.
+                Chissà dove arriveranno messaggi che gli lasciate...
+            </em></p>
+
+            <h4>Messaggi lasciati</h4>
+
+            <p>Nessuno per ora</p>
+
+            <ul>
+
+            </ul>
         </TabItem>
         <TabItem title="Biblioteca Astrale" tabInnerShadow={true}>
             <p>WIP</p>
