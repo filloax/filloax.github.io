@@ -39,6 +39,8 @@ jobs:
       - name: Build
         shell: "bash"
         run: npm run build
+        env:
+          CUSTOM_5E_URL: ${{ secrets.CUSTOM_5E_URL }}
 
       - name: Upload Pages Artifact
         uses: actions/upload-pages-artifact@v3
