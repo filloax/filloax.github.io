@@ -16,6 +16,8 @@ const {
 </div>
 
 <style lang="scss">
+    @import '../styles/vars.scss';
+
     button {
         display: inline-flex;
         align-items: center;
@@ -62,6 +64,12 @@ const {
 
       &.outer-shadow {
         box-shadow: 0px 2px 4px rgba(0, 0, 0, 0.1);
+      }
+    }
+
+    @media (max-width: $mobile-width) {
+      button,button:last-of-type {
+        border: 1px solid var(--text-tertiary);
       }
     }
 </style>

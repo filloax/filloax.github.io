@@ -38,6 +38,7 @@ const image = await getImage({src: Background, format: 'webp'});
   description={description}
   permalink={permalink}
   current={current}
+  backgroundImage={image.src}
 >
   <Breadcrumbs
     ariaLabel="List of section pages"
@@ -61,12 +62,6 @@ const image = await getImage({src: Background, format: 'webp'});
     <slot />
   </div>
 </BaseLayout>
-
-<style define:vars={{ 'backgroundSoli': `url('${image.src}')` }}>
-  .background-container {
-    background-image: var(--backgroundSoli);
-  }
-</style>
 
 <script>
   import { setupShakyText } from "@/utils/shakyText";
