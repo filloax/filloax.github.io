@@ -34,10 +34,12 @@ a:has(img) {
 
 @mixin background-settings() {
     background-size: cover;
+    background-position: center center;
     backdrop-filter: blur(5px);
     background-color: var(--background-page) !important;
     background-image: var(--bgImg);
     background-blend-mode: soft-light;
+    background-repeat: repeat-y;
     // See BaseLayout.astro
 }
 
@@ -50,7 +52,7 @@ a:has(img) {
         left: 0;
         z-index: -1;
         filter: blur(5px);
-        
+
         @include background-settings();
     }
 }

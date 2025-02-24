@@ -10,10 +10,6 @@ $color-artifact: #f9c22e;
 $border-radius-outer: 1.2vw;
 $border-size: 2.5px;
 
-@mixin background-color-hover-trasp($color) {
-  background-color: rgba($color, var(--label-opacity));
-}
-
 .shop {
   // font-size: 1em;
 
@@ -29,7 +25,7 @@ $border-size: 2.5px;
     display: grid;
     grid-template-columns: repeat(1,1fr);
     transform-origin: top left;
-    margin: 1vw 25% 0 2%;
+    margin: 0;
     overflow: initial;
     padding-left: initial;
     line-height: initial;
@@ -65,6 +61,18 @@ $border-size: 2.5px;
     @mixin rarity-styling($color) {
       .content {
         border-color: $color;
+
+        &::after {
+          content: "";
+          position: absolute;
+          bottom: 0;
+          left: 0;
+          width: 30px;
+          height: 30px;
+          background: $color;
+          clip-path: polygon(0 100%, 100% 100%, 0 0);
+          border-radius: 0 0 0 $border-radius-outer;
+        }
       }
     }
 
@@ -134,7 +142,6 @@ $border-size: 2.5px;
     ul {
       grid-template-columns: repeat(2,1fr);
       grid-column-gap: 3vw;
-      margin: 1vw 14vw 0 2vw;
     }
   }
 
@@ -145,7 +152,6 @@ $border-size: 2.5px;
     ul {
       grid-template-columns: repeat(3,1fr);
       grid-column-gap: 2vw;
-      margin: 1vw 10vw 0 1vw;
     }
     h4.name {
       font-size: 0.86rem !important;
@@ -160,7 +166,6 @@ $border-size: 2.5px;
     ul {
       grid-template-columns: repeat(4,1fr);
       grid-column-gap: 1.5vw;
-      margin: 1vw 7.5vw 0 0.5vw;
     }
   }
 }
