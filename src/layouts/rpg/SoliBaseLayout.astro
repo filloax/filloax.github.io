@@ -62,13 +62,9 @@ const image = await getImage({src: Background, format: 'webp'});
   </div>
 </BaseLayout>
 
-<style define:vars={{ 'backgroundSoli': image.src }}>
-  :root {
-    --page-width: var(--page-width-max);
-  }
-
+<style define:vars={{ 'backgroundSoli': `url('${image.src}')` }}>
   .background-container {
-    background-image: url(var(--backgroundSoli));
+    background-image: var(--backgroundSoli);
   }
 </style>
 
