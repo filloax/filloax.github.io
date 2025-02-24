@@ -26,6 +26,7 @@
     "@astrojs/svelte": "^7.0.2",
     "@fortawesome/angular-fontawesome": "^1.0.0",
     "@fortawesome/free-solid-svg-icons": "^6.6.0",
+    "@lion/ui": "^0.11.0",
     "astro": "^5.1.1",
     "astro-breadcrumbs": "^3.3.1",
     "filloax-pages-astro": "file:",

@@ -1,0 +1,68 @@
+---
+export interface Props {
+    title: string;
+    tabInnerShadow?: boolean;
+}
+
+const {
+    title = 'title',
+    tabInnerShadow = false,
+} = Astro.props;
+---
+
+<button slot="tab">{title}</button>
+<div slot="panel" class={tabInnerShadow ? 'inner-shadow' : 'outer-shadow'}>
+    <slot />
+</div>
+
+<style lang="scss">
+    button {
+        display: inline-flex;
+        align-items: center;
+        justify-content: center;
+        white-space: nowrap;
+        border: none;
+        padding: 0.5rem 1rem;
+        font-size: 0.875rem;
+        font-weight: 500;
+        font-family: var(--font-family-sans),serif;
+        color: var(--text-main);
+        cursor: pointer;
+        border-right: 1px solid var(--text-tertiary);
+        background-color: var(--background-body);
+    }
+
+    button:last-of-type {
+        border-right: none;
+    }
+
+    button:hover, button[aria-selected="true"] {
+        background-color: var(--surface-primary-inactive);
+        transition: background-color;
+        transition-duration: 0.2s;
+    }
+
+    button:focus {
+        outline: none;
+        text-decoration: underline;
+    }
+
+    div[slot="panel"] {
+        border-top: none;
+        margin-top: 0;
+        background: var(--surface-primary);
+        border-radius: 4px;
+        padding: 1rem;
+        color: var(--on-surface-primary);
+        font-family: var(--font-family-serif),serif;
+
+      &.inner-shadow {
+        box-shadow: inset 2px 2px 10px rgba(0, 0, 0, 0.1);
+      }
+
+      &.outer-shadow {
+        box-shadow: 0px 2px 4px rgba(0, 0, 0, 0.1);
+      }
+    }
+</style>
+
