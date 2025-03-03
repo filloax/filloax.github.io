@@ -1,0 +1,52 @@
+[
+  {
+    "name": "Staff of Birdcalls",
+    "source": "XGE",
+    "count": 1,
+    "value": 5000,
+    "rarity": "common"
+  },
+  {
+    "name": "Wand of Pyrotechnics",
+    "source": "XGE",
+    "count": 1,
+    "value": 5000,
+    "rarity": "common"
+  },
+  {
+    "name": "Fireamber Scepter",
+    "source": "GriffonsSaddlebag4",
+    "count": 1,
+    "value": 45000,
+    "rarity": "uncommon",
+    "fluff": {
+      "images": [
+        {
+          "type": "image",
+          "href": {
+            "type": "external",
+            "url": "https://raw.githubusercontent.com/TheGiddyLimit/homebrew-img/refs/heads/main/img/GriffonsSaddlebag4/Items/Fireamber-Scepter.webp"
+          }
+        }
+      ]
+    }
+  },
+  {
+    "name": "Tempest Staff",
+    "source": "GriffonsSaddlebag3",
+    "count": 1,
+    "value": 40000,
+    "rarity": "uncommon",
+    "fluff": {
+      "images": [
+        {
+          "type": "image",
+          "href": {
+            "type": "external",
+            "url": "https://raw.githubusercontent.com/TheGiddyLimit/homebrew-img/main/img/GriffonsSaddlebag3/Tempest-Staff.webp"
+          }
+        }
+      ]
+    }
+  }
+]

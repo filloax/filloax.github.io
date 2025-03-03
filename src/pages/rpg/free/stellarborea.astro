@@ -16,6 +16,8 @@ const permalink = `${Astro.site.href}${url}`;
 const { Content: IntroContent} = await getEntry("rpg-free-text-frags", "stellarborea-intro").then(render);
 
 const currentShabakuShop = await getEntry("rpg-free-shop", "shabaku-current");
+const currentSmithShop = await getEntry("rpg-free-shop", "smith-current");
+const currentMageShop = await getEntry("rpg-free-shop", "mage-current");
 
 ---
 
@@ -47,10 +49,79 @@ const currentShabakuShop = await getEntry("rpg-free-shop", "shabaku-current");
             <ShopList shopData={currentShabakuShop} />
         </TabItem>
         <TabItem title="Biblioteca Astrale" tabInnerShadow={true}>
-            <p>WIP</p>
+            <p><em>
+                Entrate nelle stanze di quella che sembra una piccola biblioteca,
+                con accoglienti poltrone e divanetti per lettura, quando un davanzale si pone
+                su un'abisso, contenente infinite distese di librerie incomporensibili.
+            </em></p>
+
+            <p>
+                La Biblioteca esisteva in altre forme anche da prima di Stellarborea, e ospita
+                in forma materiale i pensieri grezzi che fluttuano nel piano astrale, ed è quindi
+                incomprensibile ai più. Ha una sezione di ingresso contenuta e "normale" dove ci sono
+                anche libri mondani.
+            </p>
+
+            <h3>Il Custode</h3>
+
+            <p>
+                Questo particolare plasmoide con aspetto astrale e una testa di pupazzo come volto
+                vi può aiutare a raggiungere nuove vette della magia.
+            </p>
+
+            <h4>Ricerca arcana</h4>
+
+            <p>Gli incantatori potranno studiare e creare nuove magie con l'aiuto della Biblioteca.</p>
+
+            <p><em>Ancora niente...</em></p>
+
+            <hr>
+
+            <h4>Negozio</h4>
+
+            <p>
+                Il Custode vende bacchette o scettri magici e pergamene o simili oggetti per incantesimi.
+                Il prezzo è conoscenza e rari libri da fuori (che viene astratto in 🪙mo).
+            </p>
+
+            <ShopList shopData={currentMageShop} />
         </TabItem>
         <TabItem title="Forgia Celeste" tabInnerShadow={true}>
-            <p>WIP</p>
+            <p><em>
+                Una forgia isolata dal resto, costruita su un ramo rialzato, così da guardare il cielo e le stelle.
+                Un tiefling orchesco con occhi stellari, e numerose corna da ogni arto, martella incessantemente, per raggiungere il
+                suo capolavoro...
+            </em></p>
+
+            <hr>
+
+            <h3>Fabbro Celeste Grendhal</h3>
+
+            <h4>Commissione</h4>
+
+            <p>Portate al fabbro materiali rari, e potrebbe creare qualcosa di suo.</p>
+
+            <p>
+                Attualmente avete parlato di:
+                <ul>
+                    <li><em>Portatemi dell'Ondargento, e ci metterò il mio tocco</em></li>
+                </ul>
+            </p>
+
+            <hr>
+
+            <h4>Vendita</h4>
+
+            Venditore di armi e armature speciali, scarti dei suoi tentativi di raggiungere l'apice.
+
+            <ShopList shopData={currentSmithShop} />
+        </TabItem>
+        <TabItem title="Campo delle Lancie" tabInnerShadow={true}>
+            <p><em>In questo campo ampio e circolare diverse lancie e armi sono piantate nel suolo di pietra e terra bianca, mentre sentite
+            riecheggiare i suoni lontani di innumerevole battaglie in tutto il mondo.</em></p>
+
+            <p><em>Un eco trasparente rimane impassibile, arma alla mano ma con i lineamenti comunque indefiniti. Forse
+            non avete ancora trovato il giusto maestro...</em></p>
         </TabItem>
         <TabItem title="Messaggeri" tabInnerShadow={true}>
             <h3>Messaggeri</h3>

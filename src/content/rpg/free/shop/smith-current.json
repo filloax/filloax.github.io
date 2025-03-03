@@ -1,0 +1,70 @@
+[
+  {
+    "name": "Walloping Ammunition",
+    "source": "XDMG",
+    "count": 20,
+    "value": 7000,
+    "rarity": "common"
+  },
+  {
+    "name": "Alchemy Blade",
+    "source": "GriffonsSaddlebag4",
+    "count": 1,
+    "value": 40000,
+    "rarity": "uncommon",
+    "fluff": {
+      "images": [
+        {
+          "type": "image",
+          "href": {
+            "type": "external",
+            "url": "https://raw.githubusercontent.com/TheGiddyLimit/homebrew-img/main/img/GriffonsSaddlebag4/Items/Alchemy-Blade.webp"
+          }
+        }
+      ]
+    }
+  },
+  {
+    "name": "Orner's Venomous Crossbow",
+    "source": "GriffonsSaddlebag2",
+    "count": 1,
+    "value": 40000,
+    "rarity": "uncommon",
+    "fluff": {
+      "images": [
+        {
+          "type": "image",
+          "href": {
+            "type": "external",
+            "url": "https://raw.githubusercontent.com/TheGiddyLimit/homebrew-img/main/img/GriffonsSaddlebag2/Items/Orners-Venomous-Crossbow.webp"
+          }
+        }
+      ]
+    }
+  },
+  {
+    "name": "Arrow of Teleportation",
+    "source": "VSS",
+    "count": 5,
+    "value": 25000,
+    "rarity": "uncommon"
+  },
+  {
+    "name": "Skirmisher's Bow",
+    "source": "GriffonsSaddlebag3",
+    "count": 1,
+    "value": 250000,
+    "rarity": "rare",
+    "fluff": {
+      "images": [
+        {
+          "type": "image",
+          "href": {
+            "type": "external",
+            "url": "https://raw.githubusercontent.com/TheGiddyLimit/homebrew-img/main/img/GriffonsSaddlebag3/Skirmishers-Bow.webp"
+          }
+        }
+      ]
+    }
+  }
+]

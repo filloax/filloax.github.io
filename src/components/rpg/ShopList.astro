@@ -1,8 +1,7 @@
 ---
 import '@/styles/rpg/shop-cards.scss';
-import {api5eUrl, getFluffImage, type Item} from "../../utils/rpg/5e-common";
+import {api5eUrl, type Fluff, getFluffImage} from "../../utils/rpg/5e-common";
 import {encodeHash} from "../../utils/rpg/5e-urls";
-import type {AnyEntryMap, DataEntryMap} from "astro:content";
 
 export interface Props {
     shopData: {
@@ -14,8 +13,11 @@ const { shopData } = Astro.props;
 
 interface ShopItem {
     name: string;
+    source: string;
     count: number;
-    data: Item;
+    value: number;
+    rarity: string;
+    fluff: Fluff;
 }
 
 const items: ShopItem[] = shopData.data;
@@ -32,25 +34,25 @@ const rarityOrder = [
 ]
 
 const sortedItems = items.sort((a, b) =>
-    rarityOrder.indexOf(a.data.rarity.toLowerCase()) - rarityOrder.indexOf(b.data.rarity.toLowerCase())
+    rarityOrder.indexOf(a.rarity.toLowerCase()) - rarityOrder.indexOf(b.rarity.toLowerCase())
 );
 
-const getUrl = (item: Item) => `${api5eUrl}/items.html#${encodeHash(item)}`;
+const getUrl = (item: ShopItem) => `${api5eUrl}/items.html#${encodeHash(item)}`;
 ---
 
 <div class="shop">
     <ul>
         {sortedItems.map((item) => {
-            const { data } = item;
-            const imageUrl = getFluffImage(data);
-            const price = (data.value / 100).toFixed(0);
-            const rarity = data.rarity.toLowerCase().replace(" ", "-");
-            const id = data.name.replace(/\s+/g, '-').toLowerCase();
+            const imageUrl = getFluffImage(item);
+            const price = (item.value / 100).toFixed(0);
+            const rarity = item.rarity.toLowerCase().replace(" ", "-");
+            const id = item.name.replace(/\s+/g, '-').toLowerCase();
+            const name = item.name + (item.count > 1 ? ` (x${item.count})` : '')
             return (
                 <li class={`shop-card rarity-${rarity}`} id={id}>
-                    <a href={getUrl(data)}>
+                    <a href={getUrl(item)}>
                         <div class="content">
-                            <h4 class="name">{data.name}</h4>
+                            <h4 class="name">{name}</h4>
                             <div class="product" style={"background-image: url('" + imageUrl + "')"}>
                             </div>
                             <p class="price">{price} <span class="coin-icon">🪙</span></p>

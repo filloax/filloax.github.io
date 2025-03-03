@@ -1,393 +1,177 @@
 [
     {
         "name": "Neutralizing Spray",
+        "source": "GriffonsSaddlebag3",
         "count": 1,
-        "data": {
-            "name": "Neutralizing Spray",
-            "source": "GriffonsSaddlebag3",
-            "page": 0,
-            "rarity": "common",
-            "tier": "minor",
-            "wondrous": true,
-            "recharge": "dawn",
-            "rechargeAmount": 4,
-            "charges": 4,
-            "entries": [
-                "This small bottle contains a mysterious clear liquid. It has an inflated cushion on its stopper that can be squeezed to spray the liquid from a small nozzle. You can use an action to spray the bottle into a space within 5 feet of you, dousing the area in a 5-foot cube. Any creature or object within the area becomes magically cleaned, as if by the {@spell prestidigitation} spell, and if it would still have an odor even after being cleaned, the smell is suppressed for 10 minutes.",
-                "The bottle contains enough liquid for 4 uses and regains any used liquid daily at dawn. If you use the last of the liquid, roll a {@dice d4}. On a 1, the liquid no longer magically replenishes."
-            ],
-            "attachedSpells": [
-                "prestidigitation"
-            ],
-            "fluff": {
-                "images": [
-                    {
-                        "type": "image",
-                        "href": {
-                            "type": "external",
-                            "url": "https://raw.githubusercontent.com/TheGiddyLimit/homebrew-img/main/img/GriffonsSaddlebag3/Neutralizing-Spray.webp"
-                        }
+        "value": 7000,
+        "rarity": "common",
+        "fluff": {
+            "images": [
+                {
+                    "type": "image",
+                    "href": {
+                        "type": "external",
+                        "url": "https://raw.githubusercontent.com/TheGiddyLimit/homebrew-img/main/img/GriffonsSaddlebag3/Neutralizing-Spray.webp"
                     }
-                ]
-            },
-            "value": 7000,
-            "valueEstimated": true
+                }
+            ]
         }
     },
     {
         "name": "Orb of Remembrance",
+        "source": "GriffonsSaddlebag2",
         "count": 1,
-        "data": {
-            "name": "Orb of Remembrance",
-            "source": "GriffonsSaddlebag2",
-            "page": 132,
-            "tier": "minor",
-            "rarity": "common",
-            "wondrous": true,
-            "weight": 0.5,
-            "entries": [
-                "This glassy orb is 3 inches in diameter, weighs 1/2 pound, and is wrapped in a golden wire cage. Strange, wispy smoke drifts around inside the orb, creating cloud-like shapes that are almost recognizable as reallife objects.",
-                "While holding the orb, you can use an action to speak its command word, priming the orb and causing the smoke inside to restlessly billow and swirl. You can gently squeeze the primed orb (no action required) to cause it to record that moment in time around you. When you do, the glassy sphere becomes perfectly clear over the course of 1 minute and reveals an exact duplicate of the area around you in up to a 30-foot radius as a miniature, illusory diorama inside it. While holding the orb, the scene inside soundlessly replays the next 6 seconds following the diorama's capture.",
-                "An orb remains primed for 1 minute or until used to capture a diorama. Touching a primed orb of remembrance to one that already has a diorama creates a duplicate of the diorama in the primed orb. Speaking the command word again while shaking the orb causes the diorama inside to disappear into smoke, allowing it to be primed once more."
-            ],
-            "lootTables": [
-                "Magic Item Table A1|GriffonsSaddlebag2"
-            ],
-            "fluff": {
-                "images": [
-                    {
-                        "type": "image",
-                        "href": {
-                            "type": "external",
-                            "url": "https://raw.githubusercontent.com/TheGiddyLimit/homebrew-img/main/img/GriffonsSaddlebag2/Items/Orb-of-Remembrance.webp"
-                        }
+        "value": 5000,
+        "rarity": "common",
+        "fluff": {
+            "images": [
+                {
+                    "type": "image",
+                    "href": {
+                        "type": "external",
+                        "url": "https://raw.githubusercontent.com/TheGiddyLimit/homebrew-img/main/img/GriffonsSaddlebag2/Items/Orb-of-Remembrance.webp"
                     }
-                ]
-            },
-            "value": 5000,
-            "valueEstimated": true
+                }
+            ]
         }
     },
     {
         "name": "Magnificent Pocket Vanity",
+        "source": "GriffonsSaddlebag2",
         "count": 1,
-        "data": {
-            "name": "Magnificent Pocket Vanity",
-            "source": "GriffonsSaddlebag2",
-            "page": 118,
-            "tier": "minor",
-            "rarity": "common",
-            "wondrous": true,
-            "charges": 3,
-            "entries": [
-                "This palm-sized brass device contains enough magical makeup for 3 uses. A creature holding the vanity can use an action to expend 1 of its uses to apply the makeup to itself or another willing creature within reach, at which point the creature's appearance magically changes to one of the following forms, as if by the {@spell disguise self|PHB} spell (save DC 13). This version of the spell can visually alter a creature's height by up to 5 feet, although the creature's size does not change, and you roll on the table below to determine which random appearance the creature assumes:",
+        "value": 5000,
+        "rarity": "common",
+        "fluff": {
+            "images": [
                 {
-                    "type": "table",
-                    "colLabels": [
-                        "d6",
-                        "Random Appearance"
-                    ],
-                    "colStyles": [
-                        "col-2 text-center",
-                        "col-10 text-left"
-                    ],
-                    "rows": [
-                        [
-                            "1",
-                            "A hunched-over elderly gnomish woman with graying hair, missing teeth, and wearing a ragged, faded dress."
-                        ],
-                        [
-                            "2",
-                            "An intimidating half-orc man with deep green skin, black hair pulled back in a bun, and battle-worn hide armor."
-                        ],
-                        [
-                            "3",
-                            "A regal and androgynous elf with a tan complexion and golden hair wearing fine leathers and a shimmering cape of red and silver."
-                        ],
-                        [
-                            "4",
-                            "A dust-covered human boy of no more than 13 years with messy blonde hair wearing a flimsy cap and half-torn overalls."
-                        ],
-                        [
-                            "5",
-                            "A strikingly red tiefling woman with white hair wearing silver plate armor and wielding a polished longsword."
-                        ],
-                        [
-                            "6",
-                            "A bald, dwarven man with a peg leg and scarcovered face wearing the garb of a well-traveled sailor."
-                        ]
-                    ]
-                },
-                "When the last use of the makeup has been used, the vanity and its makeup become nonmagical."
-            ],
-            "attachedSpells": [
-                "disguise self"
-            ],
-            "lootTables": [
-                "Magic Item Table A1|GriffonsSaddlebag2"
-            ],
-            "fluff": {
-                "images": [
-                    {
-                        "type": "image",
-                        "href": {
-                            "type": "external",
-                            "url": "https://raw.githubusercontent.com/TheGiddyLimit/homebrew-img/main/img/GriffonsSaddlebag2/Items/Magnificent-Pocket-Vanity.webp"
-                        }
+                    "type": "image",
+                    "href": {
+                        "type": "external",
+                        "url": "https://raw.githubusercontent.com/TheGiddyLimit/homebrew-img/main/img/GriffonsSaddlebag2/Items/Magnificent-Pocket-Vanity.webp"
                     }
-                ]
-            },
-            "value": 5000,
-            "valueEstimated": true
+                }
+            ]
         }
     },
     {
         "name": "Pot of Awakening",
+        "source": "XGE",
         "count": 1,
-        "data": {
-            "name": "Pot of Awakening",
-            "source": "XGE",
-            "page": 138,
-            "otherSources": [
-                {
-                    "source": "IMR",
-                    "page": 95
-                }
-            ],
-            "reprintedAs": [
-                "Pot of Awakening|XDMG"
-            ],
-            "tier": "minor",
-            "rarity": "common",
-            "wondrous": true,
-            "entries": [
-                "If you plant an ordinary shrub in this 10-pound clay pot and let it grow for 30 days, the shrub magically transforms into an {@creature awakened shrub} at the end of that time. When the shrub awakens, its roots break the pot, destroying it.",
-                "The awakened shrub is friendly toward you. Absent commands from you, it does nothing."
-            ],
-            "value": 7000,
-            "valueEstimated": true
-        }
+        "value": 7000,
+        "rarity": "common"
     },
     {
         "name": "Cloak of Billowing",
+        "source": "XDMG",
         "count": 1,
-        "data": {
+        "value": 10000,
+        "rarity": "common",
+        "fluff": {
             "name": "Cloak of Billowing",
             "source": "XDMG",
-            "page": 244,
-            "rarity": "common",
-            "wondrous": true,
-            "entries": [
-                "While wearing this cloak, you can take a {@variantrule Bonus Action|XPHB} to make it billow dramatically for 1 minute."
-            ],
-            "lootTables": [
-                "Arcana - Common|XDMG"
-            ],
-            "hasFluffImages": true,
-            "fluff": {
-                "name": "Cloak of Billowing",
-                "source": "XDMG",
-                "images": [
-                    {
-                        "type": "image",
-                        "href": {
-                            "type": "internal",
-                            "path": "items/XDMG/Cloak of Billowing.webp"
-                        }
+            "images": [
+                {
+                    "type": "image",
+                    "href": {
+                        "type": "internal",
+                        "path": "items/XDMG/Cloak of Billowing.webp"
                     }
-                ]
-            },
-            "value": 10000
+                }
+            ]
         }
     },
     {
         "name": "Pipes of Haunting",
+        "source": "XDMG",
         "count": 1,
-        "data": {
+        "value": 35000,
+        "rarity": "uncommon",
+        "fluff": {
             "name": "Pipes of Haunting",
             "source": "XDMG",
-            "page": 285,
-            "rarity": "uncommon",
-            "wondrous": true,
-            "recharge": "dawn",
-            "rechargeAmount": "{@dice 1d3}",
-            "charges": 3,
-            "entries": [
-                "These pipes have 3 charges and regain {@dice 1d3} expended charges daily at dawn. You can take a {@action Magic|XPHB} action to play them and expend 1 charge to create an eerie, spellbinding tune. Each creature of your choice within 30 feet of you must succeed on a {@dc 15} Wisdom saving throw or have the {@condition Frightened|XPHB} condition for 1 minute. A creature that fails the save repeats it at the end of each of its turns, ending the effect on itself on a success. A creature that succeeds on its save is immune to the effect of these pipes for 24 hours."
-            ],
-            "optionalfeatures": [
-                "replicate magic item|tce"
-            ],
-            "lootTables": [
-                "Implements - Uncommon|XDMG"
-            ],
-            "hasFluffImages": true,
-            "fluff": {
-                "name": "Pipes of Haunting",
-                "source": "XDMG",
-                "images": [
-                    {
-                        "type": "image",
-                        "href": {
-                            "type": "internal",
-                            "path": "items/XDMG/Pipes of Haunting.webp"
-                        }
+            "images": [
+                {
+                    "type": "image",
+                    "href": {
+                        "type": "internal",
+                        "path": "items/XDMG/Pipes of Haunting.webp"
                     }
-                ]
-            },
-            "value": 35000
+                }
+            ]
         }
     },
     {
         "name": "Luckleaf",
+        "source": "GriffonsSaddlebag2",
         "count": 1,
-        "data": {
-            "name": "Luckleaf",
-            "source": "GriffonsSaddlebag2",
-            "page": 116,
-            "tier": "minor",
-            "rarity": "uncommon",
-            "wondrous": true,
-            "entries": [
-                "This plant is commonly thought to be a special kind of clover. However, a luckleaf is a separate, magical species that grows in random locations across the Material Plane and has 5 leaves. While a luckleaf is on your person, you can choose to expend any number of its leaves (no action required). When you do so, you gain a +1 bonus or take a \u20131 penalty to any roll you make for each expended leaf. This bonus or penalty can't change the total result beyond the highest or lowest number possible for the die you rolled. You can wait to use this property until after seeing the total of the roll, but before the GM determines the outcome of it. An expended leaf withers and turns to dust. When the last leaf is expended, the plant becomes a nonmagical stem."
-            ],
-            "lootTables": [
-                "Magic Item Table B2|GriffonsSaddlebag2"
-            ],
-            "fluff": {
-                "images": [
-                    {
-                        "type": "image",
-                        "href": {
-                            "type": "external",
-                            "url": "https://raw.githubusercontent.com/TheGiddyLimit/homebrew-img/main/img/GriffonsSaddlebag2/Items/Luckleaf.webp"
-                        }
+        "value": 10000,
+        "rarity": "uncommon",
+        "fluff": {
+            "images": [
+                {
+                    "type": "image",
+                    "href": {
+                        "type": "external",
+                        "url": "https://raw.githubusercontent.com/TheGiddyLimit/homebrew-img/main/img/GriffonsSaddlebag2/Items/Luckleaf.webp"
                     }
-                ]
-            },
-            "value": 10000,
-            "valueEstimated": true
+                }
+            ]
         }
     },
     {
         "name": "Couatl Herald's Mantle",
+        "source": "tgs1",
         "count": 1,
-        "data": {
-            "name": "Couatl Herald's Mantle",
-            "source": "tgs1",
-            "page": 48,
-            "tier": "major",
-            "rarity": "uncommon",
-            "wondrous": true,
-            "reqAttune": "by a creature of good alignment",
-            "bonusSavingThrow": "+1",
-            "entries": [
-                "This magic cloak is given to those deemed kind-hearted and responsible by a celestial. While wearing the mantle, you have advantage on saving throws to resist becoming {@condition poisoned} or diseased. In addition, you are immune to any effect that would sense your emotions.",
+        "value": 25000,
+        "rarity": "uncommon",
+        "fluff": {
+            "images": [
                 {
-                    "name": "Flight of the Couatls",
-                    "entries": [
-                        "While you're attuned to 3 items with this property, you gain a flying speed of 30 feet. If you already have a flying speed, your flying speed increases by 30 feet instead."
-                    ],
-                    "type": "entries"
-                }
-            ],
-            "fluff": {
-                "images": [
-                    {
-                        "type": "image",
-                        "href": {
-                            "type": "external",
-                            "url": "https://raw.githubusercontent.com/TheGiddyLimit/homebrew/master/_img/TGS1/Couatl-Heralds-Mantle.webp"
-                        }
+                    "type": "image",
+                    "href": {
+                        "type": "external",
+                        "url": "https://raw.githubusercontent.com/TheGiddyLimit/homebrew/master/_img/TGS1/Couatl-Heralds-Mantle.webp"
                     }
-                ]
-            },
-            "lootTables": [
-                "TGS Magic Item Table F|tgs1"
-            ],
-            "reqAttuneTags": [
-                {
-                    "alignment": [
-                        "G"
-                    ]
                 }
-            ],
-            "modifySpeed": {
-                "static": {
-                    "fly": 30
-                }
-            },
-            "value": 25000,
-            "valueEstimated": true
+            ]
         }
     },
     {
         "name": "Brazier of Commanding Fire Elementals",
+        "source": "XDMG",
         "count": 1,
-        "data": {
+        "value": 400000,
+        "rarity": "rare",
+        "fluff": {
             "name": "Brazier of Commanding Fire Elementals",
             "source": "XDMG",
-            "page": 241,
-            "rarity": "rare",
-            "wondrous": true,
-            "entries": [
-                "While you are within 5 feet of this brazier, you can take a {@action Magic|XPHB} action to summon a {@creature Fire Elemental|XMM}. The elemental appears in an unoccupied space as close to the brazier as possible, understands your languages, obeys your commands, and takes its turn immediately after you on your {@variantrule Initiative|XPHB} count. The elemental disappears after 1 hour, when it dies, or when you dismiss it as a {@variantrule Bonus Action|XPHB}. The brazier can't be used this way again until the next dawn."
-            ],
-            "lootTables": [
-                "Arcana - Rare|XDMG",
-                "Relics - Rare|XDMG"
-            ],
-            "hasFluffImages": true,
-            "fluff": {
-                "name": "Brazier of Commanding Fire Elementals",
-                "source": "XDMG",
-                "images": [
-                    {
-                        "type": "image",
-                        "href": {
-                            "type": "internal",
-                            "path": "items/XDMG/Brazier of Commanding Fire Elementals.webp"
-                        }
+            "images": [
+                {
+                    "type": "image",
+                    "href": {
+                        "type": "internal",
+                        "path": "items/XDMG/Brazier of Commanding Fire Elementals.webp"
                     }
-                ]
-            },
-            "value": 400000
+                }
+            ]
         }
     },
     {
         "name": "Fire Dervish Cloak",
+        "source": "tgs1",
         "count": 1,
-        "data": {
-            "name": "Fire Dervish Cloak",
-            "source": "tgs1",
-            "page": 64,
-            "tier": "major",
-            "rarity": "rare",
-            "wondrous": true,
-            "reqAttune": true,
-            "recharge": "dawn",
-            "charges": 5,
-            "entries": [
-                "This breathable cloak sounds like a crackling fire as it billows behind you and can create a small, fiery cyclone around you as you twirl in it. The cloak has 5 charges and regains all expended charges daily at dawn. Once on your turn, you can expend 1, 2, or 3 charges from the cloak by forfeiting 10, 20, or 30 feet of your movement speed for that turn, respectively, in order to spin in place instead. When you do, each creature within 5 feet of you must succeed on a {@dc 15} Dexterity saving throw or take {@damage 1d8} fire damage for each charge you expend in this way.",
-                "If a creature takes fire damage from the cloak, that creature can't make opportunity attacks against you until the end of your turn."
-            ],
-            "fluff": {
-                "images": [
-                    {
-                        "type": "image",
-                        "href": {
-                            "type": "external",
-                            "url": "https://raw.githubusercontent.com/TheGiddyLimit/homebrew/master/_img/TGS1/Fire-Dervish-Cloak.webp"
-                        }
+        "value": 300000,
+        "rarity": "rare",
+        "fluff": {
+            "images": [
+                {
+                    "type": "image",
+                    "href": {
+                        "type": "external",
+                        "url": "https://raw.githubusercontent.com/TheGiddyLimit/homebrew/master/_img/TGS1/Fire-Dervish-Cloak.webp"
                     }
-                ]
-            },
-            "lootTables": [
-                "TGS Magic Item Table G, Option 1|tgs1"
-            ],
-            "rechargeAmount": 5,
-            "value": 300000,
-            "valueEstimated": true
+                }
+            ]
         }
     }
 ]
