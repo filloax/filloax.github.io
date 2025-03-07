@@ -3,7 +3,7 @@ import '@/styles/rpg/shop-cards.scss';
 import {api5eUrl, type Fluff, getFluffImage} from "../../utils/rpg/5e-common";
 import {encodeHash} from "../../utils/rpg/5e-urls";
 import {ItemType} from "../../utils/rpg/5e-enum";
-import {ItemIcons} from "../../content/rpg/icons";
+import {ItemIcons, MagicSchoolIcons} from "../../content/rpg/icons";
 
 export interface Props {
     shopData: {
@@ -50,14 +50,23 @@ const sortedItems = items.sort((a, b) => {
     }
 });
 
-const getUrl = (item: ShopItem) => `${api5eUrl}/items.html#${encodeHash(item)}`;
+const getUrl = (item: ShopItem) => `${api5eUrl}/${item.spell ? 'spells' : 'items'}.html#${encodeHash(item)}`;
 
 const getDefaultImage = (item: ShopItem) => {
     let icon = ItemIcons[item.type!!.split("|")[0]];
-    console.log(item, item.type!!.split("|")[0], icon)
     if (!icon) icon = ItemIcons.default;
     return `/assets/rpg/icons/${icon}`;
 }
+
+const getSpellSchoolImage = (item: ShopItem) => {
+    const icon = MagicSchoolIcons[item.school!!];
+    return `/assets/rpg/icons/schools/${icon}`;
+}
+
+const getSpellLevelImage = (item: ShopItem) => {
+    return `/assets/rpg/icons/spelllevel/spell${item.level!!}.webp`;
+}
+
 ---
 
 <div class="shop">
@@ -86,12 +95,19 @@ const getDefaultImage = (item: ShopItem) => {
                         </li>
                 );
             } else {
-                return <li class={`shop-card `} id={id}>
+                const schoolIcon = getSpellSchoolImage(item);
+                const levelIcon = getSpellLevelImage(item);
+
+                return <li class={`shop-card spell-level-${item.level}`} id={id}>
                     <a href={getUrl(item)}>
                         <div class="content">
                             <h4 class="name">{name}</h4>
-                            <!--<div class="product" style={"background-image: url('" + imageUrl + "')"}>-->
-                            <!--</div>-->
+                            <div class="product icon-svg" style={`mask-image: url('${schoolIcon}')`}>
+                            </div>
+                            <div class="level">
+                                <div class="icon" style={`background-image: url('${levelIcon}')`}></div>
+                                <span>{item.level}</span>
+                            </div>
                             <p class="price">{price} <span class="coin-icon">🪙</span></p>
                         </div>
                     </a>

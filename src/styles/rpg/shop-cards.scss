@@ -7,6 +7,16 @@ $color-very-rare: #b762fd;
 $color-legendary: #f9c22e;
 $color-artifact: #f9c22e;
 
+$spell-border-1: #b5a62d; // Level 1 - Gold
+$spell-border-2: #68baae; // Level 2 - Bronze
+$spell-border-3: #5e3b8c; // Level 3 - Purple
+$spell-border-4: #3b8c5e; // Level 4 - Emerald
+$spell-border-5: #8c3b3b; // Level 5 - Crimson
+$spell-border-6: #3b5e8c; // Level 6 - Sapphire
+$spell-border-7: #8c783b; // Level 7 - Amber
+$spell-border-8: #783b8c; // Level 8 - Amethyst
+$spell-border-9: #8c3b78; // Level 9 - Magenta
+
 $border-radius-outer: 1.2vw;
 $border-size: 2.5px;
 
@@ -82,6 +92,25 @@ $border-size: 2.5px;
     &.rarity-uncommon { @include rarity-styling($color-uncommon); }
     &.rarity-common { @include rarity-styling($color-common); }
 
+    @mixin spell-level-styling($color) {
+      .level span {
+        color: $color !important;
+      }
+      .content {
+        border-color: $color;
+      }
+    }
+
+    &.spell-level-1 { @include spell-level-styling($spell-border-1); }
+    &.spell-level-2 { @include spell-level-styling($spell-border-2); }
+    &.spell-level-3 { @include spell-level-styling($spell-border-3); }
+    &.spell-level-4 { @include spell-level-styling($spell-border-4); }
+    &.spell-level-5 { @include spell-level-styling($spell-border-5); }
+    &.spell-level-6 { @include spell-level-styling($spell-border-6); }
+    &.spell-level-7 { @include spell-level-styling($spell-border-7); }
+    &.spell-level-8 { @include spell-level-styling($spell-border-8); }
+    &.spell-level-9 { @include spell-level-styling($spell-border-9); }
+
     h4.name, p.price {
       z-index: 2;
     }
@@ -120,6 +149,8 @@ $border-size: 2.5px;
 
       &.icon-svg {
         background-color: var(--text-main);
+        mask-repeat: no-repeat;
+        mask-size: contain;
         transform: scale(65%);
       }
     }
@@ -141,6 +172,34 @@ $border-size: 2.5px;
       background-color: var(--surface-primary);
       color: var(--on-surface-primary);
       margin-bottom: 0;
+    }
+
+    .level {
+      position: absolute;
+      bottom: 3%;
+      left: 3%;
+      height: 15%;
+
+      display: flex;
+      flex-direction: row;
+      gap: 5px;
+      align-items: center;
+
+      span {
+        font-family: var(--font-family-sans), sans-serif;
+        font-size: 1.25rem;
+      }
+
+      .icon {
+        aspect-ratio: 1;
+        height: 100%;
+
+        background-size: contain;
+        background-repeat: no-repeat;
+        background-position: center;
+
+        text-shadow: none;
+      }
     }
   }
 
