@@ -17,6 +17,14 @@ $spell-border-7: #8c783b; // Level 7 - Amber
 $spell-border-8: #783b8c; // Level 8 - Amethyst
 $spell-border-9: #8c3b78; // Level 9 - Magenta
 
+$spell-school-necromancy:    #afff80;
+$spell-school-abjuration:    #96c8ff;
+$spell-school-evocation:     #ff8080;
+$spell-school-conjuration:   #ffea80;
+$spell-school-transmutation: #ffc880;
+$spell-school-enchantment:   #ff80f4;
+
+
 $border-radius-outer: 1.2vw;
 $border-size: 2.5px;
 
@@ -101,6 +109,12 @@ $border-size: 2.5px;
       }
     }
 
+    @mixin spell-school-styling($color) {
+      .product {
+        background-color: $color !important;
+      }
+    }
+
     &.spell-level-1 { @include spell-level-styling($spell-border-1); }
     &.spell-level-2 { @include spell-level-styling($spell-border-2); }
     &.spell-level-3 { @include spell-level-styling($spell-border-3); }
@@ -110,6 +124,12 @@ $border-size: 2.5px;
     &.spell-level-7 { @include spell-level-styling($spell-border-7); }
     &.spell-level-8 { @include spell-level-styling($spell-border-8); }
     &.spell-level-9 { @include spell-level-styling($spell-border-9); }
+    &.spell-necromancy { @include spell-school-styling($spell-school-necromancy); }
+    &.spell-abjuration { @include spell-school-styling($spell-school-abjuration); }
+    &.spell-evocation { @include spell-school-styling($spell-school-evocation); }
+    &.spell-conjuration { @include spell-school-styling($spell-school-conjuration); }
+    &.spell-transmutation { @include spell-school-styling($spell-school-transmutation); }
+    &.spell-enchantment { @include spell-school-styling($spell-school-enchantment); }
 
     h4.name, p.price {
       z-index: 2;
@@ -147,11 +167,29 @@ $border-size: 2.5px;
       background-repeat: no-repeat;
       background-position: center;
 
-      &.icon-svg {
+      &.icon-svg, .icon-svg {
         background-color: var(--text-main);
         mask-repeat: no-repeat;
         mask-size: contain;
+      }
+      &.icon-svg {
         transform: scale(65%);
+      }
+
+      &.spell {
+        top: 5%;
+        width: calc(65% + 10px);
+        height: calc(65% + 10px);
+        background-color: var(--surface-secondary);
+        border-radius: 10px;
+        padding: 10px;
+        flex: initial;
+
+        .icon-svg {
+          width: 100%;
+          height: 100%;
+          background-color: #2c2c2c;
+        }
       }
     }
 

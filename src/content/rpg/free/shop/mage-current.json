@@ -8,6 +8,7 @@
     "value": 15000,
     "container": {
       "name": "Spell Scroll (Level 2)",
+      "show": "Scroll",
       "source": "XDMG"
     }
   },
@@ -20,6 +21,7 @@
     "value": 40000,
     "container": {
       "name": "Spell Scroll (Level 3)",
+      "show": "Scroll",
       "source": "XDMG"
     }
   },
@@ -32,6 +34,7 @@
     "value": 15000,
     "container": {
       "name": "Spell Scroll (Level 2)",
+      "show": "Scroll",
       "source": "XDMG"
     }
   },
@@ -44,12 +47,13 @@
     "value": 2500,
     "container": {
       "name": "Spell Scroll (Level 1)",
+      "show": "Scroll",
       "source": "XDMG"
     }
   },
   {
     "name": "Staff of Birdcalls",
-    "source": "XGE",
+    "source": "XDMG",
     "count": 1,
     "value": 5000,
     "rarity": "common",

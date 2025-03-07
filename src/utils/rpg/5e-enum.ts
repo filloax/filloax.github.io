@@ -31,14 +31,14 @@ export enum ItemType {
     Wand = "WD"
 }
 
-export enum SpellSchool {
-    Abjuration = "A",
-    Conjuration = "C",
-    Divination = "D",
-    Enchantment = "E",
-    Evocation = "V",
-    Illusion = "I",
-    Necromancy = "N",
-    Transmutation = "T",
-    Psychic = "P"
+export const SpellSchool = {
+    Abjuration: "A",
+    Conjuration: "C",
+    Divination: "D",
+    Enchantment: "E",
+    Evocation: "V",
+    Illusion: "I",
+    Necromancy: "N",
+    Transmutation: "T",
+    Psychic: "P"
 }

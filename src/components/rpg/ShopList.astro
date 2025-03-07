@@ -2,7 +2,7 @@
 import '@/styles/rpg/shop-cards.scss';
 import {api5eUrl, type Fluff, getFluffImage} from "../../utils/rpg/5e-common";
 import {encodeHash} from "../../utils/rpg/5e-urls";
-import {ItemType} from "../../utils/rpg/5e-enum";
+import {ItemType, SpellSchool} from "../../utils/rpg/5e-enum";
 import {ItemIcons, MagicSchoolIcons} from "../../content/rpg/icons";
 
 export interface Props {
@@ -24,7 +24,7 @@ interface ShopItem {
     spell?: boolean;
     level?: number;
     school?: string;
-    container?: {name: string, source: string};
+    container?: {name: string, source: string, show: string};
 }
 
 const items: ShopItem[] = shopData.data;
@@ -72,7 +72,9 @@ const getSpellLevelImage = (item: ShopItem) => {
 <div class="shop">
     <ul>
         {sortedItems.map((item) => {
-            const name = item.name + ((item.count && item.count > 1) ? ` (x${item.count})` : '')
+            const name = item.name
+                + ((item.container?.show) ? ` (${item.container?.show})` : '')
+                + ((item.count && item.count > 1) ? ` (x${item.count})` : '')
             const price = (item.value / 100).toFixed(0);
             const id = item.name.replace(/\s+/g, '-').toLowerCase();
 
@@ -97,12 +99,15 @@ const getSpellLevelImage = (item: ShopItem) => {
             } else {
                 const schoolIcon = getSpellSchoolImage(item);
                 const levelIcon = getSpellLevelImage(item);
+                const spellSchool = Object.keys(SpellSchool).find(key => SpellSchool[key] === item.school)?.toLowerCase();
 
-                return <li class={`shop-card spell-level-${item.level}`} id={id}>
+                return <li class={`shop-card spell-level-${item.level} spell-${spellSchool}`} id={id}>
                     <a href={getUrl(item)}>
                         <div class="content">
                             <h4 class="name">{name}</h4>
-                            <div class="product icon-svg" style={`mask-image: url('${schoolIcon}')`}>
+                            <div class="product spell">
+                                <div class="icon-svg" style={`mask-image: url('${schoolIcon}')`}>
+                                </div>
                             </div>
                             <div class="level">
                                 <div class="icon" style={`background-image: url('${levelIcon}')`}></div>
