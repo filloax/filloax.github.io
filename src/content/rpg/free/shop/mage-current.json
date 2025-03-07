@@ -1,17 +1,67 @@
 [
   {
+    "spell": true,
+    "name": "Web",
+    "source": "XPHB",
+    "level": 2,
+    "school": "C",
+    "value": 15000,
+    "container": {
+      "name": "Spell Scroll (Level 2)",
+      "source": "XDMG"
+    }
+  },
+  {
+    "spell": true,
+    "name": "Angelic Slash",
+    "source": "KibblesTasty:CC",
+    "level": 3,
+    "school": "V",
+    "value": 40000,
+    "container": {
+      "name": "Spell Scroll (Level 3)",
+      "source": "XDMG"
+    }
+  },
+  {
+    "spell": true,
+    "name": "See Invisibility",
+    "source": "XPHB",
+    "level": 2,
+    "school": "D",
+    "value": 15000,
+    "container": {
+      "name": "Spell Scroll (Level 2)",
+      "source": "XDMG"
+    }
+  },
+  {
+    "spell": true,
+    "name": "Whispering Wind",
+    "source": "VSS",
+    "level": 1,
+    "school": "V",
+    "value": 2500,
+    "container": {
+      "name": "Spell Scroll (Level 1)",
+      "source": "XDMG"
+    }
+  },
+  {
     "name": "Staff of Birdcalls",
     "source": "XGE",
     "count": 1,
     "value": 5000,
-    "rarity": "common"
+    "rarity": "common",
+    "type": "staff"
   },
   {
     "name": "Wand of Pyrotechnics",
     "source": "XGE",
     "count": 1,
     "value": 5000,
-    "rarity": "common"
+    "rarity": "common",
+    "type": "WD|DMG"
   },
   {
     "name": "Fireamber Scepter",
@@ -25,11 +75,12 @@
           "type": "image",
           "href": {
             "type": "external",
-            "url": "https://raw.githubusercontent.com/TheGiddyLimit/homebrew-img/refs/heads/main/img/GriffonsSaddlebag4/Items/Fireamber-Scepter.webp"
+            "url": "https://raw.githubusercontent.com/TheGiddyLimit/homebrew-img/main/img/GriffonsSaddlebag4/Items/Helm-of-the-Skeleton.webp"
           }
         }
       ]
-    }
+    },
+    "type": "RD|DMG"
   },
   {
     "name": "Tempest Staff",
@@ -47,6 +98,7 @@
           }
         }
       ]
-    }
+    },
+    "type": "M"
   }
 ]

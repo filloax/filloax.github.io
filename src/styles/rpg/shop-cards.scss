@@ -117,10 +117,19 @@ $border-size: 2.5px;
       background-size: contain;
       background-repeat: no-repeat;
       background-position: center;
+
+      &.icon-svg {
+        background-color: var(--text-main);
+        transform: scale(65%);
+      }
     }
 
     &:hover .product {
       transform: scale(100%);
+
+      &.icon-svg {
+        transform: scale(calc(65% / 0.9)); // 65% * (100% / 90%)
+      }
     }
 
     p.price {

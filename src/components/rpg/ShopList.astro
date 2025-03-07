@@ -2,6 +2,8 @@
 import '@/styles/rpg/shop-cards.scss';
 import {api5eUrl, type Fluff, getFluffImage} from "../../utils/rpg/5e-common";
 import {encodeHash} from "../../utils/rpg/5e-urls";
+import {ItemType} from "../../utils/rpg/5e-enum";
+import {ItemIcons} from "../../content/rpg/icons";
 
 export interface Props {
     shopData: {
@@ -14,10 +16,15 @@ const { shopData } = Astro.props;
 interface ShopItem {
     name: string;
     source: string;
-    count: number;
+    count?: number;
     value: number;
-    rarity: string;
-    fluff: Fluff;
+    rarity?: string;
+    type?: ItemType | "staff" | "wondrous";
+    fluff?: Fluff;
+    spell?: boolean;
+    level?: number;
+    school?: string;
+    container?: {name: string, source: string};
 }
 
 const items: ShopItem[] = shopData.data;
@@ -33,33 +40,63 @@ const rarityOrder = [
     "none",
 ]
 
-const sortedItems = items.sort((a, b) =>
-    rarityOrder.indexOf(a.rarity.toLowerCase()) - rarityOrder.indexOf(b.rarity.toLowerCase())
-);
+const sortedItems = items.sort((a, b) => {
+    if (a.rarity && b.rarity) {
+        return rarityOrder.indexOf(a.rarity.toLowerCase()) - rarityOrder.indexOf(b.rarity.toLowerCase());
+    } else {
+        const ax = a.spell ? 0 : 1;
+        const bx = b.spell ? 0 : 1;
+        return ax - bx;
+    }
+});
 
 const getUrl = (item: ShopItem) => `${api5eUrl}/items.html#${encodeHash(item)}`;
+
+const getDefaultImage = (item: ShopItem) => {
+    let icon = ItemIcons[item.type!!.split("|")[0]];
+    console.log(item, item.type!!.split("|")[0], icon)
+    if (!icon) icon = ItemIcons.default;
+    return `/assets/rpg/icons/${icon}`;
+}
 ---
 
 <div class="shop">
     <ul>
         {sortedItems.map((item) => {
-            const imageUrl = getFluffImage(item);
+            const name = item.name + ((item.count && item.count > 1) ? ` (x${item.count})` : '')
             const price = (item.value / 100).toFixed(0);
-            const rarity = item.rarity.toLowerCase().replace(" ", "-");
             const id = item.name.replace(/\s+/g, '-').toLowerCase();
-            const name = item.name + (item.count > 1 ? ` (x${item.count})` : '')
-            return (
-                <li class={`shop-card rarity-${rarity}`} id={id}>
+
+            if (!item.spell) {
+                const rarity = item.rarity.toLowerCase().replace(" ", "-");
+                let imageUrl = getFluffImage(item);
+                const useSvg = !imageUrl;
+                if (useSvg) imageUrl = getDefaultImage(item);
+                const styleVar = useSvg ? "mask-image" : "background-image";
+                return (
+                        <li class={`shop-card rarity-${rarity}`} id={id}>
+                            <a href={getUrl(item)}>
+                                <div class="content">
+                                    <h4 class="name">{name}</h4>
+                                    <div class={`product ${useSvg ? 'icon-svg' : ''}`} style={`${styleVar}: url('${imageUrl}')`}>
+                                    </div>
+                                    <p class="price">{price} <span class="coin-icon">🪙</span></p>
+                                </div>
+                            </a>
+                        </li>
+                );
+            } else {
+                return <li class={`shop-card `} id={id}>
                     <a href={getUrl(item)}>
                         <div class="content">
                             <h4 class="name">{name}</h4>
-                            <div class="product" style={"background-image: url('" + imageUrl + "')"}>
-                            </div>
+                            <!--<div class="product" style={"background-image: url('" + imageUrl + "')"}>-->
+                            <!--</div>-->
                             <p class="price">{price} <span class="coin-icon">🪙</span></p>
                         </div>
                     </a>
                 </li>
-            );
+            }
         })}
     </ul>
 </div>

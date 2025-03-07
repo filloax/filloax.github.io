@@ -4,7 +4,8 @@
     "source": "XDMG",
     "count": 20,
     "value": 7000,
-    "rarity": "common"
+    "rarity": "common",
+    "type": "GV|XDMG"
   },
   {
     "name": "Alchemy Blade",
@@ -22,7 +23,8 @@
           }
         }
       ]
-    }
+    },
+    "type": "M"
   },
   {
     "name": "Orner's Venomous Crossbow",
@@ -40,14 +42,16 @@
           }
         }
       ]
-    }
+    },
+    "type": "R"
   },
   {
     "name": "Arrow of Teleportation",
     "source": "VSS",
     "count": 5,
     "value": 25000,
-    "rarity": "uncommon"
+    "rarity": "uncommon",
+    "type": "A"
   },
   {
     "name": "Skirmisher's Bow",
@@ -65,6 +69,7 @@
           }
         }
       ]
-    }
+    },
+    "type": "GV|DMG"
   }
 ]

@@ -1,0 +1,17 @@
+export const ItemIcons = {
+    HA: "breastplace.svg",
+    LA: "breastplace.svg",
+    MA: "breastplace.svg",
+    S: "checked-shield.svg",
+    A: "quiver.svg",
+    EXP: "unlit-bomb.svg",
+    M: "crossed-swords.svg",
+    R: "pocket-bow.svg",
+    P: "potion-ball.svg",
+    RD: "crystal-wand.svg",
+    WD: "crystal-wand.svg",
+    RG: "ring.svg",
+    wondrous: "ring.svg",
+    staff: "wizard-staff.svg",
+    default: "backpack.svg",
+}

@@ -1,3 +1,5 @@
+import {ItemType} from "@/utils/rpg/5e-enum.ts";
+
 export const api5eUrl = import.meta.env['CUSTOM_5E_URL'].replace(/\/$/, '');
 
 export function resolveImageHref(href: Href) {
@@ -25,7 +27,7 @@ export interface Item extends Entry5e {
     entries: string[],
     fluff?: Fluff,
     value: number,
-    value_estimated: string, // added by us
+    type: ItemType,
 }
 
 export interface Fluff {

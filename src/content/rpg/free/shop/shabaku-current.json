@@ -15,7 +15,8 @@
                     }
                 }
             ]
-        }
+        },
+        "type": "wondrous"
     },
     {
         "name": "Orb of Remembrance",
@@ -33,7 +34,8 @@
                     }
                 }
             ]
-        }
+        },
+        "type": "wondrous"
     },
     {
         "name": "Magnificent Pocket Vanity",
@@ -51,14 +53,16 @@
                     }
                 }
             ]
-        }
+        },
+        "type": "wondrous"
     },
     {
         "name": "Pot of Awakening",
         "source": "XGE",
         "count": 1,
         "value": 7000,
-        "rarity": "common"
+        "rarity": "common",
+        "type": "wondrous"
     },
     {
         "name": "Cloak of Billowing",
@@ -78,7 +82,8 @@
                     }
                 }
             ]
-        }
+        },
+        "type": "wondrous"
     },
     {
         "name": "Pipes of Haunting",
@@ -98,7 +103,8 @@
                     }
                 }
             ]
-        }
+        },
+        "type": "wondrous"
     },
     {
         "name": "Luckleaf",
@@ -116,7 +122,8 @@
                     }
                 }
             ]
-        }
+        },
+        "type": "wondrous"
     },
     {
         "name": "Couatl Herald's Mantle",
@@ -134,7 +141,8 @@
                     }
                 }
             ]
-        }
+        },
+        "type": "wondrous"
     },
     {
         "name": "Brazier of Commanding Fire Elementals",
@@ -154,7 +162,8 @@
                     }
                 }
             ]
-        }
+        },
+        "type": "wondrous"
     },
     {
         "name": "Fire Dervish Cloak",
@@ -172,6 +181,7 @@
                     }
                 }
             ]
-        }
+        },
+        "type": "wondrous"
     }
 ]
