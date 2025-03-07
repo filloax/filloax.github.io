@@ -1,9 +1,11 @@
 ---
 import '@/styles/rpg/shop-cards.scss';
-import {api5eUrl, type Fluff, getFluffImage} from "../../utils/rpg/5e-common";
+import {getImage, Image} from 'astro:assets';
+import {api5eUrl, Entry5e, type Fluff, getFluffImage} from "../../utils/rpg/5e-common";
 import {encodeHash} from "../../utils/rpg/5e-urls";
 import {ItemType, SpellSchool} from "../../utils/rpg/5e-enum";
 import {ItemIcons, MagicSchoolIcons} from "../../content/rpg/icons";
+import imgSpellScroll from '@/assets/img/rpg/icon/spell-scroll.webp'
 
 export interface Props {
     shopData: {
@@ -50,7 +52,7 @@ const sortedItems = items.sort((a, b) => {
     }
 });
 
-const getUrl = (item: ShopItem) => `${api5eUrl}/${item.spell ? 'spells' : 'items'}.html#${encodeHash(item)}`;
+const getUrl = (item: Entry5e & {spell?: boolean}) => `${api5eUrl}/${item.spell ? 'spells' : 'items'}.html#${encodeHash(item)}`;
 
 const getDefaultImage = (item: ShopItem) => {
     let icon = ItemIcons[item.type!!.split("|")[0]];
@@ -65,6 +67,12 @@ const getSpellSchoolImage = (item: ShopItem) => {
 
 const getSpellLevelImage = (item: ShopItem) => {
     return `/assets/rpg/icons/spelllevel/spell${item.level!!}.webp`;
+}
+
+const getSpellContainerImage = (item: ShopItem) => {
+    if (item.container.name.toLowerCase().includes("scroll")) {
+        return imgSpellScroll;
+    }
 }
 
 ---
@@ -101,7 +109,13 @@ const getSpellLevelImage = (item: ShopItem) => {
                 const levelIcon = getSpellLevelImage(item);
                 const spellSchool = Object.keys(SpellSchool).find(key => SpellSchool[key] === item.school)?.toLowerCase();
 
+                const image = getImage({src: getSpellContainerImage(item), format: 'webp'});
+
                 return <li class={`shop-card spell-level-${item.level} spell-${spellSchool}`} id={id}>
+                    <div class="spell-container"><a href={getUrl(item.container)}>
+                        <!-- <img src={image} alt="" /> -->
+                        <Image src={getSpellContainerImage(item)} alt="" />
+                    </a></div>
                     <a href={getUrl(item)}>
                         <div class="content">
                             <h4 class="name">{name}</h4>
