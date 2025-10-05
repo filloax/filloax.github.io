@@ -1,0 +1,29 @@
+---
+title: Orchi: Breve storia delle Genti Zannute
+date: 2025-10-06
+new: true
+---
+
+<span class="big-quote-start">“</span> Gli orchi sono un'antica razza umanoide, nativa delle steppe, caratterizzati dalle grosse zanne e dalla pelle che va dal verde al grigio.
+
+Non si sa per quale motivo, come tante cose di quell'epoca, ma durante l'[Era Ignota](/rpg/soli/post/aedara-intro/) questa razza ha subito una mutazione, o forse una maledizione: la maggior parte degli orchi da allora nasce predisposta all'Ira, con la I maiuscola, come i più ferrati dei barbari senza zanne, e una generale espressione più macroscopica delle proprie emozioni, positive o negative che siano. Il primo fenomeno è noto ai più come la **Verde Ira**, per via del colore verde intenso degli occhi degli orchi sotto il suo effetto.
+
+Questo in sè non condanna ogni orco a essere una belva distruttrice, nonostante i pregiudizi comuni, allo stesso modo in cui i guerrieri barbari delle montagne non sono intrinsecamente malvagi solo per il loro stile di combattimento.
+
+Ma poi venne Il [Radioso](/rpg/soli/post/aedara-intro/).
+
+Un popolo in grado di sfogare tale ira senza addestramento fu un bersaglio prediletto per la Fiamma che Brucia i Cuori, soggiogando tribù viandanti per le steppe a est del suo trono con le sue fiamme in grado di rendere folli, e gli orchi con la loro emotività più intensa furono più facilmente vittima del suo giogo.
+
+Anche dopo la Guerra alla Luce, la Gente Zannuta subisce l'eco del regno del dio folle. Nei popoli dalla memoria più lunga i ricordi degli eserciti orcheschi dagli occhi fiammanti di verde sono hanno lasciato il segno, e anche a numerose generazioni di distanza, dopo secoli, alcuni popoli orcheschi hanno mantenuto queste tradizioni guerrafondaie.
+
+Ma sarebbe errato e incompleto guardare solo a queste parti del popolo orchesco. Da quando lo sciamano Uvran Senzafiamma ha capito come chetare la Verde Ira nei suoi compatrioti, il suo Regno delle Mille Frecce sta accogliendo numerosi orchi che non vogliono più sentire questa Ira nel loro sangue.
+
+Tra le genti orchesche esiste comunque grande dibattito a riguardo: rinunciare alla Verde Ira vuol dire abbandonare la propria natura per alcuni, mentre altri protestano contro l'idea che sia necessario alterarsi per essere accettati dai popoli senza zanne. E esprimono un, forse ragionevole, dubbio che questo non basterà comunque perchè ciò avvenga.
+
+E intanto, tante tribù e clan sono tornati alle vie precedenti al Radioso, sfruttando la loro Verde Ira come uno strumento donatogli dalla loro natura e non di più. Contemporaneamente, in diversi gruppi criminali sono presenti orchi "purificati", per mantenere più controllo sulle proprie azioni, che dimostrano come non basti rimuovere l'impeto per ottenere in automatico una persona moralmente giusta.
+
+Stabilire se la Verde Ira sia una benedizione o una maledizione è fuori dalla portata di questo studio, e certamente non è una materia affrontabile da dietro una scrivania. Posso solo essere certo che le persone coinvolte, d'accordo e in disaccordo, non cesseranno certo di far sentire la propria opinione spesso e forte: e questa, forse, è una forza trascurata da molti del popolo orchesco.
+
+<span class="big-quote-end">”</span>
+
+*\- Arnov Coldren, Università Antica di Altovento*
