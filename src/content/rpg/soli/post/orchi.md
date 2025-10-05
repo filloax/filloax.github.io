@@ -1,5 +1,5 @@
 ---
-title: Orchi: Breve storia delle Genti Zannute
+title: "Orchi: Breve storia delle Genti Zannute"
 date: 2025-10-06
 new: true
 ---
@@ -26,4 +26,4 @@ Stabilire se la Verde Ira sia una benedizione o una maledizione è fuori dalla p
 
 <span class="big-quote-end">”</span>
 
-*\- Arnov Coldren, Università Antica di Altovento*
+*\- Arnov Kaldren, Università Antica di Altovento*
