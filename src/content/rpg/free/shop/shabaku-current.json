@@ -1,187 +1,228 @@
 [
-    {
-        "name": "Neutralizing Spray",
-        "source": "GriffonsSaddlebag3",
-        "count": 1,
-        "value": 7000,
-        "rarity": "common",
-        "fluff": {
-            "images": [
-                {
-                    "type": "image",
-                    "href": {
-                        "type": "external",
-                        "url": "https://raw.githubusercontent.com/TheGiddyLimit/homebrew-img/main/img/GriffonsSaddlebag3/Neutralizing-Spray.webp"
-                    }
-                }
-            ]
-        },
-        "type": "wondrous"
+  {
+    "name": "Cloak of Many Fashions",
+    "source": "XGE",
+    "count": 1,
+    "value": 3000,
+    "rarity": "common",
+    "fluff": {
+      "name": "Cloak of Many Fashions",
+      "source": "XDMG",
+      "images": [
+        {
+          "type": "image",
+          "href": {
+            "type": "internal",
+            "path": "items/XDMG/Cloak of Many Fashions.webp"
+          }
+        }
+      ]
     },
-    {
-        "name": "Orb of Remembrance",
-        "source": "GriffonsSaddlebag2",
-        "count": 1,
-        "value": 5000,
-        "rarity": "common",
-        "fluff": {
-            "images": [
-                {
-                    "type": "image",
-                    "href": {
-                        "type": "external",
-                        "url": "https://raw.githubusercontent.com/TheGiddyLimit/homebrew-img/main/img/GriffonsSaddlebag2/Items/Orb-of-Remembrance.webp"
-                    }
-                }
-            ]
-        },
-        "type": "wondrous"
+    "type": "wondrous"
+  },
+  {
+    "name": "Bird's-Eye Bolt",
+    "source": "GriffonsSaddlebag2",
+    "count": 1,
+    "value": 4000,
+    "rarity": "common",
+    "fluff": {
+      "images": [
+        {
+          "type": "image",
+          "href": {
+            "type": "external",
+            "url": "https://raw.githubusercontent.com/TheGiddyLimit/homebrew-img/main/img/GriffonsSaddlebag2/Items/Birds-Eye-Bolt.webp"
+          },
+          "width": 2400,
+          "height": 2400
+        }
+      ]
     },
-    {
-        "name": "Magnificent Pocket Vanity",
-        "source": "GriffonsSaddlebag2",
-        "count": 1,
-        "value": 5000,
-        "rarity": "common",
-        "fluff": {
-            "images": [
-                {
-                    "type": "image",
-                    "href": {
-                        "type": "external",
-                        "url": "https://raw.githubusercontent.com/TheGiddyLimit/homebrew-img/main/img/GriffonsSaddlebag2/Items/Magnificent-Pocket-Vanity.webp"
-                    }
-                }
-            ]
-        },
-        "type": "wondrous"
+    "type": "GV|DMG"
+  },
+  {
+    "name": "Sylvan Talon",
+    "source": "XDMG",
+    "count": 1,
+    "value": 15000,
+    "rarity": "common",
+    "fluff": {
+      "name": "Sylvan Talon Dagger",
+      "source": "XDMG",
+      "images": [
+        {
+          "type": "image",
+          "href": {
+            "type": "internal",
+            "path": "items/XDMG/Sylvan Talon.webp"
+          }
+        }
+      ]
     },
-    {
-        "name": "Pot of Awakening",
-        "source": "XGE",
-        "count": 1,
-        "value": 7000,
-        "rarity": "common",
-        "type": "wondrous"
-    },
-    {
-        "name": "Cloak of Billowing",
-        "source": "XDMG",
-        "count": 1,
-        "value": 10000,
-        "rarity": "common",
-        "fluff": {
-            "name": "Cloak of Billowing",
-            "source": "XDMG",
-            "images": [
-                {
-                    "type": "image",
-                    "href": {
-                        "type": "internal",
-                        "path": "items/XDMG/Cloak of Billowing.webp"
-                    }
-                }
-            ]
-        },
-        "type": "wondrous"
-    },
-    {
-        "name": "Pipes of Haunting",
-        "source": "XDMG",
-        "count": 1,
-        "value": 35000,
-        "rarity": "uncommon",
-        "fluff": {
-            "name": "Pipes of Haunting",
-            "source": "XDMG",
-            "images": [
-                {
-                    "type": "image",
-                    "href": {
-                        "type": "internal",
-                        "path": "items/XDMG/Pipes of Haunting.webp"
-                    }
-                }
-            ]
-        },
-        "type": "wondrous"
-    },
-    {
-        "name": "Luckleaf",
-        "source": "GriffonsSaddlebag2",
-        "count": 1,
-        "value": 10000,
-        "rarity": "uncommon",
-        "fluff": {
-            "images": [
-                {
-                    "type": "image",
-                    "href": {
-                        "type": "external",
-                        "url": "https://raw.githubusercontent.com/TheGiddyLimit/homebrew-img/main/img/GriffonsSaddlebag2/Items/Luckleaf.webp"
-                    }
-                }
-            ]
-        },
-        "type": "wondrous"
-    },
-    {
-        "name": "Couatl Herald's Mantle",
-        "source": "tgs1",
-        "count": 1,
-        "value": 25000,
-        "rarity": "uncommon",
-        "fluff": {
-            "images": [
-                {
-                    "type": "image",
-                    "href": {
-                        "type": "external",
-                        "url": "https://raw.githubusercontent.com/TheGiddyLimit/homebrew/master/_img/TGS1/Couatl-Heralds-Mantle.webp"
-                    }
-                }
-            ]
-        },
-        "type": "wondrous"
-    },
-    {
-        "name": "Brazier of Commanding Fire Elementals",
-        "source": "XDMG",
-        "count": 1,
-        "value": 400000,
-        "rarity": "rare",
-        "fluff": {
-            "name": "Brazier of Commanding Fire Elementals",
-            "source": "XDMG",
-            "images": [
-                {
-                    "type": "image",
-                    "href": {
-                        "type": "internal",
-                        "path": "items/XDMG/Brazier of Commanding Fire Elementals.webp"
-                    }
-                }
-            ]
-        },
-        "type": "wondrous"
-    },
-    {
-        "name": "Fire Dervish Cloak",
-        "source": "tgs1",
-        "count": 1,
-        "value": 300000,
-        "rarity": "rare",
-        "fluff": {
-            "images": [
-                {
-                    "type": "image",
-                    "href": {
-                        "type": "external",
-                        "url": "https://raw.githubusercontent.com/TheGiddyLimit/homebrew/master/_img/TGS1/Fire-Dervish-Cloak.webp"
-                    }
-                }
-            ]
-        },
-        "type": "wondrous"
+    "type": "GV|XDMG"
+  },
+  {
+    "name": "+1 Amulet of the Devout",
+    "source": "TCE",
+    "count": 1,
+    "value": 42500,
+    "rarity": "uncommon",
+    "type": "wondrous",
+    "fluff": {
+      "images": [
+        {
+          "type": "image",
+          "href": {
+            "type": "external",
+            "url": "https://bg3.wiki/w/images/c/c2/Amulet_of_the_devout.png"
+          },
+          "width": 2400,
+          "height": 2400
+        }
+      ]
     }
+  },
+  {
+    "name": "Spellwrought Tattoo (3rd Level) [Magia a scelta]",
+    "source": "TCE",
+    "count": 1,
+    "value": 50000,
+    "rarity": "uncommon",
+    "type": "wondrous"
+  },
+  {
+    "name": "Enchanted Rug Beater",
+    "source": "GriffonsSaddlebag4",
+    "count": 1,
+    "value": 20000,
+    "rarity": "uncommon",
+    "fluff": {
+      "images": [
+        {
+          "type": "image",
+          "href": {
+            "type": "external",
+            "url": "https://raw.githubusercontent.com/TheGiddyLimit/homebrew-img/main/img/GriffonsSaddlebag4/Items/Enchanted-Rug-Beater.webp"
+          }
+        }
+      ]
+    },
+    "type": "wondrous"
+  },
+  {
+    "name": "Mantis Mitts",
+    "source": "GriffonsSaddlebag3",
+    "count": 1,
+    "value": 200000,
+    "rarity": "rare",
+    "fluff": {
+      "images": [
+        {
+          "type": "image",
+          "href": {
+            "type": "external",
+            "url": "https://raw.githubusercontent.com/TheGiddyLimit/homebrew-img/main/img/GriffonsSaddlebag3/Mantis-Mitts.webp"
+          }
+        }
+      ]
+    },
+    "type": "wondrous"
+  },
+  {
+    "name": "Crash and Burn",
+    "source": "GriffonsSaddlebag3",
+    "count": 1,
+    "value": 250000,
+    "rarity": "rare",
+    "fluff": {
+      "images": [
+        {
+          "type": "image",
+          "href": {
+            "type": "external",
+            "url": "https://raw.githubusercontent.com/TheGiddyLimit/homebrew-img/main/img/GriffonsSaddlebag3/Crash-and-Burn.webp"
+          }
+        }
+      ]
+    },
+    "type": "wondrous"
+  },
+  {
+    "name": "Dancing Sword",
+    "source": "XDMG",
+    "count": 1,
+    "value": 300000,
+    "rarity": "very rare",
+    "fluff": {
+      "name": "Dancing Sword (Shortsword)",
+      "source": "XDMG",
+      "images": [
+        {
+          "type": "image",
+          "href": {
+            "type": "internal",
+            "path": "items/XDMG/Dancing Sword.webp"
+          }
+        }
+      ]
+    },
+    "type": "GV|XDMG"
+  },
+  {
+    "name": "Hydra Charm",
+    "source": "GriffonsSaddlebag2",
+    "count": 1,
+    "value": 500000,
+    "rarity": "very rare",
+    "fluff": {
+      "images": [
+        {
+          "type": "image",
+          "href": {
+            "type": "external",
+            "url": "https://raw.githubusercontent.com/TheGiddyLimit/homebrew-img/main/img/GriffonsSaddlebag2/Items/Hydra-Charm.webp"
+          },
+          "width": 2400,
+          "height": 2400
+        }
+      ]
+    },
+    "type": "wondrous"
+  },
+  {
+    "name": "Barrier Tattoo (Large)",
+    "source": "TCE",
+    "count": 1,
+    "value": 600000,
+    "rarity": "very rare",
+    "type": "wondrous"
+  },
+  {
+    "name": "Ioun Stone, Strength",
+    "source": "XDMG",
+    "count": 1,
+    "value": 350000,
+    "rarity": "very rare",
+    "fluff": {
+      "name": "Ioun Stone, Strength",
+      "source": "XDMG",
+      "_copy": {
+        "name": "Ioun Stone",
+        "source": "XDMG"
+      },
+      "images": [
+        {
+          "type": "image",
+          "href": {
+            "type": "external",
+            "url": "https://files.d20.io/images/414521352/zQlSr8JZWR1Z0FtJ3Ux1Dg/original.png?1729616366"
+          },
+          "width": 2400,
+          "height": 2400
+        }
+      ]
+    },
+    "type": "wondrous"
+  }
 ]

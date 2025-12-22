@@ -210,6 +210,24 @@ $border-size: 2.5px;
       background-color: var(--surface-primary);
       color: var(--on-surface-primary);
       margin-bottom: 0;
+
+      &.custom-price {
+        font-style: italic;
+        font-size: 0.7rem;
+      }
+    }
+
+    p.flavor {
+      border-radius: 10px;
+      position: absolute;
+      bottom: 9%;
+      right: 3%;
+      width: 90%;
+      background-color: var(--surface-primary);
+      color: var(--on-surface-primary);
+      margin-bottom: 0;
+      font-style: italic;
+      font-size: 0.7rem;
     }
 
     .level {

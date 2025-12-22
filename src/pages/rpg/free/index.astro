@@ -5,7 +5,7 @@ import { getCollection } from "astro:content";
 import StellarboreaLayout from "../../../layouts/rpg/StellarboreaLayout.astro";
 
 const url = Astro.url.pathname;
-const title = "Soli Gemelli - La Terra Libera";
+const title = "Soli Gemelli - La Grande Opera";
 const description = "Campagna casalinga di Soli Gemelli";
 const permalink = `${Astro.site.href}${url}`;
 
@@ -20,9 +20,13 @@ const permalink = `${Astro.site.href}${url}`;
 // } as PostInformation));
 ---
 
-<SoliBaseLayout title={title} description={description} permalink={permalink} section="La Terra Libera">
-    <h1>La Terra Libera</h1>
+<SoliBaseLayout title={title} description={description} permalink={permalink} section="La Grande Opera">
+    <h1>La Grande Opera</h1>
     <h6>Soli gemelli</h6>
+
+    <h4>Campagne precedenti</h4>
+
+    <p><i>Soli Gemelli: La Grande Opera</i></p>
 
     <p><em>WIP</em></p>
 

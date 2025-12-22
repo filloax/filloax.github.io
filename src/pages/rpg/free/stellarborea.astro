@@ -9,7 +9,7 @@ import ShopList from "../../../components/rpg/ShopList.astro";
 import ImgMessaggeri from '@/assets/img/rpg/soli/messaggeri.webp';
 
 const url = Astro.url.pathname;
-const title = "Soli Gemelli - La Terra Libera";
+const title = "Soli Gemelli - La Grande Opera";
 const description = "Campagna casalinga di Soli Gemelli";
 const permalink = `${Astro.site.href}${url}`;
 
@@ -21,8 +21,13 @@ const currentMageShop = await getEntry("rpg-free-shop", "mage-current");
 
 ---
 
-<StellarboreaLayout title={title} description={description} permalink={permalink} section="La Terra Libera">
+<StellarboreaLayout title={title} description={description} permalink={permalink} section="La Grande Opera">
     <h1>Stellarborea</h1>
+
+    <div class="bgm">
+        <h4>Musica</h4>
+        <a href="https://www.youtube.com/watch?v=ih4rqpGtsbM">Entralink Remastered (Pokémon BW2)</a>
+    </div>
 
     <IntroContent />
 
@@ -37,6 +42,11 @@ const currentMageShop = await getEntry("rpg-free-shop", "mage-current");
 
             <h3>Visitatori</h3>
 
+            <div class="bgm">
+                <h4>Musica</h4>
+                <a href="https://www.youtube.com/watch?v=5yowioThaXE">Like a Dream (Majula)</a>
+            </div>
+
             <h4>Sha'baku del Runedan</h4>
 
             <p><em>
@@ -44,11 +54,20 @@ const currentMageShop = await getEntry("rpg-free-shop", "mage-current");
                 dal suo fedele grifone, che ha una bisaccia particolare...
             </em></p>
 
-            Venditore di oggetti magici (no armi).
+            Venditore di oggetti magici (solitamente no armi).
+
+            <br/>
+
+            (Accetto immagini per tatuaggi elencati)
 
             <ShopList shopData={currentShabakuShop} />
         </TabItem>
         <TabItem title="Biblioteca Astrale" tabInnerShadow={true}>
+            <div class="bgm">
+                <h4>Musica</h4>
+                <a href="https://www.youtube.com/watch?v=uTB3hKhskI4">Lantern - Deltarune</a>
+            </div>
+
             <p><em>
                 Entrate nelle stanze di quella che sembra una piccola biblioteca,
                 con accoglienti poltrone e divanetti per lettura, quando un davanzale si pone
@@ -65,7 +84,7 @@ const currentMageShop = await getEntry("rpg-free-shop", "mage-current");
             <h3>Il Custode</h3>
 
             <p>
-                Questo particolare plasmoide con aspetto astrale e una testa di pupazzo come volto
+                Questo particolare plasmoide con aspetto astrale e con indosso testa di pupazzo come volto
                 vi può aiutare a raggiungere nuove vette della magia.
             </p>
 
@@ -120,8 +139,13 @@ const currentMageShop = await getEntry("rpg-free-shop", "mage-current");
             <p><em>In questo campo ampio e circolare diverse lancie e armi sono piantate nel suolo di pietra e terra bianca, mentre sentite
             riecheggiare i suoni lontani di innumerevole battaglie in tutto il mondo.</em></p>
 
-            <p><em>Un eco trasparente rimane impassibile, arma alla mano ma con i lineamenti comunque indefiniti. Forse
-            non avete ancora trovato il giusto maestro...</em></p>
+            <p><em>Un eco di una donna dai tratti sud-orientali, ben lungi dall'essere in forma e apparentemente verso l'anzianità, sorseggia del tè
+            con una serie di armi da taglio piantate poco alla sua destra.</em></p>
+
+            <p>
+                Zia Maya, oltre a fare del buon ramen, può impartire le lezioni imparate dalla sua vecchia maestra e nei suoi successivi viaggi per quanto
+                riguarda le arti marziali, per sviluppare nuove tecniche di combattimento. Chiaramente, richiede di essere già avvezzi a quel mondo.
+            </p>
         </TabItem>
         <TabItem title="Messaggeri" tabInnerShadow={true}>
             <h3>Messaggeri</h3>

@@ -1,63 +1,54 @@
 [
   {
-    "name": "Walloping Ammunition",
-    "source": "XDMG",
-    "count": 20,
-    "value": 7000,
+    "name": "Unbreakable Arrow",
+    "source": "XGE",
+    "count": 10,
+    "value": 1000,
     "rarity": "common",
-    "type": "GV|XDMG"
-  },
-  {
-    "name": "Alchemy Blade",
-    "source": "GriffonsSaddlebag4",
-    "count": 1,
-    "value": 40000,
-    "rarity": "uncommon",
     "fluff": {
+      "name": "Unbreakable Arrow",
+      "source": "XGE",
       "images": [
         {
           "type": "image",
           "href": {
-            "type": "external",
-            "url": "https://raw.githubusercontent.com/TheGiddyLimit/homebrew-img/main/img/GriffonsSaddlebag4/Items/Alchemy-Blade.webp"
+            "type": "internal",
+            "path": "items/XGE/Unbreakable Arrow.webp"
           }
         }
       ]
     },
-    "type": "M"
-  },
-  {
-    "name": "Orner's Venomous Crossbow",
-    "source": "GriffonsSaddlebag2",
-    "count": 1,
-    "value": 40000,
-    "rarity": "uncommon",
-    "fluff": {
-      "images": [
-        {
-          "type": "image",
-          "href": {
-            "type": "external",
-            "url": "https://raw.githubusercontent.com/TheGiddyLimit/homebrew-img/main/img/GriffonsSaddlebag2/Items/Orners-Venomous-Crossbow.webp"
-          }
-        }
-      ]
-    },
-    "type": "R"
-  },
-  {
-    "name": "Arrow of Teleportation",
-    "source": "VSS",
-    "count": 5,
-    "value": 25000,
-    "rarity": "uncommon",
     "type": "A"
   },
   {
-    "name": "Skirmisher's Bow",
-    "source": "GriffonsSaddlebag3",
+    "name": "Armor of Weightlessness",
+    "source": "BMT",
     "count": 1,
-    "value": 250000,
+    "value": 43000,
+    "rarity": "uncommon",
+    "type": "GV|DMG"
+  },
+  {
+    "name": "Enspelled Armor (Cantrip)",
+    "source": "XDMG",
+    "count": 1,
+    "value": 40000,
+    "rarity": "uncommon",
+    "type": "GV|XDMG"
+  },
+  {
+    "name": "Adamantine Weapon",
+    "source": "XDMG",
+    "count": 1,
+    "value": 28000,
+    "rarity": "uncommon",
+    "type": "GV|XDMG"
+  },
+  {
+    "name": "Shield of the Justicars",
+    "source": "GriffonsSaddlebag2",
+    "count": 1,
+    "value": 200000,
     "rarity": "rare",
     "fluff": {
       "images": [
@@ -65,11 +56,34 @@
           "type": "image",
           "href": {
             "type": "external",
-            "url": "https://raw.githubusercontent.com/TheGiddyLimit/homebrew-img/main/img/GriffonsSaddlebag3/Skirmishers-Bow.webp"
+            "url": "https://raw.githubusercontent.com/TheGiddyLimit/homebrew-img/main/img/GriffonsSaddlebag2/Items/Shield-of-the-Justicars.webp"
+          },
+          "width": 2400,
+          "height": 2400
+        }
+      ]
+    },
+    "type": "S"
+  },
+  {
+    "name": "Demon Armor",
+    "source": "XDMG",
+    "count": 1,
+    "value": 750000,
+    "rarity": "very rare",
+    "fluff": {
+      "name": "Demon Armor",
+      "source": "XDMG",
+      "images": [
+        {
+          "type": "image",
+          "href": {
+            "type": "internal",
+            "path": "items/XDMG/Demon Armor.webp"
           }
         }
       ]
     },
-    "type": "GV|DMG"
+    "type": "GV|XDMG"
   }
 ]

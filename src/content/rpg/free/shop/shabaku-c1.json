@@ -1,0 +1,187 @@
+[
+    {
+        "name": "Neutralizing Spray",
+        "source": "GriffonsSaddlebag3",
+        "count": 1,
+        "value": 7000,
+        "rarity": "common",
+        "fluff": {
+            "images": [
+                {
+                    "type": "image",
+                    "href": {
+                        "type": "external",
+                        "url": "https://raw.githubusercontent.com/TheGiddyLimit/homebrew-img/main/img/GriffonsSaddlebag3/Neutralizing-Spray.webp"
+                    }
+                }
+            ]
+        },
+        "type": "wondrous"
+    },
+    {
+        "name": "Orb of Remembrance",
+        "source": "GriffonsSaddlebag2",
+        "count": 1,
+        "value": 5000,
+        "rarity": "common",
+        "fluff": {
+            "images": [
+                {
+                    "type": "image",
+                    "href": {
+                        "type": "external",
+                        "url": "https://raw.githubusercontent.com/TheGiddyLimit/homebrew-img/main/img/GriffonsSaddlebag2/Items/Orb-of-Remembrance.webp"
+                    }
+                }
+            ]
+        },
+        "type": "wondrous"
+    },
+    {
+        "name": "Magnificent Pocket Vanity",
+        "source": "GriffonsSaddlebag2",
+        "count": 1,
+        "value": 5000,
+        "rarity": "common",
+        "fluff": {
+            "images": [
+                {
+                    "type": "image",
+                    "href": {
+                        "type": "external",
+                        "url": "https://raw.githubusercontent.com/TheGiddyLimit/homebrew-img/main/img/GriffonsSaddlebag2/Items/Magnificent-Pocket-Vanity.webp"
+                    }
+                }
+            ]
+        },
+        "type": "wondrous"
+    },
+    {
+        "name": "Pot of Awakening",
+        "source": "XGE",
+        "count": 1,
+        "value": 7000,
+        "rarity": "common",
+        "type": "wondrous"
+    },
+    {
+        "name": "Cloak of Billowing",
+        "source": "XDMG",
+        "count": 1,
+        "value": 10000,
+        "rarity": "common",
+        "fluff": {
+            "name": "Cloak of Billowing",
+            "source": "XDMG",
+            "images": [
+                {
+                    "type": "image",
+                    "href": {
+                        "type": "internal",
+                        "path": "items/XDMG/Cloak of Billowing.webp"
+                    }
+                }
+            ]
+        },
+        "type": "wondrous"
+    },
+    {
+        "name": "Pipes of Haunting",
+        "source": "XDMG",
+        "count": 1,
+        "value": 35000,
+        "rarity": "uncommon",
+        "fluff": {
+            "name": "Pipes of Haunting",
+            "source": "XDMG",
+            "images": [
+                {
+                    "type": "image",
+                    "href": {
+                        "type": "internal",
+                        "path": "items/XDMG/Pipes of Haunting.webp"
+                    }
+                }
+            ]
+        },
+        "type": "wondrous"
+    },
+    {
+        "name": "Luckleaf",
+        "source": "GriffonsSaddlebag2",
+        "count": 1,
+        "value": 10000,
+        "rarity": "uncommon",
+        "fluff": {
+            "images": [
+                {
+                    "type": "image",
+                    "href": {
+                        "type": "external",
+                        "url": "https://raw.githubusercontent.com/TheGiddyLimit/homebrew-img/main/img/GriffonsSaddlebag2/Items/Luckleaf.webp"
+                    }
+                }
+            ]
+        },
+        "type": "wondrous"
+    },
+    {
+        "name": "Couatl Herald's Mantle",
+        "source": "tgs1",
+        "count": 1,
+        "value": 25000,
+        "rarity": "uncommon",
+        "fluff": {
+            "images": [
+                {
+                    "type": "image",
+                    "href": {
+                        "type": "external",
+                        "url": "https://raw.githubusercontent.com/TheGiddyLimit/homebrew/master/_img/TGS1/Couatl-Heralds-Mantle.webp"
+                    }
+                }
+            ]
+        },
+        "type": "wondrous"
+    },
+    {
+        "name": "Brazier of Commanding Fire Elementals",
+        "source": "XDMG",
+        "count": 1,
+        "value": 400000,
+        "rarity": "rare",
+        "fluff": {
+            "name": "Brazier of Commanding Fire Elementals",
+            "source": "XDMG",
+            "images": [
+                {
+                    "type": "image",
+                    "href": {
+                        "type": "internal",
+                        "path": "items/XDMG/Brazier of Commanding Fire Elementals.webp"
+                    }
+                }
+            ]
+        },
+        "type": "wondrous"
+    },
+    {
+        "name": "Fire Dervish Cloak",
+        "source": "tgs1",
+        "count": 1,
+        "value": 300000,
+        "rarity": "rare",
+        "fluff": {
+            "images": [
+                {
+                    "type": "image",
+                    "href": {
+                        "type": "external",
+                        "url": "https://raw.githubusercontent.com/TheGiddyLimit/homebrew/master/_img/TGS1/Fire-Dervish-Cloak.webp"
+                    }
+                }
+            ]
+        },
+        "type": "wondrous"
+    }
+]

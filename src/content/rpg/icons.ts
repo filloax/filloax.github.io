@@ -19,6 +19,7 @@ export const ItemIcons = {
 }
 
 export const MagicSchoolIcons = {
+    [SpellSchool.Abjuration]: "abjuration.svg",
     [SpellSchool.Conjuration]: "conjuration.svg",
     [SpellSchool.Divination]: "divination.svg",
     [SpellSchool.Enchantment]: "enchantment.svg",

@@ -6,6 +6,7 @@ import {encodeHash} from "../../utils/rpg/5e-urls";
 import {ItemType, SpellSchool} from "../../utils/rpg/5e-enum";
 import {ItemIcons, MagicSchoolIcons} from "../../content/rpg/icons";
 import imgSpellScroll from '@/assets/img/rpg/icon/spell-scroll.webp'
+import {notNullOrUndefined} from "../../utils/notNullOrUndefined";
 
 export interface Props {
     shopData: {
@@ -27,6 +28,10 @@ interface ShopItem {
     level?: number;
     school?: string;
     container?: {name: string, source: string, show: string};
+    flavor?: string;
+    priority?: number;
+    noPriceIcon?: boolean;
+    priceText?: string;
 }
 
 const items: ShopItem[] = shopData.data;
@@ -43,6 +48,9 @@ const rarityOrder = [
 ]
 
 const sortedItems = items.sort((a, b) => {
+    if (notNullOrUndefined(a.priority) || notNullOrUndefined(b.priority) && a.priority !== b.priority)
+        return (b.priority || 0) - (a.priority || 0);
+
     if (a.rarity && b.rarity) {
         return rarityOrder.indexOf(a.rarity.toLowerCase()) - rarityOrder.indexOf(b.rarity.toLowerCase());
     } else {
@@ -80,11 +88,20 @@ const getSpellContainerImage = (item: ShopItem) => {
 <div class="shop">
     <ul>
         {sortedItems.map((item) => {
-            const name = item.name
+            const name = (item.fluff?.name ?? item.name)
                 + ((item.container?.show) ? ` (${item.container?.show})` : '')
                 + ((item.count && item.count > 1) ? ` (x${item.count})` : '')
-            const price = (item.value / 100).toFixed(0);
+            const flavor = item.flavor;
+            const price = item.priceText ?? ((item.value / 100).toFixed(0));
+            const customPriceText = notNullOrUndefined(item.priceText) && item.noPriceIcon;
             const id = item.name.replace(/\s+/g, '-').toLowerCase();
+
+            const flavorLine = (
+                <p class="flavor">{flavor}</p>
+            )
+            const priceLine = (
+                    <p class="price" class:list={[{'custom-price': customPriceText}]}>{price} {!item.noPriceIcon && <span class="coin-icon">🪙</span>}</p>
+            )
 
             if (!item.spell) {
                 const rarity = item.rarity.toLowerCase().replace(" ", "-");
@@ -99,7 +116,8 @@ const getSpellContainerImage = (item: ShopItem) => {
                                     <h4 class="name">{name}</h4>
                                     <div class={`product ${useSvg ? 'icon-svg' : ''}`} style={`${styleVar}: url('${imageUrl}')`}>
                                     </div>
-                                    <p class="price">{price} <span class="coin-icon">🪙</span></p>
+                                    {priceLine}
+                                    {flavorLine}
                                 </div>
                             </a>
                         </li>
@@ -108,8 +126,6 @@ const getSpellContainerImage = (item: ShopItem) => {
                 const schoolIcon = getSpellSchoolImage(item);
                 const levelIcon = getSpellLevelImage(item);
                 const spellSchool = Object.keys(SpellSchool).find(key => SpellSchool[key] === item.school)?.toLowerCase();
-
-                const image = getImage({src: getSpellContainerImage(item), format: 'webp'});
 
                 return <li class={`shop-card spell-level-${item.level} spell-${spellSchool}`} id={id}>
                     <div class="spell-container"><a href={getUrl(item.container)}>
@@ -127,7 +143,8 @@ const getSpellContainerImage = (item: ShopItem) => {
                                 <div class="icon" style={`background-image: url('${levelIcon}')`}></div>
                                 <span>{item.level}</span>
                             </div>
-                            <p class="price">{price} <span class="coin-icon">🪙</span></p>
+                            {priceLine}
+                            {flavorLine}
                         </div>
                     </a>
                 </li>

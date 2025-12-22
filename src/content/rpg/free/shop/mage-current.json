@@ -1,13 +1,14 @@
 [
+
   {
     "spell": true,
-    "name": "Web",
+    "name": "Clairvoyance",
     "source": "XPHB",
-    "level": 2,
-    "school": "C",
-    "value": 15000,
+    "level": 3,
+    "school": "D",
+    "value": 30000,
     "container": {
-      "name": "Spell Scroll (Level 2)",
+      "name": "Spell Scroll (Level 3)",
       "show": "Scroll",
       "source": "XDMG"
     }
@@ -18,7 +19,7 @@
     "source": "KibblesTasty:CC",
     "level": 3,
     "school": "V",
-    "value": 40000,
+    "value": 30000,
     "container": {
       "name": "Spell Scroll (Level 3)",
       "show": "Scroll",
@@ -27,82 +28,109 @@
   },
   {
     "spell": true,
-    "name": "See Invisibility",
+    "name": "Otiluke's Resilient Sphere",
     "source": "XPHB",
-    "level": 2,
-    "school": "D",
-    "value": 15000,
+    "level": 4,
+    "school": "A",
+    "value": 170000,
     "container": {
-      "name": "Spell Scroll (Level 2)",
+      "name": "Spell Scroll (Level 4)",
       "show": "Scroll",
       "source": "XDMG"
     }
   },
   {
     "spell": true,
-    "name": "Whispering Wind",
-    "source": "VSS",
-    "level": 1,
-    "school": "V",
-    "value": 2500,
+    "name": "Aura of Purity",
+    "source": "XPHB",
+    "level": 4,
+    "school": "A",
+    "value": 170000,
     "container": {
-      "name": "Spell Scroll (Level 1)",
+      "name": "Spell Scroll (Level 4)",
       "show": "Scroll",
       "source": "XDMG"
     }
   },
   {
-    "name": "Staff of Birdcalls",
+    "spell": true,
+    "name": "Circle of Power",
+    "source": "XPHB",
+    "level": 5,
+    "school": "A",
+    "value": 280000,
+    "container": {
+      "name": "Spell Scroll (Level 5)",
+      "show": "Scroll",
+      "source": "XDMG"
+    }
+  },
+  {
+    "name": "Staff of the Adder",
     "source": "XDMG",
     "count": 1,
-    "value": 5000,
-    "rarity": "common",
-    "type": "staff"
-  },
-  {
-    "name": "Wand of Pyrotechnics",
-    "source": "XGE",
-    "count": 1,
-    "value": 5000,
-    "rarity": "common",
-    "type": "WD|DMG"
-  },
-  {
-    "name": "Fireamber Scepter",
-    "source": "GriffonsSaddlebag4",
-    "count": 1,
-    "value": 45000,
+    "value": 35000,
     "rarity": "uncommon",
     "fluff": {
+      "name": "Staff of the Adder",
+      "source": "XDMG",
       "images": [
         {
           "type": "image",
           "href": {
-            "type": "external",
-            "url": "https://raw.githubusercontent.com/TheGiddyLimit/homebrew-img/main/img/GriffonsSaddlebag4/Items/Fireamber-Scepter.webp"
+            "type": "internal",
+            "path": "items/XDMG/Staff of the Adder.webp"
           }
         }
       ]
     },
+    "type": "M|XPHB"
+  },
+  {
+    "name": "Scroll of Protection (Fiends)",
+    "source": "XDMG",
+    "count": 1,
+    "value": 200000,
+    "rarity": "rare",
+    "fluff": {
+      "name": "Scroll of Protection (Fiends)",
+      "source": "XDMG",
+      "_copy": {
+        "name": "Scroll of Protection",
+        "source": "XDMG"
+      }
+    },
+    "type": "SC|XPHB"
+  },
+  {
+    "name": "Staff of Dunamancy",
+    "source": "EGW",
+    "count": 1,
+    "value": 2000000,
+    "rarity": "very rare",
+    "type": "staff",
+    "flavor": "Dicono che queste magie siano un segreto dei Drow di questo piano."
+  },
+  {
+    "name": "Rod of Hellish Flames",
+    "source": "BMT",
+    "count": 1,
+    "value": 1500000,
+    "rarity": "very rare",
     "type": "RD|DMG"
   },
   {
-    "name": "Tempest Staff",
-    "source": "GriffonsSaddlebag3",
+    "name": "Scroll of Titan Summoning (Elemental Cataclysm)",
+    "source": "XDMG",
     "count": 1,
-    "value": 40000,
-    "rarity": "uncommon",
+    "value": 99999999,
+    "rarity": "legendary",
+    "type": "SC|XPHB",
+    "priority": -1,
+    "noPriceIcon": true,
+    "priceText": "Ne possiamo parlare... Eh, eh, eh...",
     "fluff": {
-      "images": [
-        {
-          "type": "image",
-          "href": {
-            "type": "external",
-            "url": "https://raw.githubusercontent.com/TheGiddyLimit/homebrew-img/main/img/GriffonsSaddlebag3/Tempest-Staff.webp"
-          }
-        }
-      ]
-    },
-    "type": "M"
+      "name": "Scroll of Titan Summoning (Elemental Cataclysm)"
+    }
   }
 ]

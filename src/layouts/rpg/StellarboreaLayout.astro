@@ -1,177 +1,217 @@
 ---
 import BaseLayout from "../BaseLayout.astro";
-import { Breadcrumbs } from "astro-breadcrumbs";
-import { getImage } from 'astro:assets';
+import {Breadcrumbs} from "astro-breadcrumbs";
+import {getImage} from 'astro:assets';
 import "@/styles/rpg/soli.scss";
 import "@/styles/astro-breadcrumbs-config.scss";
 import SoliBaseLayout from "./SoliBaseLayout.astro";
 
 export interface Props {
-  title: string;
-  description: string;
-  permalink?: string;
-  current?: string;
-  section?: string;
+    title: string;
+    description: string;
+    permalink?: string;
+    current?: string;
+    section?: string;
 }
-const { title, description, permalink, current, section } = Astro.props;
-
+const {title, description, permalink, current, section} = Astro.props;
 ---
 
 <SoliBaseLayout
-  title={title}
-  description={description}
-  permalink={permalink}
-  current={current}
-  section={section}
+        title={title}
+        description={description}
+        permalink={permalink}
+        current={current}
+        section={section}
 >
-  <div class="stellarborea">
-    <slot />
-  </div>
+    <div class="stellarborea">
+        <slot/>
+    </div>
 </SoliBaseLayout>
 
 <style>
-  /* Global dreamy theme */
-  body {
-    /* Color overrides */
-    --background-body: #f8f2ff;
-    --background-page: #ffcacf;
-    --text-main: #6a6b83;
-    --text-secondary: #9a9bb3;
-    --text-tertiary: #c6c7d9;
-    --primary-color: #a8d1d1;
-    --primary-color-inactive: #accaca;
-    --color-red: #ffb3ba;
-    --surface-primary: #fff9fb;
-    --surface-primary-inactive: #f0e6ff;
-    --on-surface-primary: #6a6b83;
-    --surface-secondary: #a1b8d8;
-    --surface-secondary-inactive: #d1f5ed;
-  }
-
-  .layout {
-    position: relative;
-
-    &::before {
-      content: '';
-      position: absolute;
-      top: -2px;
-      left: -2px;
-      right: -2px;
-      bottom: -2px;
-      z-index: 0;
-      background: linear-gradient(
-          45deg,
-          #ffb3d9 0%,
-          #b3d9ff 50%,
-          #ffb3d9 100%
-      );
-      background-size: 400% 400%;
-      animation: edge-glow 12s ease infinite;
-      mask:
-          linear-gradient(#fff 0 0) content-box,
-          linear-gradient(#fff 0 0);
-      mask-composite: exclude;
-      padding: 2px;
-      filter: blur(6px) opacity(0.3);
-      mix-blend-mode: soft-light;
-      pointer-events: none;
+    /* Global dreamy theme */
+    body {
+        /* Color overrides */
+        --background-body: #f8f2ff;
+        --background-page: #ffcacf;
+        --text-main: #6a6b83;
+        --text-secondary: #9a9bb3;
+        --text-tertiary: #c6c7d9;
+        --primary-color: #a8d1d1;
+        --primary-color-inactive: #accaca;
+        --color-red: #ffb3ba;
+        --surface-primary: #fff9fb;
+        --surface-primary-inactive: #f0e6ff;
+        --on-surface-primary: #6a6b83;
+        --surface-secondary: #a1b8d8;
+        --surface-secondary-inactive: #d1f5ed;
     }
 
-    /* Contain overflow while preserving original size */
-    &::after {
-      content: '';
-      position: absolute;
-      top: 0;
-      left: 0;
-      right: 0;
-      bottom: 0;
-      z-index: 0;
-      background: radial-gradient(circle at 50% 50%,
-      rgba(255,255,255,0.3) 0%,
-      rgba(255,255,255,0) 60%
-      );
-      filter: blur(20px);
-      pointer-events: none;
-    }
-  }
+    .layout {
+        position: relative;
 
-  .layout > * {
-    position: relative;
-    z-index: 1;
-  }
+        &::before {
+            content: '';
+            position: absolute;
+            top: -2px;
+            left: -2px;
+            right: -2px;
+            bottom: -2px;
+            z-index: 0;
+            background: linear-gradient(
+                    45deg,
+                    #ffb3d9 0%,
+                    #b3d9ff 50%,
+                    #ffb3d9 100%
+            );
+            background-size: 400% 400%;
+            animation: edge-glow 12s ease infinite;
+            mask: linear-gradient(#fff 0 0) content-box,
+            linear-gradient(#fff 0 0);
+            mask-composite: exclude;
+            padding: 2px;
+            filter: blur(6px) opacity(0.3);
+            mix-blend-mode: soft-light;
+            pointer-events: none;
+        }
 
-  @keyframes edge-glow {
-    0% { background-position: 0% 50%; }
-    50% { background-position: 100% 50%; }
-    100% { background-position: 0% 50%; }
-  }
+        /* Contain overflow while preserving original size */
 
-  .stellarborea {
-    img.dream {
-      filter: saturate(0.8) brightness(1.05);
-    }
-
-    /* Link animations */
-    p a:not(:has(img)) {
-      box-shadow: inset 0 -0.12em 0 var(--primary-color);
-      &:hover {
-        box-shadow: inset 0 -1.5em 0 var(--primary-color);
-      }
-    }
-
-    /* Soft headers */
-    h1, h2, h3 {
-      text-shadow: 0 1px 2px rgba(0,0,0,0.1);
-    }
-
-    hr {
-      border: none;
-      height: 2px;
-      background: linear-gradient(to right, transparent, var(--text-secondary) 20%, var(--text-secondary) 80%, transparent);
-      margin: 20px 0;
-      //font-family: Arial, sans-serif; /* choose the font you like */
-      //height: 1px; /* gap between the lines */
-      //border-width: 1px 0; /* top and bottom borders */
-      //border-style: solid;
-
-      font-size: 2em;
-      text-align: center; /* horizontal centering */
-      line-height: 1px; /* vertical centering */
-      border-color: var(--text-secondary);
-      overflow: visible;
-
-      /* ensure 1px gap between borders */
-      -webkit-box-sizing: content-box;
-      -moz-box-sizing: content-box;
-      -ms-box-sizing: content-box;
-      -o-box-sizing: content-box;
-      box-sizing: content-box;
-
-      background-color: inherit;
-
-      &:after {
-        content: "✦";
-        color: var(--text-secondary);
-        display: inline; /* for vertical centering and background knockout */
-        background-color: inherit;
-        padding: 0 0.5em; /* size of background color knockout */
-      }
+        &::after {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            z-index: 0;
+            background: radial-gradient(circle at 50% 50%,
+            rgba(255, 255, 255, 0.3) 0%,
+            rgba(255, 255, 255, 0) 60%
+            );
+            filter: blur(20px);
+            pointer-events: none;
+        }
     }
 
-    /* Dreamy code blocks */
-    blockquote {
-      background: var(--surface-secondary) !important;
-      border-color: var(--surface-secondary) !important;
-      margin: 0 0 1rem;
-      padding: 5px !important;
-      border-image: none;
-      text-transform: none;
-      text-emphasis: none;
+    .layout > * {
+        position: relative;
+        z-index: 1;
     }
-  }
+
+    @keyframes edge-glow {
+        0% {
+            background-position: 0% 50%;
+        }
+        50% {
+            background-position: 100% 50%;
+        }
+        100% {
+            background-position: 0% 50%;
+        }
+    }
+
+    .stellarborea {
+        img.dream {
+            filter: saturate(0.8) brightness(1.05);
+        }
+
+        /* Link animations */
+
+        p a:not(:has(img)) {
+            box-shadow: inset 0 -0.12em 0 var(--primary-color);
+
+            &:hover {
+                box-shadow: inset 0 -1.5em 0 var(--primary-color);
+            }
+        }
+
+        /* Soft headers */
+
+        h1, h2, h3 {
+            text-shadow: 0 1px 2px rgba(0, 0, 0, 0.1);
+        }
+
+        hr {
+            border: none;
+            height: 2px;
+            background: linear-gradient(to right, transparent, var(--text-secondary) 20%, var(--text-secondary) 80%, transparent);
+            margin: 20px 0;
+            //font-family: Arial, sans-serif; /* choose the font you like */
+            //height: 1px; /* gap between the lines */
+            //border-width: 1px 0; /* top and bottom borders */
+            //border-style: solid;
+
+            font-size: 2em;
+            text-align: center; /* horizontal centering */
+            line-height: 1px; /* vertical centering */
+            border-color: var(--text-secondary);
+            overflow: visible;
+
+            /* ensure 1px gap between borders */
+            -webkit-box-sizing: content-box;
+            -moz-box-sizing: content-box;
+            -ms-box-sizing: content-box;
+            -o-box-sizing: content-box;
+            box-sizing: content-box;
+
+            background-color: inherit;
+
+            &:after {
+                content: "✦";
+                color: var(--text-secondary);
+                display: inline; /* for vertical centering and background knockout */
+                background-color: inherit;
+                padding: 0 0.5em; /* size of background color knockout */
+            }
+        }
+
+        /* Dreamy code blocks */
+
+        blockquote {
+            background: var(--surface-secondary) !important;
+            border-color: var(--surface-secondary) !important;
+            margin: 0 0 1rem;
+            padding: 5px !important;
+            border-image: none;
+            text-transform: none;
+            text-emphasis: none;
+        }
+
+        .bgm {
+            background-color: #e0f5e0;
+            border-radius: 8px;
+            padding: 1rem;
+            margin-bottom: 1rem;
+            box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+            width: fit-content;
+            font-size: 0.8rem;
+
+            h4 {
+                margin-top: 0;
+                margin-bottom: 0.5rem;
+                color: var(--text-main);
+                font-size: 1.1em;
+
+                &::before {
+                    content: "🎵 ";
+                }
+            }
+
+            a {
+                color: var(--text-secondary);
+                text-decoration: none;
+
+                &:hover {
+                    text-decoration: underline;
+                }
+            }
+        }
+    }
 </style>
 
 <script>
-  import { setupShakyText } from "@/utils/shakyText";
-  setupShakyText();
+    import {setupShakyText} from "@/utils/shakyText";
+
+    setupShakyText();
 </script>
