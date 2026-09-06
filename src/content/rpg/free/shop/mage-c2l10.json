@@ -1,0 +1,64 @@
+[
+  {
+    "spell": true,
+    "name": "Curse of Blades",
+    "source": "ValdaSpire24",
+    "level": 2,
+    "school": "E",
+    "value": 15000,
+    "container": {
+      "name": "Spell Scroll (Level 2)",
+      "show": "Scroll",
+      "source": "XDMG"
+    }
+  },
+  {
+    "spell": true,
+    "name": "Foresight",
+    "source": "XPHB",
+    "level": 9,
+    "school": "D",
+    "value": 1000000,
+    "container": {
+      "name": "Spell Scroll (Level 9)",
+      "show": "Scroll",
+      "source": "XDMG"
+    }
+  },
+  {
+      "name": "Staff of the Ivory Claw",
+      "source": "EGW",
+      "count": 1,
+      "value": 150000,
+      "rarity": "rare",
+      "type": "staff"
+  },
+  {
+      "name": "Scroll of Fleeting Attunement",
+      "source": "GriffonsSaddlebag3",
+      "count": 1,
+      "value": 200000,
+      "rarity": "very rare",
+      "fluff": {
+          "images": [
+              {
+                  "type": "image",
+                  "href": {
+                      "type": "external",
+                      "url": "https://raw.githubusercontent.com/TheGiddyLimit/homebrew-img/main/img/GriffonsSaddlebag3/Scroll-of-Fleeting-Attunement.webp"
+                  }
+              }
+          ]
+      },
+      "type": "SC|DMG"
+  },
+  {
+    "name": "Staff of Dunamancy",
+    "source": "EGW",
+    "count": 1,
+    "value": 2000000,
+    "rarity": "very rare",
+    "type": "staff",
+    "flavor": "Dicono che queste magie siano un segreto dei Drow di questo piano."
+  }
+]

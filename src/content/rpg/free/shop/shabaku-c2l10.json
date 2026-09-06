@@ -1,0 +1,190 @@
+[
+    {
+        "name": "Tear of Gaia",
+        "source": "tgs1",
+        "count": 1,
+        "value": 8000,
+        "rarity": "common",
+        "fluff": {
+            "images": [
+                {
+                    "type": "image",
+                    "href": {
+                        "type": "external",
+                        "url": "https://raw.githubusercontent.com/TheGiddyLimit/homebrew/master/_img/TGS1/Tear-of-Gaia.webp"
+                    }
+                }
+            ]
+        },
+        "type": "wondrous"
+    },
+    {
+        "name": "Boots of False Tracks",
+        "source": "XDMG",
+        "count": 1,
+        "value": 6000,
+        "rarity": "common",
+        "type": "wondrous"
+    },
+    {
+        "name": "Bubbling Bathbombs (Green) (Common)",
+        "source": "GriffonsSaddlebag4",
+        "count": 1,
+        "value": 5000,
+        "rarity": "common",
+        "fluff": {
+            "images": [
+                {
+                    "type": "image",
+                    "href": {
+                        "type": "external",
+                        "url": "https://raw.githubusercontent.com/TheGiddyLimit/homebrew-img/main/img/GriffonsSaddlebag4/Items/Bubbling-Bathbombs.webp"
+                    }
+                }
+            ]
+        },
+        "type": "wondrous"
+    },
+    {
+        "name": "Ambitious Medic's Box",
+        "source": "GriffonsSaddlebag2",
+        "count": 1,
+        "value": 50000,
+        "rarity": "uncommon",
+        "fluff": {
+            "images": [
+                {
+                    "type": "image",
+                    "href": {
+                        "type": "external",
+                        "url": "https://raw.githubusercontent.com/TheGiddyLimit/homebrew-img/main/img/GriffonsSaddlebag2/Items/Ambitous-Medics-Box_All.webp"
+                    },
+                    "width": 2400,
+                    "height": 2400
+                }
+            ]
+        },
+        "type": "wondrous"
+    },
+    {
+        "name": "Oil of Etherealness",
+        "source": "XDMG",
+        "count": 1,
+        "value": 192000,
+        "rarity": "rare",
+        "type": "P|XPHB"
+    },
+    {
+        "name": "Ethereal Zipper Charm",
+        "source": "GriffonsSaddlebag4",
+        "count": 1,
+        "value": 300000,
+        "rarity": "rare",
+        "fluff": {
+            "images": [
+                {
+                    "type": "image",
+                    "href": {
+                        "type": "external",
+                        "url": "https://raw.githubusercontent.com/TheGiddyLimit/homebrew-img/main/img/GriffonsSaddlebag4/Items/Ethereal-Zipper-Charm.webp"
+                    }
+                }
+            ]
+        },
+        "type": "wondrous"
+    },
+    {
+        "name": "Orb of the Veil",
+        "source": "EGW",
+        "count": 1,
+        "value": 750000,
+        "rarity": "very rare",
+        "type": "wondrous"
+    },
+    {
+        "name": "Mistwalkers",
+        "source": "GriffonsSaddlebag4",
+        "count": 1,
+        "value": 350000,
+        "rarity": "very rare",
+        "fluff": {
+            "images": [
+                {
+                    "type": "image",
+                    "href": {
+                        "type": "external",
+                        "url": "https://raw.githubusercontent.com/TheGiddyLimit/homebrew-img/main/img/GriffonsSaddlebag4/Items/Mistwalkers.webp"
+                    }
+                }
+            ]
+        },
+        "type": "wondrous"
+    },
+    {
+        "name": "Collar of the Crystal Veil",
+        "source": "GriffonsSaddlebag3",
+        "count": 1,
+        "value": 750000,
+        "rarity": "very rare",
+        "fluff": {
+            "images": [
+                {
+                    "type": "image",
+                    "href": {
+                        "type": "external",
+                        "url": "https://raw.githubusercontent.com/TheGiddyLimit/homebrew-img/main/img/GriffonsSaddlebag3/Collar-of-the-Crystal-Veil.webp"
+                    }
+                }
+            ]
+        },
+        "type": "wondrous"
+    },
+    {
+        "name": "Matron's Mug",
+        "source": "GriffonsSaddlebag2",
+        "count": 1,
+        "value": 800000,
+        "rarity": "very rare",
+        "fluff": {
+            "images": [
+                {
+                    "type": "image",
+                    "href": {
+                        "type": "external",
+                        "url": "https://raw.githubusercontent.com/TheGiddyLimit/homebrew-img/main/img/GriffonsSaddlebag2/Items/Matrons-Mug.webp"
+                    },
+                    "width": 2400,
+                    "height": 2400
+                }
+            ]
+        },
+        "type": "wondrous"
+    },
+    {
+        "name": "Ioun Stone, Mastery",
+        "source": "XDMG",
+        "count": 1,
+        "value": 1500000,
+        "rarity": "legendary",
+        "fluff": {
+            "name": "Ioun Stone, Mastery",
+            "source": "XDMG",
+            "_copy": {
+                "name": "Ioun Stone",
+                "source": "XDMG"
+            },
+            "images": [
+                {
+                    "type": "image",
+                    "href": {
+                        "type": "external",
+                        "url": "https://files.d20.io/images/414521352/zQlSr8JZWR1Z0FtJ3Ux1Dg/original.png?1729616366"
+                    },
+                    "width": 2400,
+                    "height": 2400
+                }
+            ]
+        },
+        "type": "wondrous"
+    }
+]

@@ -1,0 +1,98 @@
+[
+    {
+        "name": "Smoldering Armor",
+        "source": "XDMG",
+        "count": 1,
+        "value": 7000,
+        "rarity": "common",
+        "type": "GV|XDMG"
+    },
+    {
+        "name": "Blowfish Armor",
+        "source": "GriffonsSaddlebag3",
+        "count": 1,
+        "value": 36000,
+        "rarity": "uncommon",
+        "fluff": {
+            "images": [
+                {
+                    "type": "image",
+                    "href": {
+                        "type": "external",
+                        "url": "https://raw.githubusercontent.com/TheGiddyLimit/homebrew-img/main/img/GriffonsSaddlebag3/Blowfish-Armor.webp"
+                    }
+                }
+            ]
+        },
+        "type": "LA"
+    },
+    {
+        "name": "Mariner's Armor",
+        "source": "XDMG",
+        "count": 1,
+        "value": 30000,
+        "rarity": "uncommon",
+        "fluff": {
+            "name": "Mariner's Armor",
+            "source": "XDMG",
+            "images": [
+                {
+                    "type": "image",
+                    "href": {
+                        "type": "internal",
+                        "path": "items/XDMG/Mariners Armor.webp"
+                    }
+                }
+            ]
+        },
+        "type": "GV|XDMG"
+    },
+    {
+        "name": "Armor of Acid Resistance",
+        "source": "XDMG",
+        "count": 1,
+        "value": 250000,
+        "rarity": "rare",
+        "type": "GV|XDMG"
+    },
+    {
+        "name": "Energy Bow",
+        "source": "XDMG",
+        "count": 1,
+        "value": 300000,
+        "rarity": "very rare",
+        "type": "GV|XDMG"
+    },
+    {
+        "name": "Topaz Annihilator (Fucile)",
+        "source": "FTD",
+        "count": 1,
+        "value": 99999999,
+        "rarity": "legendary",
+        "type": "R",
+        "priority": -1,
+        "noPriceIcon": true,
+        "priceText": "Arma terribile... molto terribile. In mano a draghi..."
+    },
+  {
+    "name": "Demon Armor",
+    "source": "XDMG",
+    "count": 1,
+    "value": 750000,
+    "rarity": "very rare",
+    "fluff": {
+      "name": "Demon Armor",
+      "source": "XDMG",
+      "images": [
+        {
+          "type": "image",
+          "href": {
+            "type": "internal",
+            "path": "items/XDMG/Demon Armor.webp"
+          }
+        }
+      ]
+    },
+    "type": "GV|XDMG"
+  }
+]
